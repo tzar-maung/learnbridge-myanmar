@@ -1,0 +1,10 @@
+{
+  "name": "LearnBridge Offline",
+  "short_name": "LearnBridge",
+  "description": "An offline-first learning platform prototype for displaced children.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fbf8",
+  "theme_color": "#256f75",
+  "icons": []
+}
