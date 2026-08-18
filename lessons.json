@@ -1,0 +1,322 @@
+[
+  {
+    "id": "safety",
+    "icon": "1",
+    "title": "Learning safely",
+    "subject": "Digital safety",
+    "level": "Starter",
+    "description": "Learn how to study with a safe nickname and protect private information on shared devices.",
+    "content": "A safe learning app should help children learn without asking for real names, document numbers, addresses, phone numbers, family details, or photos of private documents. Learners can use nicknames. If an app, website, or person asks for private information, stop and ask a trusted adult first.",
+    "goal": "Use LearnBridge safely on a shared device without sharing private personal information.",
+    "steps": [
+      "Look at the learner nickname box. Choose a short nickname, not a real full name.",
+      "Read these private examples together: phone number, exact location, ID document, family situation, and private photo.",
+      "Sort each example as safe for learning or private to protect.",
+      "Practice saying: I do not want to share that. I will ask my teacher.",
+      "Use the app without entering real names, documents, or location details."
+    ],
+    "practice": "Make two columns on paper: OK for learning and Keep private. Put these words in the right column: nickname, favorite color, phone number, real full name, lesson progress, exact address, document photo.",
+    "checkQuestion": "Which is safer to type in this app: a nickname or a real full name? Why?",
+    "teacherNote": "Keep this lesson calm and practical. Do not ask children to reveal examples from their own family. UNICEF child online protection guidance emphasizes protecting children's identity and personal information online.",
+    "references": [
+      {
+        "title": "UNICEF: Keeping children safe online",
+        "url": "https://www.unicef.org/protection/keeping-children-safe-online"
+      },
+      {
+        "title": "UNICEF: Online safety and data protection",
+        "url": "https://www.unicef.org/digitaleducation/online-safety-and-data-protection"
+      }
+    ],
+    "reviewStatus": "Draft"
+  },
+  {
+    "id": "numbers",
+    "icon": "2",
+    "title": "Number practice",
+    "subject": "Math",
+    "level": "Starter",
+    "description": "Build early number confidence by counting, grouping, comparing, and explaining with real objects.",
+    "content": "Numbers are easier to understand when learners can touch, move, and group real objects. This lesson uses safe nearby objects so children can count aloud, compare groups, and explain what they notice.",
+    "goal": "Count objects from 1 to 10, compare two groups, and explain which group has more or fewer.",
+    "steps": [
+      "Warm up by counting fingers from 1 to 10 together.",
+      "Place 5 safe objects in a row. Touch each object once while counting aloud.",
+      "Move the objects into two groups, such as 2 and 3. Count each group.",
+      "Ask: Which group has more? Which group has fewer? How do you know?",
+      "Add one more object and count again. Then remove one object and count again."
+    ],
+    "practice": "Use pencils, stones, leaves, cups, or paper pieces. Learners work in pairs: one learner makes a group, the other counts and says whether the group has more, fewer, or the same number as another group.",
+    "checkQuestion": "Show 7 objects. Split them into two groups. How many are in each group?",
+    "teacherNote": "Use concrete objects and let learners explain with words, pointing, or drawing. Khan Academy Kids and Global Digital Library both emphasize early math practice through accessible, child-friendly activities.",
+    "references": [
+      {
+        "title": "Global Digital Library: early math and reading resources",
+        "url": "https://content.digitallibrary.io/about-the-gdl/"
+      },
+      {
+        "title": "Khan Academy Kids: early math and reading app",
+        "url": "https://www.khanacademy.org/kids"
+      }
+    ],
+    "reviewStatus": "Draft"
+  },
+  {
+    "id": "thai",
+    "icon": "3",
+    "title": "Thai daily words",
+    "subject": "Thai language",
+    "level": "Starter",
+    "description": "Practice a small set of Thai words that can help learners greet people and ask for basic help.",
+    "content": "Thai words can help learners move through daily life more safely, especially when asking for water, toilets, school, hospital, or help. Pronunciation can vary, so a local Thai speaker should review this lesson before real use.",
+    "goal": "Recognize and practice simple Thai words for greetings, basic needs, and asking for help.",
+    "steps": [
+      "Listen first. The teacher says each word slowly: sawatdee, khop khun, nam, hong nam, chuai duai, rong rian, rong phayaban.",
+      "Repeat as a group. Do not force learners to speak alone if they are shy.",
+      "Match each word to a meaning: hello, thank you, water, toilet, help, school, hospital.",
+      "Practice pointing or showing a card if speaking feels hard.",
+      "Practice one useful phrase: chuai duai, which means help me or please help."
+    ],
+    "practice": "The teacher gives a situation: I need water, I need the toilet, I need help, I need school, or I need hospital. Learners choose the useful word by speaking, pointing, or holding up a card.",
+    "checkQuestion": "Which Thai word or phrase could you use if you need help?",
+    "teacherNote": "Ask a local Thai speaker to review pronunciation and wording. This lesson is for basic survival communication, not formal Thai language instruction.",
+    "references": [
+      {
+        "title": "Learning Passport Myanmar",
+        "url": "https://mm.learningpassport.org/"
+      },
+      {
+        "title": "UNICEF: Learning Passport",
+        "url": "https://www.unicef.org/digitaleducation/learning-passport"
+      }
+    ],
+    "reviewStatus": "Draft"
+  },
+  {
+    "id": "reading",
+    "icon": "4",
+    "title": "Reading practice",
+    "subject": "Literacy",
+    "level": "Starter",
+    "description": "Practice reading short sentences, pointing to words, and changing one word to make meaning.",
+    "content": "Reading grows through small repeated practice. In this lesson, learners read a short sentence, point to each word, copy it if paper is available, and change one word to make a new sentence.",
+    "goal": "Read a short sentence with support, identify words, and change one word to create a new sentence.",
+    "steps": [
+      "Teacher reads first: I can learn today.",
+      "Learners read together slowly three times.",
+      "Point to each word while reading: I / can / learn / today.",
+      "Ask: Which word tells what we do? Which word tells when?",
+      "Change one word to make a new sentence, such as: I can count today, I can read today, or We can learn today."
+    ],
+    "practice": "Learners work with a partner. One reads the sentence. One points to the words. Then they choose one word to change and read the new sentence together.",
+    "checkQuestion": "Read your new sentence. Which word did you change?",
+    "teacherNote": "Use shared reading before individual reading. Global Digital Library focuses on accessible early grade reading resources in languages children use and understand.",
+    "references": [
+      {
+        "title": "Global Digital Library: early reading resources",
+        "url": "https://www.globalbookalliance.org/global-digital-library"
+      },
+      {
+        "title": "UNESCO: Global Digital Library and early reading",
+        "url": "https://www.unesco.org/en/articles/global-digital-library-ignites-childrens-dream-reading-more-100-languages"
+      }
+    ],
+    "reviewStatus": "Draft"
+  },
+  {
+    "id": "english-greetings",
+    "icon": "5",
+    "title": "English greetings",
+    "subject": "English",
+    "level": "Starter",
+    "description": "Practice simple English greetings for meeting teachers, helpers, and classmates.",
+    "content": "Practice these greetings: Hello. My name is ___. Thank you. Please help me. Say each phrase slowly. Then practice with a partner using a safe nickname instead of a real full name.",
+    "goal": "Practice simple English phrases for greetings and asking for help.",
+    "steps": [
+      "Say together: Hello.",
+      "Say together: My name is ___. Use a safe nickname.",
+      "Say together: Thank you.",
+      "Say together: Please help me.",
+      "Practice a short greeting with a partner."
+    ],
+    "practice": "Learners practice a two-line conversation: Hello. My name is ___. Hello. Please help me. They can use safe nicknames only.",
+    "checkQuestion": "What English phrase can you use when you need help?",
+    "teacherNote": "Let learners practice in pairs after group repetition. Remind them that nicknames are enough for learning activities.",
+    "reviewStatus": "Draft"
+  },
+  {
+    "id": "calm-breathing",
+    "icon": "6",
+    "title": "Calm breathing",
+    "subject": "Wellbeing",
+    "level": "Starter",
+    "description": "A short calming activity for stressful learning days.",
+    "content": "Sit comfortably if you can. Breathe in slowly while counting 1, 2, 3. Breathe out slowly while counting 1, 2, 3. Repeat five times. Notice one thing you can see, one thing you can hear, and one thing you can feel.",
+    "goal": "Practice a short calming routine for stressful moments.",
+    "steps": [
+      "Sit or stand in a comfortable position if you can.",
+      "Breathe in slowly while counting 1, 2, 3.",
+      "Breathe out slowly while counting 1, 2, 3.",
+      "Repeat five times.",
+      "Notice one thing you can see, one thing you can hear, and one thing you can feel."
+    ],
+    "practice": "Do the breathing routine together for one minute. Learners may keep eyes open, look down, sit quietly, or skip the activity if they do not want to join.",
+    "checkQuestion": "What is one thing you can do when your body feels stressed?",
+    "teacherNote": "Keep the activity optional and calm. Do not ask learners to explain personal experiences. The goal is a short grounding routine, not counseling.",
+    "reviewStatus": "Needs local review"
+  },
+  {
+    "id": "asking-for-help",
+    "icon": "7",
+    "title": "Asking for help",
+    "subject": "Practical safety",
+    "level": "Starter",
+    "description": "Practice how to ask for help from a trusted adult without sharing private details in a group.",
+    "content": "Children may need help with water, toilets, finding a teacher, feeling unwell, or understanding instructions. This lesson practices simple help-seeking words and safe choices. It does not ask children to describe private family situations.",
+    "goal": "Ask a trusted adult for help using simple words, pointing, or a help card.",
+    "steps": [
+      "Say together: I need help, please.",
+      "Name general trusted helpers in this learning space, such as teacher, volunteer, clinic worker, or community helper.",
+      "Practice three safe ways to ask: speaking, pointing, or showing a help card.",
+      "Practice choosing a safe place to stand: near the teacher, near the group, or another agreed safe place.",
+      "Remember: in a group lesson, you can ask for help without explaining private family details."
+    ],
+    "practice": "Use gentle role-play cards: I need water, I need the toilet, I do not understand, I feel unwell, I cannot find my group. Learners choose a safe helper and practice asking with words, pointing, or a card.",
+    "checkQuestion": "What is one safe way to ask for help if speaking feels hard?",
+    "teacherNote": "Keep this protective and non-invasive. Do not ask children to identify personal risks, family problems, legal status, or conflict-related details. Review local referral pathways before using this in a real setting.",
+    "references": [
+      {
+        "title": "INEE Minimum Standards",
+        "url": "https://inee.org/minimum-standards"
+      },
+      {
+        "title": "UNICEF: Learning Passport for crisis-affected learning",
+        "url": "https://www.unicef.org/digitaleducation/learning-passport"
+      }
+    ],
+    "reviewStatus": "Needs local review"
+  },
+  {
+    "id": "mixed-review",
+    "icon": "8",
+    "title": "Learning review",
+    "subject": "Review",
+    "level": "Starter",
+    "description": "Review numbers, reading, language, and safety with a short mixed activity.",
+    "content": "Review what you learned today. Count five objects. Read one sentence. Say one helpful Thai or English word. Name one way to keep personal information private. Mark the lesson complete when you finish.",
+    "goal": "Review one skill from numbers, reading, language, and safety.",
+    "steps": [
+      "Count five safe objects near you.",
+      "Read one short sentence from a lesson.",
+      "Say one helpful Thai or English word.",
+      "Name one way to keep personal information private.",
+      "Choose one lesson you want to practice again."
+    ],
+    "practice": "Learners can answer by speaking, pointing, drawing, writing, or showing objects. The teacher can turn this into a calm group review.",
+    "checkQuestion": "Which activity felt easiest today, and which one do you want to practice again?",
+    "teacherNote": "Use this as an end-of-session check. Learners can answer verbally, point, draw, or write depending on age and comfort.",
+    "reviewStatus": "Draft"
+  },
+  {
+    "id": "earthquake-safety",
+    "icon": "9",
+    "title": "Earthquake safety",
+    "subject": "Emergency safety",
+    "level": "Starter",
+    "description": "Practice the widely recommended Drop, Cover, and Hold On action for earthquake shaking.",
+    "content": "Earthquakes can happen with little warning. During shaking, the main action is Drop, Cover, and Hold On. Drop before shaking knocks you down. Cover your head and neck. Hold on until the shaking stops. After shaking, watch for broken glass, fallen objects, damaged areas, fire, or aftershocks.",
+    "goal": "Practice Drop, Cover, and Hold On calmly, then review what to check after shaking stops.",
+    "steps": [
+      "Drop down onto hands and knees so shaking does not knock you over.",
+      "Cover your head and neck. If a strong table is nearby, get under it. If not, cover with your arms.",
+      "Hold on to your shelter or position until the shaking stops.",
+      "Do not run outside during shaking. Do not use elevators.",
+      "After shaking stops, listen to a trusted adult and move carefully away from broken glass, fallen objects, or damaged areas."
+    ],
+    "practice": "Do a calm 20-second drill. The teacher says, 'Earthquake.' Learners Drop, Cover, and Hold On. Then the teacher says, 'Shaking stopped.' Learners slowly stand, look for hazards, and point to a safe adult or meeting place.",
+    "checkQuestion": "What are the three words to remember during earthquake shaking?",
+    "teacherNote": "Practice this as a calm drill, not a frightening story. Adapt the lesson to the building type and local guidance. Ready.gov, ShakeOut, CDC, and UNICEF all recommend Drop, Cover, and Hold On and checking hazards after shaking.",
+    "references": [
+      {
+        "title": "Ready.gov: Earthquakes",
+        "url": "https://www.ready.gov/earthquakes"
+      },
+      {
+        "title": "ShakeOut: Drop, Cover, and Hold On",
+        "url": "https://www.shakeout.org/dropcoverholdon/"
+      },
+      {
+        "title": "UNICEF: Earthquake safety information",
+        "url": "https://www.unicef.org/parenting/emergencies/earthquake-safety-information"
+      },
+      {
+        "title": "CDC: Stay safe during an earthquake",
+        "url": "https://www.cdc.gov/earthquakes/safety/stay-safe-during-an-earthquake.html"
+      }
+    ],
+    "reviewStatus": "Needs local review"
+  },
+  {
+    "id": "danger-nearby",
+    "icon": "10",
+    "title": "When danger is nearby",
+    "subject": "Emergency safety",
+    "level": "Starter",
+    "description": "Practice simple civilian safety steps for loud danger, smoke, or explosions nearby.",
+    "content": "If you hear danger nearby, stay with your group if it is safe. Move away from windows. Get low and protect your head and neck. Listen for trusted adult instructions. Do not run toward loud sounds, smoke, fire, damaged buildings, or crowds.",
+    "goal": "Learn calm first actions when loud danger, smoke, or explosions are nearby.",
+    "steps": [
+      "Pause and look for a trusted adult or group leader.",
+      "Move away from windows if it is safe to move.",
+      "Get low and protect your head and neck.",
+      "Stay with your group and listen for trusted adult instructions.",
+      "Do not run toward loud sounds, smoke, fire, damaged buildings, or crowds."
+    ],
+    "practice": "Practice with a calm signal. The teacher says, 'Danger nearby.' Learners quietly crouch low, cover head and neck, and point to where a trusted adult would be.",
+    "checkQuestion": "Should you run toward loud sounds or smoke?",
+    "teacherNote": "Keep this general and non-tactical. Do not discuss weapons details or local military activity. Review the wording with trusted local protection or education workers before use.",
+    "reviewStatus": "Needs local review"
+  },
+  {
+    "id": "strange-objects",
+    "icon": "11",
+    "title": "Do not touch strange objects",
+    "subject": "Emergency safety",
+    "level": "Starter",
+    "description": "Learn what to do if a child sees unknown metal, wires, shells, or dangerous debris.",
+    "content": "If you see a strange object, do not touch it. Do not kick it, pick it up, throw it, or take it home. Move away calmly. Tell a trusted adult. Keep other children away if you can do that safely.",
+    "goal": "Remember the safe rule for unknown objects: do not touch, move away, tell an adult.",
+    "steps": [
+      "Stop before going closer to an unknown object.",
+      "Do not touch, kick, pick up, throw, or move the object.",
+      "Move away calmly using the same path if it is safe.",
+      "Tell a trusted adult what you saw and where you saw it.",
+      "Keep other children away only if you can do that safely."
+    ],
+    "practice": "Use a harmless drawing of a strange object. Learners practice saying: Stop. Do not touch. Move away. Tell an adult.",
+    "checkQuestion": "What should you do first if you see a strange object?",
+    "teacherNote": "This lesson is for basic unexploded-object awareness. Use simple drawings or safe examples only. Do not show graphic images. Follow local mine-risk or explosive-risk education guidance where available.",
+    "reviewStatus": "Needs local review"
+  },
+  {
+    "id": "emergency-bag",
+    "icon": "12",
+    "title": "Emergency bag basics",
+    "subject": "Emergency safety",
+    "level": "Starter",
+    "description": "Learn simple items that families may prepare for emergencies if available.",
+    "content": "An emergency bag can help if a family needs to move quickly. Useful items may include water, simple food, a flashlight, a whistle, a small cloth, basic medicine managed by an adult, and copies of important papers kept by an adult. Children should ask a trusted adult before packing or using medicine.",
+    "goal": "Learn what an emergency bag is and why families may prepare one if they can.",
+    "steps": [
+      "Ask a trusted adult where emergency items are kept.",
+      "Name simple useful items: water, simple food, flashlight, whistle, cloth, and adult-managed medicine.",
+      "Remember that important papers and medicine should be handled by adults.",
+      "Keep the bag in a place adults choose and children can remember.",
+      "Do not feel ashamed if your family does not have every item."
+    ],
+    "practice": "Look at a picture or list of items. Learners choose three items that could help in an emergency and explain why.",
+    "checkQuestion": "Who should manage medicine and important papers?",
+    "teacherNote": "Present this as optional and realistic. Some families may not have these items. Avoid making learners feel ashamed if they cannot prepare a bag.",
+    "reviewStatus": "Needs local review"
+  }
+]

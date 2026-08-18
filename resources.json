@@ -1,0 +1,167 @@
+[
+  {
+    "subject": "Digital safety",
+    "items": [
+      {
+        "title": "INEE Minimum Standards",
+        "source": "INEE",
+        "type": "Teacher reference",
+        "access": "Online reference",
+        "url": "https://inee.org/minimum-standards",
+        "note": "Use as a quality and protection reference when reviewing learning activities for crisis settings."
+      },
+      {
+        "title": "Learning Passport Myanmar",
+        "source": "UNICEF and partners",
+        "type": "Learning platform",
+        "access": "Online, mobile, and offline platform",
+        "url": "https://mm.learningpassport.org/",
+        "note": "Check for Myanmar-focused supplementary learning resources before creating local lesson packs."
+      }
+    ]
+  },
+  {
+    "subject": "Math",
+    "items": [
+      {
+        "title": "Khan Academy offline options",
+        "source": "Khan Academy",
+        "type": "Math and science practice",
+        "access": "App download or Kolibri for offline use",
+        "url": "https://www.khanacademy.org/downloads",
+        "note": "Useful for structured math practice when a teacher can prepare devices ahead of time."
+      },
+      {
+        "title": "Kiwix catalog",
+        "source": "Kiwix",
+        "type": "Offline library catalog",
+        "access": "ZIM files",
+        "url": "https://get.kiwix.org/en/solutions/catalog/",
+        "note": "Search for small math or reference ZIM files that fit the device storage size."
+      }
+    ]
+  },
+  {
+    "subject": "Thai language",
+    "items": [
+      {
+        "title": "Learning Passport Myanmar",
+        "source": "UNICEF and partners",
+        "type": "Supplementary learning",
+        "access": "Online, mobile, and offline platform",
+        "url": "https://mm.learningpassport.org/",
+        "note": "Review available language materials and adapt only when appropriate for the learner group."
+      },
+      {
+        "title": "Kiwix catalog",
+        "source": "Kiwix",
+        "type": "Offline library catalog",
+        "access": "ZIM files",
+        "url": "https://get.kiwix.org/en/solutions/catalog/",
+        "note": "Use language and topic filters to look for offline dictionaries or reading references."
+      }
+    ]
+  },
+  {
+    "subject": "Literacy",
+    "items": [
+      {
+        "title": "Learning Passport Myanmar",
+        "source": "UNICEF and partners",
+        "type": "Reading and learning resources",
+        "access": "Online, mobile, and offline platform",
+        "url": "https://mm.learningpassport.org/",
+        "note": "Use as a starting point for locally relevant reading support."
+      },
+      {
+        "title": "Kiwix catalog",
+        "source": "Kiwix",
+        "type": "Offline library catalog",
+        "access": "ZIM files",
+        "url": "https://get.kiwix.org/en/solutions/catalog/",
+        "note": "Find age-appropriate reading and reference collections that can be used offline."
+      }
+    ]
+  },
+  {
+    "subject": "English",
+    "items": [
+      {
+        "title": "Khan Academy Kids",
+        "source": "Khan Academy",
+        "type": "Early learning app",
+        "access": "Free app",
+        "url": "https://www.khanacademy.org/kids",
+        "note": "Useful reference for early literacy, but check device, language, and offline needs first."
+      },
+      {
+        "title": "Learning Passport Myanmar",
+        "source": "UNICEF and partners",
+        "type": "Supplementary learning",
+        "access": "Online, mobile, and offline platform",
+        "url": "https://mm.learningpassport.org/",
+        "note": "Check for appropriate English or multilingual learning materials."
+      }
+    ]
+  },
+  {
+    "subject": "Wellbeing",
+    "items": [
+      {
+        "title": "INEE Minimum Standards",
+        "source": "INEE",
+        "type": "Teacher and program reference",
+        "access": "Online reference",
+        "url": "https://inee.org/minimum-standards",
+        "note": "Use for safer education-in-emergencies design. Wellbeing activities still need local review."
+      }
+    ]
+  },
+  {
+    "subject": "Practical safety",
+    "items": [
+      {
+        "title": "INEE Minimum Standards",
+        "source": "INEE",
+        "type": "Teacher and program reference",
+        "access": "Online reference",
+        "url": "https://inee.org/minimum-standards",
+        "note": "Use as a framework for safe learning environments and responsible facilitation."
+      }
+    ]
+  },
+  {
+    "subject": "Review",
+    "items": [
+      {
+        "title": "Kiwix catalog",
+        "source": "Kiwix",
+        "type": "Offline library catalog",
+        "access": "ZIM files",
+        "url": "https://get.kiwix.org/en/solutions/catalog/",
+        "note": "Use for extra reading after LearnBridge review lessons."
+      }
+    ]
+  },
+  {
+    "subject": "Emergency safety",
+    "items": [
+      {
+        "title": "INEE Minimum Standards",
+        "source": "INEE",
+        "type": "Education in emergencies reference",
+        "access": "Online reference",
+        "url": "https://inee.org/minimum-standards",
+        "note": "Use to review emergency education lessons before any supervised pilot."
+      },
+      {
+        "title": "Learning Passport Myanmar",
+        "source": "UNICEF and partners",
+        "type": "Supplementary learning platform",
+        "access": "Online, mobile, and offline platform",
+        "url": "https://mm.learningpassport.org/",
+        "note": "Check whether existing local materials are safer than creating new emergency content from scratch."
+      }
+    ]
+  }
+]
