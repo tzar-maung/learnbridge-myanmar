@@ -5,67 +5,85 @@ Use this checklist before sharing the prototype with a pilot group.
 ## Basic Setup
 
 - [ ] Local server starts without errors.
-- [ ] App opens at `http://127.0.0.1:4173/?fresh=43`.
+- [ ] App opens at `http://127.0.0.1:4173/?fresh=44`.
 - [ ] Page shows LearnBridge Myanmar.
 - [ ] Online/offline status appears in the header.
+- [ ] Header tabs show Practice, Resources, Teach, and Safety.
 
-## Class View
+## Practice
 
 - [ ] Safe nickname can be entered.
 - [ ] Save learner updates the welcome message.
-- [ ] Continue Learning shows the first incomplete lesson.
-- [ ] Open next lesson opens the lesson reader.
-- [ ] Back to lessons returns to the lesson list.
-- [ ] Mark lesson complete updates progress.
-- [ ] Completed lesson card changes state.
+- [ ] Continue Practice shows the first incomplete activity.
+- [ ] Open next activity opens the activity reader.
+- [ ] Back to activities returns to the activity list.
+- [ ] Mark activity complete updates progress.
+- [ ] Completed activity card changes state.
+- [ ] Quick check gives correct/incorrect feedback.
 
-## Lesson Library
+## Activity Library
 
 - [ ] All 12 activity cards appear.
-- [ ] Subject filter shows all lesson subjects.
-- [ ] Filtering by each subject shows the correct lesson cards.
-- [ ] Each lesson opens with title, subject, level, activity content, teacher note, and sources where available.
+- [ ] Subject filter shows all activity subjects.
+- [ ] Filtering by each subject shows the correct activity cards.
+- [ ] Each activity opens with title, subject, level, content, and sources where available.
+- [ ] Teacher guidance does not appear inside the learner-facing activity reader.
 
-## Facilitator View
+## Resources
 
-- [ ] Facilitator button opens Facilitator View.
-- [ ] Total lessons count is correct.
-- [ ] Completed lessons count is correct.
-- [ ] Remaining lessons count is correct.
-- [ ] Resource download center appears.
-- [ ] Textbook links appear.
-- [ ] Downloaded textbook PDF picker is visible.
-- [ ] Teacher notes appear for each activity.
-- [ ] Class view button returns to Class View.
+- [ ] Resources tab opens the Download Library.
+- [ ] Resource categories appear.
+- [ ] External resource links open in a new tab while online.
+- [ ] Offline setup checklist explains that outside files must be downloaded separately.
+
+## Teach
+
+- [ ] Teach tab opens Teaching Desk.
+- [ ] Activity, completed, and remaining counts are correct.
+- [ ] Load class material file picker is visible.
+- [ ] A downloaded image can be shown in the file viewer.
+- [ ] A downloaded PDF can be selected for the file viewer.
+- [ ] Clear material resets the file viewer.
+- [ ] Class notebook saves a group note.
+- [ ] Saved class notes remain after refresh.
+- [ ] Saved class notes can be deleted.
+- [ ] Teaching notes appear for each activity.
 - [ ] Export pilot report downloads a text file without private child data.
+
+## Safety
+
+- [ ] Safety tab opens the Offline Safety Kit.
+- [ ] Safety guidance is calm and non-graphic.
+- [ ] Safety guidance avoids tactical or military instructions.
+- [ ] Sensitive safety content is marked for local review in lessons where needed.
 
 ## Reset Progress
 
 - [ ] Reset progress asks for confirmation.
 - [ ] Cancel keeps progress unchanged.
-- [ ] Confirm clears completed lessons.
-- [ ] Progress returns to 0 completed lessons.
-- [ ] Continue Learning returns to the first lesson.
+- [ ] Confirm clears completed activities.
+- [ ] Progress returns to 0 completed activities.
+- [ ] Continue Practice returns to the first activity.
 
 ## Offline Behavior
 
 - [ ] App loads once while online/local server is available.
 - [ ] Browser refresh still works after files are cached.
-- [ ] Lesson data appears after refresh.
+- [ ] Activity data appears after refresh.
 - [ ] Cache version is bumped when app files change.
 
-## Safety Review
+## Privacy Review
 
 - [ ] App does not ask for real full names.
 - [ ] App does not ask for phone numbers.
 - [ ] App does not ask for document numbers.
 - [ ] App does not ask for address or location.
-- [ ] Lessons avoid shame-based or competitive language.
-- [ ] Wellbeing content is calm and optional.
+- [ ] Notebook guidance warns against private child or family data.
+- [ ] Exported report does not include private fields.
 
 ## Content Review
 
-- [ ] Lesson language is age-appropriate.
-- [ ] Teacher notes are clear for volunteers.
+- [ ] Activity language is age-appropriate.
+- [ ] Teaching notes are clear for volunteers.
 - [ ] Local educators have reviewed sensitive content.
 - [ ] Translation needs are documented.

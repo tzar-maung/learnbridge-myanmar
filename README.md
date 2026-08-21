@@ -9,8 +9,9 @@ access may be unstable or unavailable.
 
 Many displaced learners experience interrupted schooling, shared-device access,
 and privacy risks. This prototype explores how a small browser-based learning
-kit can support catch-up lessons, textbook access, and volunteer-led class
-activities while avoiding accounts, real names, or cloud data collection.
+kit can support resource preparation, downloaded class materials, catch-up
+activities, offline safety guidance, and volunteer-led class notes while
+avoiding accounts, real names, or cloud data collection.
 
 ## Core Users
 
@@ -22,30 +23,31 @@ activities while avoiding accounts, real names, or cloud data collection.
 
 - Learner nickname saved locally on the device.
 - Language selector.
+- Four clear sections: Practice, Resources, Teach, and Safety.
 - Progress tracking with a visual progress bar.
-- Continue learning panel that opens the next incomplete lesson.
-- Class View with activity cards only.
-- Facilitator View with setup, downloads, resource categories, textbook links,
-  notes, reports, and reset tools.
+- Continue Practice panel that opens the next incomplete activity.
+- Download Library with resource categories and external download links.
+- Teaching Desk with a local PDF/image class material viewer.
+- Privacy-safe class notebook saved on this device.
+- Offline Safety Kit with calm safety and privacy guidance.
 - Lesson library generated from `lessons.json`.
-- Subject filter for finding lessons by topic.
-- Focused lesson reader view.
-- Mark lesson complete flow.
-- Facilitator View with lesson summary and guidance notes.
+- Subject filter for finding activities by topic.
+- Focused activity reader view.
+- Mark activity complete flow.
+- Teaching notes and resource notes for volunteers.
 - Reset progress action for shared-device use.
 - Export pilot report action that avoids private child data.
 - Kiwix reference section explaining how offline library content could connect.
 - Offline setup checklist for preparing a device before a class.
 - Content review status labels for draft and locally reviewed lesson material.
-- Teacher resource links powered by `resources.json`.
-- Grade 1 textbook download links and local PDF opener for teachers.
+- Resource notes powered by `resources.json`.
 - Simple privacy quiz.
 - Service worker cache for offline-first behavior.
 
 ## Lesson Content
 
-Lessons are stored in `lessons.json` so content is separate from app behavior.
-Each lesson includes:
+Practice activities are stored in `lessons.json` so content is separate from
+app behavior. Each activity includes:
 
 ```json
 {
@@ -71,8 +73,8 @@ Each lesson includes:
 }
 ```
 
-Trusted resource links are stored in `resources.json`. Facilitator View shows the
-resources that match each lesson subject:
+Trusted resource links are stored in `resources.json`. Teaching Desk shows the
+resources that match each activity subject:
 
 ```json
 {
@@ -112,10 +114,10 @@ python -m http.server 4173 --bind 127.0.0.1
 Then open:
 
 ```text
-http://127.0.0.1:4173/?fresh=43
+http://127.0.0.1:4173/?fresh=44
 ```
 
-The local server is needed because the app loads lesson data from
+The local server is needed because the app loads activity data from
 `lessons.json`.
 
 ## Privacy And Safety Choices
@@ -124,7 +126,8 @@ The local server is needed because the app loads lesson data from
 - No real child name is required.
 - No phone number, email, document number, or location is collected.
 - Progress stays in browser storage on the device.
-- Reset progress is placed in Facilitator View for shared-device privacy.
+- Reset progress is placed in Teaching Desk for shared-device privacy.
+- Class notebook entries should use group names and general learning notes only.
 
 ## Offline-First Design
 
@@ -141,8 +144,9 @@ teacher or volunteer needs to download those materials separately in tools such
 as Kiwix Reader, Kiwix Server, or Kolibri before using them without internet.
 
 Official textbook PDFs are linked for teacher access but are not bundled in
-LearnBridge. Teachers can download PDFs separately, then use the Facilitator View
-file picker to open a saved PDF during offline sessions.
+LearnBridge. Teachers can download PDFs separately, then use the Teaching Desk
+file picker to display a saved PDF or image during offline sessions. The file is
+selected from the device for the current class and is not uploaded.
 
 For development on this laptop, LearnBridge only needs Python's local server.
 For real offline reading, install Kiwix Reader and download selected ZIM files
@@ -201,6 +205,6 @@ This project demonstrates:
 - offline-first thinking
 - local data storage
 - data-driven UI rendering
-- learner and teacher mode switching
+- multi-section frontend navigation
 - privacy-aware product design
 - humanitarian technology constraints
