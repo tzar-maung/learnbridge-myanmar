@@ -27,7 +27,8 @@ body {
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 
@@ -48,6 +49,27 @@ select {
   align-items: center;
   display: flex;
   gap: 10px;
+}
+
+.view-tabs {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+}
+
+.tab-button {
+  background: transparent;
+  color: var(--teal);
+  min-height: 38px;
+  padding: 0 12px;
+}
+
+.tab-button.active {
+  background: var(--teal);
+  color: #ffffff;
 }
 
 .topbar h1,
@@ -89,6 +111,11 @@ select {
   margin: 0 auto;
   max-width: 1180px;
   padding: 26px clamp(16px, 4vw, 48px) 56px;
+}
+
+.app-view {
+  display: grid;
+  gap: 22px;
 }
 
 .intro {
@@ -184,12 +211,19 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
   border: 1px solid var(--line);
   border-radius: 6px;
   color: var(--ink);
   min-height: 44px;
   padding: 0 12px;
+}
+
+textarea {
+  min-height: 120px;
+  padding: 12px;
+  resize: vertical;
 }
 
 button,
@@ -242,7 +276,8 @@ button:disabled {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.section-heading h2 {
+.section-heading h2,
+.safety-guide h2 {
   font-size: 32px;
   line-height: 1.15;
   margin: 0;
@@ -530,7 +565,13 @@ button:disabled {
 
   .topbar-actions {
     align-items: stretch;
+    flex-direction: column;
     width: 100%;
+  }
+
+  .view-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .topbar-actions .secondary-button,
@@ -735,6 +776,106 @@ button:disabled {
   padding: 8px;
 }
 
+.teaching-file,
+.class-notebook {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.teaching-file h3,
+.class-notebook h3 {
+  font-size: 28px;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.teaching-file p,
+.class-notebook p {
+  margin: 0;
+}
+
+.teaching-file-actions {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.file-viewer {
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  min-height: min(72vh, 620px);
+  overflow: hidden;
+}
+
+.file-viewer.empty {
+  justify-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.file-viewer object,
+.file-viewer img {
+  border: 0;
+  display: block;
+  height: min(72vh, 620px);
+  object-fit: contain;
+  width: 100%;
+}
+
+.notebook-form {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.35fr);
+}
+
+.note-field,
+.notebook-form button {
+  grid-column: 1 / -1;
+}
+
+.note-list {
+  display: grid;
+  gap: 10px;
+}
+
+.empty-note {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  padding: 14px;
+}
+
+.saved-note {
+  align-items: start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 14px;
+}
+
+.saved-note h4 {
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.saved-note strong {
+  color: var(--teal);
+  display: block;
+  margin-bottom: 8px;
+}
+
 .textbook-status {
   color: var(--muted);
   font-size: 14px;
@@ -853,7 +994,9 @@ button:disabled {
   .guide-grid,
   .download-grid,
   .resource-category-grid,
-  .teacher-guide-card {
+  .teacher-guide-card,
+  .notebook-form,
+  .saved-note {
     grid-template-columns: 1fr;
   }
 

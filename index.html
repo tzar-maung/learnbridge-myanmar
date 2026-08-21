@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#256f75" />
     <title>LearnBridge Offline</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=43" />
+    <link rel="stylesheet" href="./styles.css?v=44" />
   </head>
   <body>
     <header class="topbar">
@@ -15,188 +15,127 @@
         <h1>LearnBridge Myanmar</h1>
       </div>
       <div class="topbar-actions">
-        <button class="secondary-button" id="modeToggle" type="button">Open facilitator view</button>
+        <nav class="view-tabs" aria-label="Main sections">
+          <button class="tab-button active" data-view="practice" type="button">Practice</button>
+          <button class="tab-button" data-view="resources" type="button">Resources</button>
+          <button class="tab-button" data-view="teach" type="button">Teach</button>
+          <button class="tab-button" data-view="safety" type="button">Safety</button>
+        </nav>
         <div class="status-pill" id="networkStatus">Checking...</div>
       </div>
     </header>
 
     <main class="app-shell">
-      <div id="learnerView">
-      <section class="intro">
-        <div class="intro-copy">
-          <h2>Class activities for shared devices.</h2>
-          <p>
-            Use this screen during a guided session with learners age 12+.
-            Choose a subject, open one activity, discuss together, and mark
-            progress without collecting private child data.
-          </p>
-        </div>
-        <div class="learning-scene">
-          <img
-            src="./assets/arakan-landscape.jfif"
-            alt="Historic pagodas in Arakan landscape"
-          />
-        </div>
-      </section>
-
-      <section class="controls" aria-label="Learning controls">
-        <label>
-          Language
-          <select id="languageSelect">
-            <option value="en">English</option>
-            <option value="my">Burmese</option>
-            <option value="rhg">Rakhine placeholder</option>
-            <option value="th">Thai</option>
-          </select>
-        </label>
-
-        <label>
-          Learner nickname
-          <input id="learnerName" maxlength="20" placeholder="Example: Star" />
-        </label>
-
-        <button id="saveLearner" type="button">Save learner</button>
-      </section>
-
-      <section class="dashboard" aria-label="Learning dashboard">
-        <article class="panel">
-          <div class="panel-heading">
-            <p class="eyebrow">Today</p>
-            <h2 id="welcomeTitle">Welcome, learner</h2>
+      <section class="app-view" id="practiceView" data-view-panel="practice">
+        <section class="intro">
+          <div class="intro-copy">
+            <p class="eyebrow">Learner practice</p>
+            <h2>Short activities for a shared class device.</h2>
+            <p>
+              Use this screen for quick learner practice after a teacher or
+              volunteer explains the topic. Learners can answer together, on
+              paper, or one at a time on the device.
+            </p>
           </div>
-          <div class="progress-track" aria-label="Course progress">
-            <div class="progress-fill" id="progressFill"></div>
+          <div class="learning-scene">
+            <img
+              src="./assets/arakan-landscape.jfif"
+              alt="Historic pagodas in Arakan landscape"
+            />
           </div>
-          <p id="progressText">0 of 3 activities complete</p>
-        </article>
+        </section>
 
-        <article class="panel continue-panel">
-          <div class="panel-heading">
-            <p class="eyebrow">Continue learning</p>
-            <h2 id="continueTitle">Choose a lesson</h2>
-          </div>
-          <p id="continueText">Your next lesson will appear here.</p>
-          <button id="openNextLesson" type="button">Open next lesson</button>
-        </article>
-      </section>
-
-      <section class="lesson-list-view" id="lessonListView">
-        <div class="filter-bar">
+        <section class="controls" aria-label="Learning controls">
           <label>
-            Subject
-            <select id="subjectFilter">
-              <option value="All">All subjects</option>
+            Language
+            <select id="languageSelect">
+              <option value="en">English</option>
+              <option value="my">Burmese</option>
+              <option value="rhg">Rakhine placeholder</option>
+              <option value="th">Thai</option>
             </select>
           </label>
-        </div>
-        <section class="lesson-grid" id="lessonGrid" aria-label="Lessons"></section>
-      </section>
 
-      <section class="lesson-reader is-hidden" id="lessonReader" aria-label="Lesson reader">
-        <button class="secondary-button" id="backToLessons" type="button">Back to lessons</button>
-        <p class="eyebrow">Lesson</p>
-        <h2 id="lessonDetailTitle">Choose a lesson</h2>
-        <div class="lesson-meta" id="lessonDetailMeta"></div>
-        <div class="lesson-content" id="lessonDetailContent">
-          <p>Open a lesson to read it here.</p>
-        </div>
-        <div class="teacher-note">
-          <p class="eyebrow">Teacher note</p>
-          <p id="lessonTeacherNote">Open a lesson to see teacher guidance.</p>
-        </div>
-        <button id="completeCurrentLesson" type="button">Mark lesson complete</button>
-      </section>
+          <label>
+            Learner nickname
+            <input id="learnerName" maxlength="20" placeholder="Example: Star" />
+          </label>
 
-      <section class="quiz-panel" aria-label="Practice quiz">
-        <div>
-          <p class="eyebrow">Practice</p>
-          <h2>Quick check</h2>
-          <p id="quizQuestion">What should this platform avoid collecting from children?</p>
-        </div>
-        <div class="quiz-options">
-          <button class="quiz-option" data-correct="false">Favorite color</button>
-          <button class="quiz-option" data-correct="true">Real names and private documents</button>
-          <button class="quiz-option" data-correct="false">Lesson progress</button>
-        </div>
-        <p class="quiz-result" id="quizResult"></p>
-      </section>
-      </div>
+          <button id="saveLearner" type="button">Save learner</button>
+        </section>
 
-      <section class="teacher-view is-hidden" id="teacherView" aria-label="Teacher mode">
-        <div>
-          <p class="eyebrow">Facilitator view</p>
-          <h2>Volunteer-led class guide</h2>
-          <p>
-            Use this view to prepare shared-device lessons, open textbook
-            links, check local progress, and read teacher notes without
-            collecting private child data.
-          </p>
-        </div>
-
-        <section class="teacher-summary" aria-label="Teacher summary">
-          <article class="summary-tile">
-            <p class="eyebrow">Lessons</p>
-            <strong id="teacherTotalLessons">0</strong>
+        <section class="dashboard" aria-label="Learning dashboard">
+          <article class="panel">
+            <div class="panel-heading">
+              <p class="eyebrow">Today</p>
+              <h2 id="welcomeTitle">Welcome, learner</h2>
+            </div>
+            <div class="progress-track" aria-label="Course progress">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0 activities complete</p>
           </article>
-          <article class="summary-tile">
-            <p class="eyebrow">Completed</p>
-            <strong id="teacherCompletedLessons">0</strong>
-          </article>
-          <article class="summary-tile">
-            <p class="eyebrow">Remaining</p>
-            <strong id="teacherRemainingLessons">0</strong>
+
+          <article class="panel continue-panel">
+            <div class="panel-heading">
+              <p class="eyebrow">Continue practice</p>
+              <h2 id="continueTitle">Choose an activity</h2>
+            </div>
+            <p id="continueText">Your next activity will appear here.</p>
+            <button id="openNextLesson" type="button">Open next activity</button>
           </article>
         </section>
 
+        <section class="lesson-list-view" id="lessonListView">
+          <div class="filter-bar">
+            <label>
+              Subject
+              <select id="subjectFilter">
+                <option value="All">All subjects</option>
+              </select>
+            </label>
+          </div>
+          <section class="lesson-grid" id="lessonGrid" aria-label="Practice activities"></section>
+        </section>
+
+        <section class="lesson-reader is-hidden" id="lessonReader" aria-label="Activity reader">
+          <button class="secondary-button" id="backToLessons" type="button">Back to activities</button>
+          <p class="eyebrow">Practice activity</p>
+          <h2 id="lessonDetailTitle">Choose an activity</h2>
+          <div class="lesson-meta" id="lessonDetailMeta"></div>
+          <div class="lesson-content" id="lessonDetailContent">
+            <p>Open an activity to read it here.</p>
+          </div>
+          <button id="completeCurrentLesson" type="button">Mark activity complete</button>
+        </section>
+
+        <section class="quiz-panel" aria-label="Practice quiz">
+          <div>
+            <p class="eyebrow">Quick check</p>
+            <h2>Privacy question</h2>
+            <p id="quizQuestion">What should this platform avoid collecting from children?</p>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="false">Favorite color</button>
+            <button class="quiz-option" data-correct="true">Real names and private documents</button>
+            <button class="quiz-option" data-correct="false">Lesson progress</button>
+          </div>
+          <p class="quiz-result" id="quizResult"></p>
+        </section>
+      </section>
+
+      <section class="app-view is-hidden" id="resourcesView" data-view-panel="resources">
         <section class="resource-center" aria-label="Resource download center">
           <div class="section-heading">
-            <p class="eyebrow">Resource download center</p>
-            <h3>Prepare materials before class</h3>
+            <p class="eyebrow">Download library</p>
+            <h2>Find materials while internet is available.</h2>
             <p>
-              Use these links while online. Download PDFs, apps, or offline
-              libraries first, then bring the saved materials to class.
+              LearnBridge does not copy copyrighted textbooks into the app.
+              It helps facilitators find free access points, download files to
+              their own device, and prepare them for offline class use.
             </p>
           </div>
           <div class="resource-category-grid" id="resourceCategoryGrid"></div>
-        </section>
-
-        <section class="safety-guide" aria-label="Safe facilitation guide">
-          <div>
-            <p class="eyebrow">Before a group lesson</p>
-            <h3>Safe facilitation guide</h3>
-            <p>
-              Use nicknames only, keep activities calm, and let children pass if
-              they do not want to answer. This prototype should support learning
-              without creating private records about children or families.
-            </p>
-          </div>
-
-          <div class="guide-grid">
-            <article>
-              <p class="eyebrow">Collect</p>
-              <ul>
-                <li>Nickname</li>
-                <li>Language choice</li>
-                <li>Lesson progress on this device</li>
-              </ul>
-            </article>
-            <article>
-              <p class="eyebrow">Do not collect</p>
-              <ul>
-                <li>Real names or ID documents</li>
-                <li>Exact location or family details</li>
-                <li>Political or conflict-related information</li>
-              </ul>
-            </article>
-            <article>
-              <p class="eyebrow">Run the session</p>
-              <ul>
-                <li>Read the teacher note first</li>
-                <li>Practice together before individual answers</li>
-                <li>Reset progress before a new group uses the device</li>
-              </ul>
-            </article>
-          </div>
         </section>
 
         <section class="offline-guide" aria-label="Offline setup checklist">
@@ -204,77 +143,181 @@
             <p class="eyebrow">Offline setup</p>
             <h3>Before internet goes away</h3>
             <p>
-              Open LearnBridge once while the device has internet or local
-              network access. Then test the cached app before using it with a
-              group.
+              Prepare the browser app and external files while online. Then
+              test everything once before using it with a learning group.
             </p>
           </div>
 
           <ol class="setup-checklist">
             <li>Start the local server on the teacher computer.</li>
-            <li>Open LearnBridge in the browser and wait for lessons to load.</li>
-            <li>Open one lesson, go back, and mark one lesson complete.</li>
-            <li>Turn off internet or Wi-Fi and refresh the page.</li>
-            <li>If the app still opens, it is ready for offline practice on this device.</li>
+            <li>Open LearnBridge in the browser and wait for activities to load.</li>
+            <li>Download textbooks, PDFs, Kiwix ZIM files, or Kolibri content separately.</li>
+            <li>Open one saved file in Teaching Desk to confirm it displays.</li>
+            <li>Turn off internet or Wi-Fi and refresh the page to test offline access.</li>
           </ol>
 
           <p class="offline-note">
-            Teacher resource links may need internet. To use outside resources
-            offline, download them first in tools like Kiwix Reader, Kiwix
-            Server, or Kolibri before the session.
+            External links need internet. Download outside materials first, then
+            use Teaching Desk to open the saved files during class.
           </p>
+        </section>
+      </section>
 
-          <div class="download-guide">
-            <p class="eyebrow">What to download</p>
-            <div class="download-grid">
-              <article>
-                <h4>For LearnBridge</h4>
-                <p>No extra app is needed after this folder is saved. Run the local server and open LearnBridge in the browser.</p>
-              </article>
-              <article>
-                <h4>For offline reading</h4>
-                <p>Download Kiwix Reader, then download selected ZIM files while internet is available.</p>
-                <a href="https://get.kiwix.org/en/solutions/applications/kiwix-reader/" target="_blank" rel="noreferrer">Open Kiwix Reader</a>
-              </article>
-              <article>
-                <h4>For offline courses</h4>
-                <p>Consider Kolibri later if you need a larger course library with exercises and teacher management.</p>
-                <a href="https://learningequality.org/kolibri/about-kolibri/" target="_blank" rel="noreferrer">Open Kolibri info</a>
-              </article>
-            </div>
+      <section class="app-view is-hidden" id="teachView" data-view-panel="teach">
+        <section class="teacher-view" aria-label="Teaching desk">
+          <div>
+            <p class="eyebrow">Teaching desk</p>
+            <h2>Run one offline class session.</h2>
+            <p>
+              Load a saved PDF or image, keep privacy-safe class notes, and
+              review what the group should practice next.
+            </p>
           </div>
 
-          <div class="textbook-guide">
-            <p class="eyebrow">School textbooks</p>
-            <h3>Download Grade 1 textbooks before offline use</h3>
-            <p>
-              LearnBridge does not copy or bundle official textbooks. Teachers
-              can download textbooks from these external libraries while online,
-              then open the saved PDF on this device during offline lessons.
-            </p>
-            <div class="textbook-links">
-              <a href="https://edu4mm.com/grade-1/" target="_blank" rel="noreferrer">Edu4MM Grade 1</a>
-              <a href="https://www.learnbig.net/en/book_category/textbooks_myanmar_basic_education_grade1/" target="_blank" rel="noreferrer">LearnBig Grade 1</a>
-              <a href="https://www.learnbig.net/en/book_category/textbooks_myanmar_basic_education/" target="_blank" rel="noreferrer">LearnBig all grades</a>
+          <section class="teacher-summary" aria-label="Teaching summary">
+            <article class="summary-tile">
+              <p class="eyebrow">Activities</p>
+              <strong id="teacherTotalLessons">0</strong>
+            </article>
+            <article class="summary-tile">
+              <p class="eyebrow">Completed</p>
+              <strong id="teacherCompletedLessons">0</strong>
+            </article>
+            <article class="summary-tile">
+              <p class="eyebrow">Remaining</p>
+              <strong id="teacherRemainingLessons">0</strong>
+            </article>
+          </section>
+
+          <section class="teaching-file" aria-label="Class material viewer">
+            <div>
+              <p class="eyebrow">Class material</p>
+              <h3>Open a downloaded teaching file</h3>
+              <p>
+                Choose a PDF or image already saved on this device. The file is
+                displayed for this class only and is not uploaded anywhere.
+              </p>
             </div>
-            <label class="file-picker">
-              Open downloaded textbook PDF
-              <input id="textbookFile" type="file" accept="application/pdf" />
-            </label>
-            <p class="textbook-status" id="textbookStatus">
-              Choose a PDF already saved on this device.
+
+            <div class="teaching-file-actions">
+              <label class="file-picker">
+                Load class material
+                <input id="classFile" type="file" accept="application/pdf,image/*" />
+              </label>
+              <button class="secondary-button" id="clearClassFile" type="button">Clear material</button>
+            </div>
+            <p class="textbook-status" id="classFileStatus">No file selected yet.</p>
+            <div class="file-viewer empty" id="fileViewer">
+              <p>Select a saved PDF or image before class starts.</p>
+            </div>
+          </section>
+
+          <section class="class-notebook" aria-label="Class notebook">
+            <div>
+              <p class="eyebrow">Class notebook</p>
+              <h3>Save group notes without private data</h3>
+              <p>
+                Use group names and general learning notes only. Do not write
+                real names, document details, exact locations, or family stories.
+              </p>
+            </div>
+            <div class="notebook-form">
+              <label>
+                Group name
+                <input id="groupName" maxlength="40" placeholder="Example: Morning Group" />
+              </label>
+              <label>
+                Class result
+                <select id="classResult">
+                  <option value="Good progress">Good progress</option>
+                  <option value="Needs review">Needs review</option>
+                  <option value="Hard topic">Hard topic</option>
+                </select>
+              </label>
+              <label class="note-field">
+                What should we review next?
+                <textarea id="classNote" maxlength="500" placeholder="Example: Review counting in groups of ten."></textarea>
+              </label>
+              <button id="saveClassNote" type="button">Save class note</button>
+            </div>
+            <div class="note-list" id="classNoteList"></div>
+          </section>
+
+          <div class="teacher-actions">
+            <button id="exportReport" type="button">Export pilot report</button>
+            <button class="danger-button" id="resetProgress" type="button">Reset progress</button>
+          </div>
+
+          <section class="teacher-guide-list" id="teacherGuideList" aria-label="Teaching notes"></section>
+        </section>
+      </section>
+
+      <section class="app-view is-hidden" id="safetyView" data-view-panel="safety">
+        <section class="safety-guide" aria-label="Safety kit">
+          <div>
+            <p class="eyebrow">Offline safety kit</p>
+            <h2>Simple guidance to review calmly.</h2>
+            <p>
+              These notes are for basic civilian safety and class privacy. They
+              should be reviewed by trusted local teachers, protection workers,
+              or community leaders before real use.
             </p>
+          </div>
+
+          <div class="guide-grid">
+            <article>
+              <p class="eyebrow">Learning safely</p>
+              <ul>
+                <li>Use nicknames only.</li>
+                <li>Ask before photos or recordings.</li>
+                <li>Do not write private family details in notes.</li>
+              </ul>
+            </article>
+            <article>
+              <p class="eyebrow">Emergency calm</p>
+              <ul>
+                <li>Breathe slowly together.</li>
+                <li>Name five safe things you can see.</li>
+                <li>Let learners pass if they do not want to speak.</li>
+              </ul>
+            </article>
+            <article>
+              <p class="eyebrow">Earthquake</p>
+              <ul>
+                <li>Drop, cover, and hold on.</li>
+                <li>Stay away from glass and falling objects.</li>
+                <li>Move carefully after shaking stops.</li>
+              </ul>
+            </article>
+            <article>
+              <p class="eyebrow">Smoke or fire</p>
+              <ul>
+                <li>Move away from fire.</li>
+                <li>Stay low under smoke when leaving.</li>
+                <li>Do not go back inside for belongings.</li>
+              </ul>
+            </article>
+            <article>
+              <p class="eyebrow">Strange objects</p>
+              <ul>
+                <li>Do not touch unknown metal or explosive-looking objects.</li>
+                <li>Move away calmly.</li>
+                <li>Tell a trusted adult or local safety contact.</li>
+              </ul>
+            </article>
+            <article>
+              <p class="eyebrow">Nearby danger</p>
+              <ul>
+                <li>Move away from windows.</li>
+                <li>Stay low if there are loud explosions nearby.</li>
+                <li>Follow trusted local safety instructions.</li>
+              </ul>
+            </article>
           </div>
         </section>
-
-        <div class="teacher-actions">
-          <button id="exportReport" type="button">Export pilot report</button>
-          <button class="danger-button" id="resetProgress" type="button">Reset progress</button>
-        </div>
-        <section class="teacher-guide-list" id="teacherGuideList" aria-label="Teacher notes"></section>
       </section>
     </main>
 
-    <script src="./app.js?v=43"></script>
+    <script src="./app.js?v=44"></script>
   </body>
 </html>
