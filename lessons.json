@@ -145,6 +145,37 @@
     "reviewStatus": "Draft"
   },
   {
+    "id": "japanese-first-phrases",
+    "icon": "JP",
+    "title": "Japanese first phrases",
+    "subject": "Japanese",
+    "level": "Starter · A1",
+    "description": "Practice polite Japanese phrases for greeting someone, asking for attention, and saying that you do not understand.",
+    "content": "Practical Japanese starts with short expressions you can use in real situations. Listen to a trusted pronunciation source when internet is available, then keep the lesson and audio on your device for offline practice.",
+    "goal": "Recognize and use five polite phrases in a simple daily conversation.",
+    "steps": [
+      "おはようございます (ohayou gozaimasu) — Good morning.",
+      "すみません (sumimasen) — Excuse me / I am sorry.",
+      "わかりません (wakarimasen) — I do not understand.",
+      "もういちど おねがいします (mou ichido onegaishimasu) — Please say it again.",
+      "ありがとうございます (arigatou gozaimasu) — Thank you."
+    ],
+    "practice": "Choose one situation: meeting a teacher, asking a station worker for attention, or not understanding an instruction. Practice a two-line conversation using two phrases. Repeat after reliable audio when available.",
+    "checkQuestion": "Which phrase can you use when you need someone to repeat an instruction?",
+    "teacherNote": "Prioritize listening and speaking before writing systems. Use Japan Foundation audio for pronunciation and avoid presenting romanization as a complete substitute for learning Japanese script.",
+    "references": [
+      {
+        "title": "Irodori Starter: Japanese for Life in Japan",
+        "url": "https://www.irodori.jpf.go.jp/en/starter/pdf.html"
+      },
+      {
+        "title": "Japan Foundation Minato courses",
+        "url": "https://minato-jf.jp/"
+      }
+    ],
+    "reviewStatus": "Starter draft"
+  },
+  {
     "id": "calm-breathing",
     "icon": "6",
     "title": "Calm breathing",

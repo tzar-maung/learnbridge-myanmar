@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#256f75" />
     <title>LearnBridge Offline</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=47" />
+    <link rel="stylesheet" href="./styles.css?v=54" />
   </head>
   <body>
     <header class="topbar">
@@ -16,25 +16,24 @@
       </div>
       <div class="topbar-actions">
         <nav class="view-tabs" aria-label="Main sections">
-          <button class="tab-button active" data-view="practice" type="button">Practice</button>
-          <button class="tab-button" data-view="resources" type="button">Resources</button>
+          <button class="tab-button active" data-view="learn" type="button">Learn</button>
           <button class="tab-button" data-view="teach" type="button">Teach</button>
-          <button class="tab-button" data-view="safety" type="button">Safety</button>
+          <button class="tab-button" data-view="home" type="button">Home</button>
+          <button class="tab-button" data-view="library" type="button">Library</button>
         </nav>
         <div class="status-pill" id="networkStatus">Checking...</div>
       </div>
     </header>
 
     <main class="app-shell">
-      <section class="app-view" id="practiceView" data-view-panel="practice">
+      <section class="app-view" id="learnView" data-view-panel="learn">
         <section class="intro">
           <div class="intro-copy">
-            <p class="eyebrow">Learner practice</p>
-            <h2>Short activities for a shared class device.</h2>
+            <p class="eyebrow">Independent learning</p>
+            <h2>Build useful skills at your own pace.</h2>
             <p>
-              Use this screen for quick learner practice after a teacher or
-              volunteer explains the topic. Learners can answer together, on
-              paper, or one at a time on the device.
+              Choose a language, maths, or reading skill path. Your
+              progress stays on this device so you can continue later.
             </p>
           </div>
           <div class="learning-scene">
@@ -78,29 +77,74 @@
 
           <article class="panel continue-panel">
             <div class="panel-heading">
-              <p class="eyebrow">Continue practice</p>
+              <p class="eyebrow">Continue learning</p>
               <h2 id="continueTitle">Choose an activity</h2>
             </div>
             <p id="continueText">Your next activity will appear here.</p>
             <button id="openNextLesson" type="button">Open next activity</button>
           </article>
         </section>
-
+        <aside class="resource-notice" aria-label="External resource notice">
+          <div>
+            <p class="eyebrow">About our resources</p>
+            <p>
+              LearnBridge helps you discover free learning resources from their
+              original providers. We do not own or host external materials.
+              Availability, licences, and download conditions are controlled by
+              each provider.
+            </p>
+          </div>
+          <button class="secondary-button" data-open-view="library" type="button">Browse the library</button>
+        </aside>
+        <section class="path-overview" aria-labelledby="learningPathsTitle">
+          <div class="section-heading">
+            <p class="eyebrow">Learning paths</p>
+            <h2 id="learningPathsTitle">Choose one useful skill to build.</h2>
+            <p>This is the proposed first collection. Existing activities appear below; fuller downloadable packs will be added after review.</p>
+          </div>
+          <div class="path-overview-grid">
+            <article class="path-overview-card">
+              <span>Available now</span>
+              <h3>English foundations</h3>
+              <p>Useful vocabulary, short reading, speaking, and writing practice.</p>
+            </article>
+            <article class="path-overview-card">
+              <span>Available now</span>
+              <h3>Practical Japanese</h3>
+              <p>Daily communication for study, transport, shopping, work, and life in Japan.</p>
+            </article>
+            <article class="path-overview-card">
+              <span>Available now</span>
+              <h3>Everyday mathematics</h3>
+              <p>Numbers, money, measurement, percentages, and practical problems.</p>
+            </article>
+            <article class="path-overview-card proposed">
+              <span>Proposed pack</span>
+              <h3>Science explorer</h3>
+              <p>Short explanations, observations, and selected offline PhET experiments.</p>
+            </article>
+            <article class="path-overview-card proposed">
+              <span>Proposed pack</span>
+              <h3>Digital skills</h3>
+              <p>Files, typing, documents, spreadsheets, internet basics, and introductory coding.</p>
+            </article>
+          </div>
+        </section>
         <section class="lesson-list-view" id="lessonListView">
           <div class="filter-bar">
             <label>
-              Subject
+              Learning path
               <select id="subjectFilter">
                 <option value="All">All subjects</option>
               </select>
             </label>
           </div>
-          <section class="lesson-grid" id="lessonGrid" aria-label="Practice activities"></section>
+          <section class="lesson-grid" id="lessonGrid" aria-label="Independent learning activities"></section>
         </section>
 
         <section class="lesson-reader is-hidden" id="lessonReader" aria-label="Activity reader">
           <button class="secondary-button" id="backToLessons" type="button">Back to activities</button>
-          <p class="eyebrow">Practice activity</p>
+          <p class="eyebrow">Learning activity</p>
           <h2 id="lessonDetailTitle">Choose an activity</h2>
           <div class="lesson-meta" id="lessonDetailMeta"></div>
           <div class="lesson-content" id="lessonDetailContent">
@@ -109,30 +153,16 @@
           <button id="completeCurrentLesson" type="button">Mark activity complete</button>
         </section>
 
-        <section class="quiz-panel" aria-label="Practice quiz">
-          <div>
-            <p class="eyebrow">Quick check</p>
-            <h2>Privacy question</h2>
-            <p id="quizQuestion">What should this platform avoid collecting from children?</p>
-          </div>
-          <div class="quiz-options">
-            <button class="quiz-option" data-correct="false">Favorite color</button>
-            <button class="quiz-option" data-correct="true">Real names and private documents</button>
-            <button class="quiz-option" data-correct="false">Lesson progress</button>
-          </div>
-          <p class="quiz-result" id="quizResult"></p>
-        </section>
       </section>
 
-      <section class="app-view is-hidden" id="resourcesView" data-view-panel="resources">
+      <section class="app-view is-hidden" id="libraryView" data-view-panel="library">
         <section class="resource-center" aria-label="Resource download center">
           <div class="section-heading">
-            <p class="eyebrow">Download library</p>
-            <h2>Find materials while internet is available.</h2>
+            <p class="eyebrow">Resource library</p>
+            <h2>Find and prepare learning materials.</h2>
             <p>
-              LearnBridge does not copy copyrighted textbooks into the app.
-              It helps facilitators find free access points, download files to
-              their own device, and prepare them for offline class use.
+              Browse free learning sources while online, then save useful files
+              on the device for classes or home learning.
             </p>
           </div>
           <div class="resource-category-grid" id="resourceCategoryGrid"></div>
@@ -167,16 +197,40 @@
         <section class="teacher-view" aria-label="Teaching desk">
           <div>
             <p class="eyebrow">Teaching desk</p>
-            <h2>Run one offline class session.</h2>
+            <h2>Prepare once. Teach different class batches.</h2>
             <p>
-              Load a saved PDF or image, keep privacy-safe class notes, and
-              review what the group should practice next.
+              Select a batch, reuse saved teaching materials, and keep separate
+              progress and notes for each class.
             </p>
           </div>
 
+          <section class="batch-manager" aria-labelledby="batchManagerTitle">
+            <div>
+              <p class="eyebrow">Class batches</p>
+              <h3 id="batchManagerTitle">Choose the class you are teaching</h3>
+              <p>Give each class a short, recognizable batch name.</p>
+            </div>
+            <div class="batch-controls">
+              <label>
+                Current batch
+                <select id="batchSelect"></select>
+              </label>
+              <label>
+                New batch name
+                <input id="newBatchName" maxlength="40" placeholder="Example: Saturday Morning" />
+              </label>
+              <label>
+                Approximate learners
+                <input id="newBatchLearnerCount" type="number" min="1" max="200" placeholder="Example: 12" />
+              </label>
+              <button id="addBatch" type="button">Add batch</button>
+            </div>
+            <p class="batch-message" id="batchMessage"></p>
+          </section>
+
           <section class="teacher-summary" aria-label="Teaching summary">
             <article class="summary-tile">
-              <p class="eyebrow">Activities</p>
+              <p class="eyebrow">Suggestions</p>
               <strong id="teacherTotalLessons">0</strong>
             </article>
             <article class="summary-tile">
@@ -187,12 +241,16 @@
               <p class="eyebrow">Remaining</p>
               <strong id="teacherRemainingLessons">0</strong>
             </article>
+            <article class="summary-tile">
+              <p class="eyebrow">Learners</p>
+              <strong id="teacherLearnerCount">-</strong>
+            </article>
           </section>
 
           <section class="teaching-file" aria-label="Class material viewer">
             <div>
-              <p class="eyebrow">Class material</p>
-              <h3>Open a downloaded teaching file</h3>
+              <p class="eyebrow">Use your own plan</p>
+              <h3>Open your teaching materials</h3>
               <p>
                 Choose a PDF or image already saved on this device. Preview it
                 for this class or save it in this browser for later offline use.
@@ -232,17 +290,12 @@
           <section class="class-notebook" aria-label="Class notebook">
             <div>
               <p class="eyebrow">Class notebook</p>
-              <h3>Save group notes without private data</h3>
+              <h3>Keep a simple record for the next class</h3>
               <p>
-                Use group names and general learning notes only. Do not write
-                real names, document details, exact locations, or family stories.
+                Record what went well, what was difficult, and what to review next.
               </p>
             </div>
             <div class="notebook-form">
-              <label>
-                Group name
-                <input id="groupName" maxlength="40" placeholder="Example: Morning Group" />
-              </label>
               <label>
                 Class result
                 <select id="classResult">
@@ -262,79 +315,69 @@
 
           <div class="teacher-actions">
             <button id="exportReport" type="button">Export pilot report</button>
-            <button class="danger-button" id="resetProgress" type="button">Reset progress</button>
+            <button class="danger-button" id="resetProgress" type="button">Reset current batch progress</button>
           </div>
 
-          <section class="teacher-guide-list" id="teacherGuideList" aria-label="Teaching notes"></section>
+          <section class="suggested-teaching" aria-label="Optional suggested activities">
+            <div>
+              <p class="eyebrow">Optional support</p>
+              <h3>Suggested activities</h3>
+              <p>Use these when they are helpful, or continue with your own lesson plan.</p>
+            </div>
+            <div class="teacher-guide-list" id="teacherGuideList"></div>
+          </section>
+
+          <section class="teaching-packs" aria-labelledby="teachingPacksTitle">
+            <div class="section-heading">
+              <p class="eyebrow">Optional starter packs</p>
+              <h3 id="teachingPacksTitle">A starting point, not a required curriculum.</h3>
+              <p>Teachers can use a whole pack, choose one activity, or continue with their own material.</p>
+            </div>
+            <div class="teaching-pack-grid">
+              <article><strong>Beginning Burmese reading</strong><span>Open books + shared reading prompts</span></article>
+              <article><strong>Beginning English reading</strong><span>Levelled stories + vocabulary practice</span></article>
+              <article><strong>Practical mathematics</strong><span>Everyday problems + printable practice</span></article>
+              <article><strong>Science activities</strong><span>Observation prompts + offline simulations</span></article>
+            </div>
+          </section>
         </section>
       </section>
 
-      <section class="app-view is-hidden" id="safetyView" data-view-panel="safety">
-        <section class="safety-guide" aria-label="Safety kit">
-          <div>
-            <p class="eyebrow">Offline safety kit</p>
-            <h2>Simple guidance to review calmly.</h2>
-            <p>
-              These notes are for basic civilian safety and class privacy. They
-              should be reviewed by trusted local teachers, protection workers,
-              or community leaders before real use.
-            </p>
+      <section class="app-view is-hidden" id="homeView" data-view-panel="home">
+        <section class="home-learning" aria-label="Home learning">
+          <div class="section-heading">
+            <p class="eyebrow">Home learning</p>
+            <h2>Simple plans for adults learning with children.</h2>
+            <p>Choose an age range and a suggested path. Activities are designed to be done together with everyday materials.</p>
           </div>
 
-          <div class="guide-grid">
-            <article>
-              <p class="eyebrow">Learning safely</p>
-              <ul>
-                <li>Use nicknames only.</li>
-                <li>Ask before photos or recordings.</li>
-                <li>Do not write private family details in notes.</li>
-              </ul>
-            </article>
-            <article>
-              <p class="eyebrow">Emergency calm</p>
-              <ul>
-                <li>Breathe slowly together.</li>
-                <li>Name five safe things you can see.</li>
-                <li>Let learners pass if they do not want to speak.</li>
-              </ul>
-            </article>
-            <article>
-              <p class="eyebrow">Earthquake</p>
-              <ul>
-                <li>Drop, cover, and hold on.</li>
-                <li>Stay away from glass and falling objects.</li>
-                <li>Move carefully after shaking stops.</li>
-              </ul>
-            </article>
-            <article>
-              <p class="eyebrow">Smoke or fire</p>
-              <ul>
-                <li>Move away from fire.</li>
-                <li>Stay low under smoke when leaving.</li>
-                <li>Do not go back inside for belongings.</li>
-              </ul>
-            </article>
-            <article>
-              <p class="eyebrow">Strange objects</p>
-              <ul>
-                <li>Do not touch unknown metal or explosive-looking objects.</li>
-                <li>Move away calmly.</li>
-                <li>Tell a trusted adult or local safety contact.</li>
-              </ul>
-            </article>
-            <article>
-              <p class="eyebrow">Nearby danger</p>
-              <ul>
-                <li>Move away from windows.</li>
-                <li>Stay low if there are loud explosions nearby.</li>
-                <li>Follow trusted local safety instructions.</li>
-              </ul>
-            </article>
-          </div>
+          <section class="home-profile" aria-label="Home learner profile">
+            <label>
+              Learner nickname
+              <input id="homeLearnerName" maxlength="20" placeholder="Example: Moon" />
+            </label>
+            <label>
+              Age range
+              <select id="homeAgeGroup">
+                <option value="5-7">Ages 5-7</option>
+                <option value="8-11">Ages 8-11</option>
+                <option value="12+">Ages 12+</option>
+              </select>
+            </label>
+            <button id="saveHomeProfile" type="button">Save home profile</button>
+          </section>
+
+          <section class="home-current-plan" aria-live="polite">
+            <p class="eyebrow">Current plan</p>
+            <h3 id="homeCurrentPlan">Choose a suggested path</h3>
+            <p id="homePlanMessage">You can change paths at any time.</p>
+          </section>
+
+          <section class="home-path-grid" id="homePathGrid" aria-label="Suggested home learning paths"></section>
         </section>
       </section>
     </main>
 
-    <script src="./app.js?v=47"></script>
+    <script src="./app.js?v=54"></script>
   </body>
 </html>

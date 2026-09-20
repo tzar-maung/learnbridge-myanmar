@@ -105,6 +105,27 @@
     ]
   },
   {
+    "subject": "Japanese",
+    "items": [
+      {
+        "title": "Irodori Starter: Japanese for Life in Japan",
+        "source": "The Japan Foundation",
+        "type": "Practical Japanese course",
+        "access": "Downloadable lesson PDFs and MP3 audio",
+        "url": "https://www.irodori.jpf.go.jp/en/starter/pdf.html",
+        "note": "Download only the lessons needed to reduce storage use. The course focuses on communication for daily life and work in Japan."
+      },
+      {
+        "title": "Minato Japanese e-learning",
+        "source": "The Japan Foundation",
+        "type": "Structured online courses",
+        "access": "Free online courses; account may be required",
+        "url": "https://minato-jf.jp/",
+        "note": "Use while connected for structured study and select downloadable Irodori materials for offline practice."
+      }
+    ]
+  },
+  {
     "subject": "Wellbeing",
     "items": [
       {

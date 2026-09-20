@@ -12,72 +12,110 @@ const MAX_MATERIAL_SIZE = 25 * 1024 * 1024;
 
 const resourceCategories = [
   {
-    id: "textbooks",
-    title: "School textbooks",
-    description: "Start with kindergarten and grade-level textbooks. Download PDFs while online, then open saved files offline from Teaching Desk.",
-    subjects: ["Math", "Literacy", "English"],
+    id: "burmese-reading",
+    title: "Burmese reading",
+    description: "Levelled picture books for beginning and developing readers. Download selected books while connected, then add the saved PDF to Teaching Desk.",
+    subjects: ["Burmese", "Literacy", "Ages 5+"],
     links: [
-      { label: "Edu4MM Grade 1", url: "https://edu4mm.com/grade-1/" },
-      { label: "LearnBig Grade 1", url: "https://www.learnbig.net/en/book_category/textbooks_myanmar_basic_education_grade1/" },
-      { label: "LearnBig all grades", url: "https://www.learnbig.net/en/book_category/textbooks_myanmar_basic_education/" },
+      { label: "Browse Burmese books", url: "https://content.digitallibrary.io/bur/topic/library-books/" },
     ],
+    offline: "Download individual books as PDFs",
+    license: "Creative Commons; check each book",
   },
   {
-    id: "languages",
-    title: "Language learning",
-    description: "Use English, Thai, Burmese/Myanmar, Rakhine, and Chinese resources for school access, daily life, and communication.",
-    subjects: ["Thai language", "English", "Literacy"],
+    id: "english-reading",
+    title: "English reading",
+    description: "Illustrated stories organised by reading ability rather than age. Start with Level 1 and move up when reading feels comfortable.",
+    subjects: ["English", "Literacy", "Levels 1-4"],
     links: [
-      { label: "Let's Read app", url: "https://play.google.com/store/apps/details?id=org.asiafoundation.letsread" },
-      { label: "Global Digital Library", url: "https://digitallibrary.io/" },
-      { label: "Kiwix catalog", url: "https://get.kiwix.org/en/solutions/catalog/" },
+      { label: "Browse StoryWeaver", url: "https://storyweaver.org.in/en/" },
+      { label: "Understand reading levels", url: "https://storyweaver.org.in/en/reading-levels" },
     ],
+    offline: "Download selected stories before class",
+    license: "Stories: CC BY 4.0; media may differ",
   },
   {
-    id: "digital",
-    title: "Digital skills",
-    description: "Prepare older learners for typing, basic computer use, internet safety, and beginner coding.",
-    subjects: ["Digital safety", "Review"],
+    id: "practical-maths",
+    title: "Practical mathematics",
+    description: "Downloadable curriculum and worksheets for counting, arithmetic, measurement, money, and problem-solving.",
+    subjects: ["Math", "Preschool-Grade 8"],
     links: [
-      { label: "Scratch offline app", url: "https://scratch.mit.edu/download" },
-      { label: "GCF basic computer skills", url: "https://learnfree.org/series/basic-computer-skills" },
-      { label: "TypingClub", url: "https://www.typingclub.com/" },
+      { label: "Core Knowledge maths", url: "https://www.coreknowledge.org/mathematics/" },
+      { label: "Download free curriculum", url: "https://www.coreknowledge.org/download-free-curriculum/" },
     ],
+    offline: "Download units or worksheets as PDFs",
+    license: "Mostly CC BY-NC-SA; check each unit",
   },
   {
-    id: "life",
-    title: "Life skills and safety",
-    description: "Use original offline guidance for privacy, wellbeing, asking for help, hygiene, and emergency awareness.",
-    subjects: ["Wellbeing", "Practical safety", "Emergency safety"],
+    id: "practical-japanese",
+    title: "Practical Japanese",
+    description: "A structured path for communication in daily life and work. Download individual lessons instead of the full course when device storage is limited.",
+    subjects: ["Japanese", "Daily life", "A1-B1"],
     links: [
-      { label: "INEE standards", url: "https://inee.org/minimum-standards" },
-      { label: "UNICEF Learning Passport", url: "https://www.unicef.org/digitaleducation/learning-passport" },
-      { label: "Ready.gov earthquakes", url: "https://www.ready.gov/earthquakes" },
+      { label: "Download Irodori lessons", url: "https://www.irodori.jpf.go.jp/en/starter/pdf.html" },
+      { label: "Browse Minato courses", url: "https://minato-jf.jp/" },
     ],
+    offline: "Irodori lesson PDFs and MP3 audio",
+    license: "Free materials; follow Japan Foundation terms",
   },
   {
-    id: "catchup",
-    title: "Exam and catch-up",
-    description: "Use free practice tools for math, science, reading, and missed school foundations.",
-    subjects: ["Math", "Literacy", "Review"],
+    id: "science-explorer",
+    title: "Science explorer",
+    description: "Interactive experiments for maths and science. Download individual HTML5 simulations on a connected device before using them offline.",
+    subjects: ["Science", "Math", "Elementary+"],
     links: [
-      { label: "Kolibri", url: "https://learningequality.org/kolibri/about-kolibri/" },
-      { label: "Khan Academy downloads", url: "https://www.khanacademy.org/downloads" },
-      { label: "Global Digital Library math", url: "https://digitallibrary.io/" },
+      { label: "Browse PhET simulations", url: "https://phet.colorado.edu/en/simulations/filter?type=html" },
+      { label: "PhET offline access", url: "https://phet.colorado.edu/en/offline-access" },
     ],
+    offline: "Download individual HTML5 simulations",
+    license: "CC BY-NC 4.0 for regular simulations",
   },
   {
-    id: "offline",
-    title: "Offline libraries",
-    description: "Build a small offline library with Kiwix ZIM files, Kolibri channels, and downloaded PDFs.",
-    subjects: ["Review", "Science", "English"],
+    id: "offline-platforms",
+    title: "Larger offline libraries",
+    description: "For schools or learning centres that need a much larger collection, install a dedicated offline platform alongside LearnBridge.",
+    subjects: ["Learning centres", "Many subjects"],
     links: [
-      { label: "Kiwix Reader", url: "https://get.kiwix.org/en/solutions/applications/kiwix-reader/" },
-      { label: "Kiwix catalog", url: "https://get.kiwix.org/en/solutions/catalog/" },
-      { label: "Kolibri resources", url: "https://kolibri.readthedocs.io/en/latest/manage/resources.html" },
+      { label: "Learn about Kolibri", url: "https://learningequality.org/kolibri/" },
+      { label: "Learn about Kiwix", url: "https://www.kiwix.org/en/" },
     ],
+    offline: "Separate installation and content download",
+    license: "Content licences vary by collection",
   },
 ];
+
+const homeLearningPaths = [
+  {
+    id: "reading-together",
+    title: "Reading together",
+    ages: ["5-7", "8-11"],
+    description: "Build a reading habit with short stories, picture talk, new words, and simple retelling.",
+    routine: "Read together, ask one question, draw or write one idea, and revisit new words.",
+  },
+  {
+    id: "maths-at-home",
+    title: "Maths with everyday objects",
+    ages: ["5-7", "8-11", "12+"],
+    description: "Practice counting, arithmetic, money, measurement, and problem-solving with objects at home.",
+    routine: "Choose one practical problem, solve it together, and let the learner explain the answer.",
+  },
+  {
+    id: "language-building",
+    title: "Everyday language",
+    ages: ["5-7", "8-11", "12+"],
+    description: "Practice useful English or Thai words through conversation, labels, drawing, and repetition.",
+    routine: "Learn five useful words, use them in short sentences, and review them the next day.",
+  },
+  {
+    id: "curious-learning",
+    title: "Science and curiosity",
+    ages: ["8-11", "12+"],
+    description: "Explore weather, plants, water, health, and the local environment through observation.",
+    routine: "Observe something nearby, write or draw what changed, and discuss why it may have happened.",
+  },
+];
+
+const INDEPENDENT_SUBJECTS = ["Math", "Thai language", "Japanese", "Literacy", "English"];
 
 const translations = {
   en: {
@@ -110,12 +148,64 @@ const translations = {
   },
 };
 
+function readStoredJson(key, fallback) {
+  try {
+    return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback));
+  } catch (error) {
+    return fallback;
+  }
+}
+
+function createId(prefix) {
+  const value = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+  return `${prefix}-${value}`;
+}
+
+const legacyCompleteLessons = readStoredJson("completeLessons", []);
+const legacyClassNotes = readStoredJson("classNotes", []);
+const independentCompleteLessons = readStoredJson("independentCompleteLessons", legacyCompleteLessons);
+const storedBatches = readStoredJson("teachingBatches", []);
+const teachingBatches = Array.isArray(storedBatches) && storedBatches.length > 0
+  ? storedBatches.map((batch, index) => ({
+      id: batch.id || createId(`batch-${index + 1}`),
+      name: batch.name || `Class ${index + 1}`,
+      learnerCount: batch.learnerCount || "",
+      createdAt: batch.createdAt || Date.now(),
+      completeLessons: Array.isArray(batch.completeLessons) ? batch.completeLessons : [],
+      classNotes: Array.isArray(batch.classNotes) ? batch.classNotes : [],
+    }))
+  : [
+      {
+        id: "main-class",
+        name: "Main class",
+        learnerCount: "",
+        createdAt: Date.now(),
+        completeLessons: Array.isArray(legacyCompleteLessons) ? legacyCompleteLessons : [],
+        classNotes: Array.isArray(legacyClassNotes) ? legacyClassNotes : [],
+      },
+    ];
+
+const storedActiveBatchId = localStorage.getItem("activeBatchId");
+const initialActiveBatchId = teachingBatches.some((batch) => batch.id === storedActiveBatchId)
+  ? storedActiveBatchId
+  : teachingBatches[0].id;
+
 const state = {
   learnerName: localStorage.getItem("learnerName") || "",
   language: localStorage.getItem("language") || "en",
-  completeLessons: JSON.parse(localStorage.getItem("completeLessons") || "[]"),
+  completeLessons: Array.isArray(independentCompleteLessons) ? independentCompleteLessons : [],
   selectedSubject: "All",
-  classNotes: JSON.parse(localStorage.getItem("classNotes") || "[]"),
+  teachingBatches,
+  activeBatchId: initialActiveBatchId,
+  get classNotes() {
+    return getActiveBatch().classNotes;
+  },
+  set classNotes(value) {
+    getActiveBatch().classNotes = value;
+  },
+  homeLearnerName: localStorage.getItem("homeLearnerName") || "",
+  homeAgeGroup: localStorage.getItem("homeAgeGroup") || "5-7",
+  homeCurrentPathId: localStorage.getItem("homeCurrentPathId") || "",
 };
 
 const viewTabs = document.querySelectorAll("[data-view]");
@@ -129,7 +219,6 @@ const welcomeTitle = document.querySelector("#welcomeTitle");
 const progressFill = document.querySelector("#progressFill");
 const progressText = document.querySelector("#progressText");
 const networkStatus = document.querySelector("#networkStatus");
-const quizResult = document.querySelector("#quizResult");
 const continueTitle = document.querySelector("#continueTitle");
 const continueText = document.querySelector("#continueText");
 const openNextLesson = document.querySelector("#openNextLesson");
@@ -143,6 +232,7 @@ const completeCurrentLesson = document.querySelector("#completeCurrentLesson");
 const teacherTotalLessons = document.querySelector("#teacherTotalLessons");
 const teacherCompletedLessons = document.querySelector("#teacherCompletedLessons");
 const teacherRemainingLessons = document.querySelector("#teacherRemainingLessons");
+const teacherLearnerCount = document.querySelector("#teacherLearnerCount");
 const teacherGuideList = document.querySelector("#teacherGuideList");
 const exportReport = document.querySelector("#exportReport");
 const resetProgress = document.querySelector("#resetProgress");
@@ -153,11 +243,21 @@ const clearClassFile = document.querySelector("#clearClassFile");
 const classFileStatus = document.querySelector("#classFileStatus");
 const fileViewer = document.querySelector("#fileViewer");
 const offlineMaterialList = document.querySelector("#offlineMaterialList");
-const groupName = document.querySelector("#groupName");
+const batchSelect = document.querySelector("#batchSelect");
+const newBatchName = document.querySelector("#newBatchName");
+const newBatchLearnerCount = document.querySelector("#newBatchLearnerCount");
+const addBatch = document.querySelector("#addBatch");
+const batchMessage = document.querySelector("#batchMessage");
 const classResult = document.querySelector("#classResult");
 const classNote = document.querySelector("#classNote");
 const saveClassNote = document.querySelector("#saveClassNote");
 const classNoteList = document.querySelector("#classNoteList");
+const homeLearnerName = document.querySelector("#homeLearnerName");
+const homeAgeGroup = document.querySelector("#homeAgeGroup");
+const saveHomeProfile = document.querySelector("#saveHomeProfile");
+const homeCurrentPlan = document.querySelector("#homeCurrentPlan");
+const homePlanMessage = document.querySelector("#homePlanMessage");
+const homePathGrid = document.querySelector("#homePathGrid");
 
 function escapeHtml(value) {
   return String(value)
@@ -171,8 +271,58 @@ function escapeHtml(value) {
 function saveState() {
   localStorage.setItem("learnerName", state.learnerName);
   localStorage.setItem("language", state.language);
-  localStorage.setItem("completeLessons", JSON.stringify(state.completeLessons));
-  localStorage.setItem("classNotes", JSON.stringify(state.classNotes));
+  localStorage.setItem("independentCompleteLessons", JSON.stringify(state.completeLessons));
+  localStorage.setItem("teachingBatches", JSON.stringify(state.teachingBatches));
+  localStorage.setItem("activeBatchId", state.activeBatchId);
+  localStorage.setItem("homeLearnerName", state.homeLearnerName);
+  localStorage.setItem("homeAgeGroup", state.homeAgeGroup);
+  localStorage.setItem("homeCurrentPathId", state.homeCurrentPathId);
+}
+
+function getActiveBatch() {
+  return state.teachingBatches.find((batch) => batch.id === state.activeBatchId) || state.teachingBatches[0];
+}
+
+function renderBatchControls() {
+  const activeBatch = getActiveBatch();
+
+  batchSelect.innerHTML = state.teachingBatches
+    .map((batch) => `<option value="${escapeHtml(batch.id)}">${escapeHtml(batch.name)}</option>`)
+    .join("");
+  batchSelect.value = activeBatch.id;
+}
+
+function addTeachingBatch() {
+  const name = newBatchName.value.trim();
+  const learnerCount = newBatchLearnerCount.value.trim();
+
+  if (!name) {
+    batchMessage.textContent = "Enter a short batch name first.";
+    newBatchName.focus();
+    return;
+  }
+
+  if (state.teachingBatches.some((batch) => batch.name.toLowerCase() === name.toLowerCase())) {
+    batchMessage.textContent = "A batch with this name already exists.";
+    return;
+  }
+
+  const batch = {
+    id: createId("batch"),
+    name,
+    learnerCount,
+    createdAt: Date.now(),
+    completeLessons: [],
+    classNotes: [],
+  };
+
+  state.teachingBatches.push(batch);
+  state.activeBatchId = batch.id;
+  newBatchName.value = "";
+  newBatchLearnerCount.value = "";
+  batchMessage.textContent = `${name} is ready. Progress and notes will be saved separately.`;
+  saveState();
+  renderAll();
 }
 
 function openMaterialDatabase() {
@@ -300,8 +450,22 @@ function showView(viewName) {
   });
 }
 
+function getIndependentLessons() {
+  return lessons.filter((lesson) => INDEPENDENT_SUBJECTS.includes(lesson.subject || "General"));
+}
+
+function getIndependentCompletedIds() {
+  const independentIds = new Set(getIndependentLessons().map((lesson) => lesson.id));
+  return state.completeLessons.filter((id) => independentIds.has(id));
+}
+
+function getBatchCompletedIds(batch) {
+  const suggestedIds = new Set(getIndependentLessons().map((lesson) => lesson.id));
+  return batch.completeLessons.filter((id) => suggestedIds.has(id));
+}
+
 function getSubjects() {
-  const subjects = lessons.map((lesson) => lesson.subject || "General");
+  const subjects = getIndependentLessons().map((lesson) => lesson.subject || "General");
   return ["All", ...new Set(subjects)];
 }
 
@@ -316,15 +480,15 @@ function renderSubjectFilter() {
 }
 
 function renderLessons() {
+  const independentLessons = getIndependentLessons();
   const visibleLessons =
     state.selectedSubject === "All"
-      ? lessons
-      : lessons.filter((lesson) => (lesson.subject || "General") === state.selectedSubject);
+      ? independentLessons
+      : independentLessons.filter((lesson) => (lesson.subject || "General") === state.selectedSubject);
 
   if (visibleLessons.length === 0) {
     lessonGrid.innerHTML = `
       <article class="lesson-card">
-        <div class="lesson-icon" aria-hidden="true">0</div>
         <div>
           <h3>No activities found</h3>
           <p>Choose another subject to see available activities.</p>
@@ -342,7 +506,6 @@ function renderLessons() {
 
       return `
         <article class="lesson-card ${isComplete ? "complete" : ""}">
-          <div class="lesson-icon" aria-hidden="true">${escapeHtml(lesson.icon)}</div>
           <div>
             <span class="review-badge">${escapeHtml(reviewStatus)}</span>
             <h3>${escapeHtml(lesson.title)}</h3>
@@ -369,12 +532,48 @@ function renderResourceCategories() {
             <h3>${escapeHtml(category.title)}</h3>
             <p>${escapeHtml(category.description)}</p>
             <p class="path-subjects">Related practice: ${escapeHtml(category.subjects.join(" · "))}</p>
+            <dl class="resource-facts">
+              <div><dt>Offline</dt><dd>${escapeHtml(category.offline)}</dd></div>
+              <div><dt>Licence</dt><dd>${escapeHtml(category.license)}</dd></div>
+            </dl>
             <div class="resource-link-list">
               ${category.links
                 .map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`)
                 .join("")}
             </div>
           </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function renderHomeLearning() {
+  homeLearnerName.value = state.homeLearnerName;
+  homeAgeGroup.value = state.homeAgeGroup;
+
+  const currentPath = homeLearningPaths.find((path) => path.id === state.homeCurrentPathId);
+  homeCurrentPlan.textContent = currentPath ? currentPath.title : "Choose a suggested path";
+  homePlanMessage.textContent = currentPath
+    ? currentPath.routine
+    : "You can change paths at any time.";
+
+  const visiblePaths = homeLearningPaths.filter((path) => path.ages.includes(state.homeAgeGroup));
+  homePathGrid.innerHTML = visiblePaths
+    .map((path) => {
+      const isCurrent = path.id === state.homeCurrentPathId;
+      return `
+        <article class="home-path-card ${isCurrent ? "current" : ""}">
+          <div>
+            <p class="eyebrow">Ages ${escapeHtml(path.ages.join(" · "))}</p>
+            <h3>${escapeHtml(path.title)}</h3>
+            <p>${escapeHtml(path.description)}</p>
+          </div>
+          <div class="home-routine">
+            <strong>Simple routine</strong>
+            <p>${escapeHtml(path.routine)}</p>
+          </div>
+          <button type="button" data-home-path-id="${escapeHtml(path.id)}">${isCurrent ? "Current path" : "Use this path"}</button>
         </article>
       `;
     })
@@ -411,17 +610,18 @@ function renderTeacherResources(subject) {
 
 function renderProgress() {
   const t = translations[state.language];
-  const completed = state.completeLessons.length;
-  const percent = lessons.length === 0 ? 0 : Math.round((completed / lessons.length) * 100);
+  const independentLessons = getIndependentLessons();
+  const completed = getIndependentCompletedIds().length;
+  const percent = independentLessons.length === 0 ? 0 : Math.round((completed / independentLessons.length) * 100);
   const name = state.learnerName || "learner";
 
   welcomeTitle.textContent = `${t.welcome}, ${name}`;
-  progressText.textContent = `${completed} of ${lessons.length} ${t.complete}`;
+  progressText.textContent = `${completed} of ${independentLessons.length} ${t.complete}`;
   progressFill.style.width = `${percent}%`;
 }
 
 function getNextLesson() {
-  return lessons.find((lesson) => !state.completeLessons.includes(lesson.id));
+  return getIndependentLessons().find((lesson) => !state.completeLessons.includes(lesson.id));
 }
 
 function renderContinueLearning() {
@@ -446,16 +646,19 @@ function updateNetworkStatus() {
 }
 
 function renderTeacherView() {
-  const completed = state.completeLessons.length;
-  const remaining = Math.max(lessons.length - completed, 0);
+  const activeBatch = getActiveBatch();
+  const suggestedLessons = getIndependentLessons();
+  const completed = getBatchCompletedIds(activeBatch).length;
+  const remaining = Math.max(suggestedLessons.length - completed, 0);
 
-  teacherTotalLessons.textContent = lessons.length;
+  teacherTotalLessons.textContent = suggestedLessons.length;
   teacherCompletedLessons.textContent = completed;
   teacherRemainingLessons.textContent = remaining;
-  teacherGuideList.innerHTML = lessons
+  teacherLearnerCount.textContent = activeBatch.learnerCount || "-";
+  teacherGuideList.innerHTML = suggestedLessons
     .map((lesson) => {
-      const isComplete = state.completeLessons.includes(lesson.id);
-      const status = isComplete ? "Completed" : "Not complete";
+      const isComplete = activeBatch.completeLessons.includes(lesson.id);
+      const status = isComplete ? "Mark incomplete" : "Mark complete";
       const reviewStatus = lesson.reviewStatus || "Draft";
       const resourcesHtml = renderTeacherResources(lesson.subject || "General");
 
@@ -468,7 +671,7 @@ function renderTeacherView() {
             <p>${escapeHtml(lesson.teacherNote || "Teaching guidance is coming soon.")}</p>
             ${resourcesHtml}
           </div>
-          <span>${status}</span>
+          <button class="${isComplete ? "secondary-button" : ""}" type="button" data-batch-lesson-id="${escapeHtml(lesson.id)}">${status}</button>
         </article>
       `;
     })
@@ -560,7 +763,7 @@ function renderClassNotes() {
 
 function saveClassNotebookEntry() {
   const noteText = classNote.value.trim();
-  const group = groupName.value.trim() || "Unnamed group";
+  const group = getActiveBatch().name;
 
   if (!noteText) {
     classNote.placeholder = "Write one short review note before saving.";
@@ -674,12 +877,14 @@ function closeFullscreenWithBackButton() {
 }
 
 function downloadPilotReport() {
-  const completed = state.completeLessons.length;
-  const remaining = Math.max(lessons.length - completed, 0);
+  const activeBatch = getActiveBatch();
+  const suggestedLessons = getIndependentLessons();
+  const completed = getBatchCompletedIds(activeBatch).length;
+  const remaining = Math.max(suggestedLessons.length - completed, 0);
   const date = new Date().toLocaleDateString();
-  const lessonLines = lessons
+  const lessonLines = suggestedLessons
     .map((lesson) => {
-      const status = state.completeLessons.includes(lesson.id) ? "Complete" : "Not complete";
+      const status = activeBatch.completeLessons.includes(lesson.id) ? "Complete" : "Not complete";
       return `- ${lesson.title} (${lesson.subject || "General"}): ${status}`;
     })
     .join("\n");
@@ -689,10 +894,12 @@ function downloadPilotReport() {
   const report = [
     "LearnBridge Myanmar pilot report",
     `Date: ${date}`,
+    `Class batch: ${activeBatch.name}`,
+    `Approximate learners: ${activeBatch.learnerCount || "Not recorded"}`,
     "",
     "Privacy note: This report should not include real child names, documents, addresses, or private family details.",
     "",
-    `Total activities: ${lessons.length}`,
+    `Total suggested activities: ${suggestedLessons.length}`,
     `Completed activities: ${completed}`,
     `Remaining activities: ${remaining}`,
     "",
@@ -715,6 +922,7 @@ function downloadPilotReport() {
 function renderAll() {
   learnerName.value = state.learnerName;
   languageSelect.value = state.language;
+  renderBatchControls();
   renderSubjectFilter();
   renderLessons();
   renderResourceCategories();
@@ -722,6 +930,7 @@ function renderAll() {
   renderContinueLearning();
   renderTeacherView();
   renderClassNotes();
+  renderHomeLearning();
   updateNetworkStatus();
 }
 
@@ -730,7 +939,6 @@ document.querySelector("#saveLearner").addEventListener("click", () => {
   state.language = languageSelect.value;
   saveState();
   renderProgress();
-  quizResult.textContent = translations[state.language].saved;
 });
 
 languageSelect.addEventListener("change", () => {
@@ -783,16 +991,75 @@ viewTabs.forEach((tab) => {
   tab.addEventListener("click", () => showView(tab.dataset.view));
 });
 
+document.querySelectorAll("[data-open-view]").forEach((button) => {
+  button.addEventListener("click", () => showView(button.dataset.openView));
+});
+
 resetProgress.addEventListener("click", () => {
-  const shouldReset = window.confirm("Reset progress on this device? This cannot be undone.");
+  const activeBatch = getActiveBatch();
+  const shouldReset = window.confirm(`Reset progress for ${activeBatch.name}? This cannot be undone.`);
   if (!shouldReset) return;
 
-  state.completeLessons = [];
+  activeBatch.completeLessons = [];
   saveState();
   renderAll();
 });
 
 exportReport.addEventListener("click", downloadPilotReport);
+
+batchSelect.addEventListener("change", () => {
+  state.activeBatchId = batchSelect.value;
+  batchMessage.textContent = `Now tracking ${getActiveBatch().name}.`;
+  saveState();
+  showLessonList();
+  renderAll();
+});
+
+addBatch.addEventListener("click", addTeachingBatch);
+
+newBatchName.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") addTeachingBatch();
+});
+
+teacherGuideList.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-batch-lesson-id]");
+  if (!button) return;
+
+  const activeBatch = getActiveBatch();
+  const lessonId = button.dataset.batchLessonId;
+  const isComplete = activeBatch.completeLessons.includes(lessonId);
+
+  activeBatch.completeLessons = isComplete
+    ? activeBatch.completeLessons.filter((id) => id !== lessonId)
+    : [...activeBatch.completeLessons, lessonId];
+  saveState();
+  renderTeacherView();
+});
+
+saveHomeProfile.addEventListener("click", () => {
+  state.homeLearnerName = homeLearnerName.value.trim();
+  state.homeAgeGroup = homeAgeGroup.value;
+  saveState();
+  renderHomeLearning();
+  homePlanMessage.textContent = state.homeLearnerName
+    ? `Home learning is ready for ${state.homeLearnerName}.`
+    : "Home learning profile saved on this device.";
+});
+
+homeAgeGroup.addEventListener("change", () => {
+  state.homeAgeGroup = homeAgeGroup.value;
+  saveState();
+  renderHomeLearning();
+});
+
+homePathGrid.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-home-path-id]");
+  if (!button) return;
+
+  state.homeCurrentPathId = button.dataset.homePathId;
+  saveState();
+  renderHomeLearning();
+});
 
 classFile.addEventListener("change", () => {
   showClassFile(classFile.files[0]);
@@ -846,20 +1113,6 @@ openNextLesson.addEventListener("click", () => {
   showLessonReader(nextLesson.id);
 });
 
-document.querySelectorAll(".quiz-option").forEach((button) => {
-  button.addEventListener("click", () => {
-    const isCorrect = button.dataset.correct === "true";
-    const t = translations[state.language];
-
-    document.querySelectorAll(".quiz-option").forEach((option) => {
-      option.classList.remove("correct", "incorrect");
-    });
-
-    button.classList.add(isCorrect ? "correct" : "incorrect");
-    quizResult.textContent = isCorrect ? t.correct : t.incorrect;
-  });
-});
-
 window.addEventListener("online", updateNetworkStatus);
 window.addEventListener("offline", updateNetworkStatus);
 
@@ -870,8 +1123,8 @@ if ("serviceWorker" in navigator) {
 async function loadLessons() {
   try {
     const [lessonResponse, resourceResponse] = await Promise.all([
-      fetch("./lessons.json?v=47"),
-      fetch("./resources.json?v=47"),
+      fetch("./lessons.json?v=54"),
+      fetch("./resources.json?v=54"),
     ]);
 
     if (!lessonResponse.ok || !resourceResponse.ok) {
@@ -884,7 +1137,6 @@ async function loadLessons() {
   } catch (error) {
     lessonGrid.innerHTML = `
       <article class="lesson-card">
-        <div class="lesson-icon" aria-hidden="true">!</div>
         <div>
           <h3>Activities could not load</h3>
           <p>Please check lessons.json, resources.json, or run the app from the local server.</p>
@@ -897,5 +1149,6 @@ async function loadLessons() {
   }
 }
 
+saveState();
 loadLessons();
 renderOfflineMaterials();

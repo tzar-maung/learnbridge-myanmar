@@ -8,19 +8,21 @@ I started this project because I wanted to explore a practical question: how can
 volunteer teachers prepare and run useful lessons when a class may have only one
 shared phone, tablet, or computer?
 
-The project is still growing. Right now, it is designed mainly as a simple
-classroom helper for teachers and volunteers, with learner-friendly activities
-that can be used together on a shared device.
+The project is still growing around three practical uses: independent learners
+building useful skills, teachers organizing different class batches, and adults
+supporting children with suggested home-learning paths.
 
 ## What It Can Do
 
-- Run short practice activities and track progress on the device.
+- Track independent learning separately from teacher-led classes.
+- Follow useful language, maths, and reading learning paths.
 - Organize free learning resources by subject and purpose.
 - Open PDFs and images for classroom teaching.
 - Save selected teaching materials in the browser for offline use.
 - Show teaching materials in full-screen mode.
+- Track separate activity progress and class notes for different teaching batches.
+- Choose age-based home-learning paths for adults learning with children.
 - Keep simple group notes without collecting children's private information.
-- Provide basic offline safety and privacy guidance.
 - Continue working with cached app content when the internet is unavailable.
 
 ## Privacy
@@ -43,6 +45,14 @@ The lesson content and safety guidance still need review from experienced
 teachers, local communities, and child-protection professionals before real
 classroom use.
 
-My next goals are to improve the interface, add better-reviewed learning
-materials, support more languages, and test the project with volunteers who
-understand the needs of displaced learners.
+My next goals are to develop complete skill levels, expand the suggested home
+plans, support more languages, and test the project with learners, parents, and
+teachers who understand local needs.
+
+## Future Idea: Community Contributions
+
+A later version may help supporters offer physical books, permitted digital
+materials, devices, or volunteer classes to verified learning groups. Paid or
+copyrighted textbooks must not be uploaded or redistributed without the
+copyright holder's permission. A public contribution feature would also need
+moderation, safeguarding, location privacy, and a clear handover process.

@@ -5,21 +5,21 @@ Use this checklist before sharing the prototype with a pilot group.
 ## Basic Setup
 
 - [ ] Local server starts without errors.
-- [ ] App opens at `http://127.0.0.1:4173/?fresh=47`.
+- [ ] App opens at `http://127.0.0.1:4173/?fresh=50`.
 - [ ] Page shows LearnBridge Myanmar.
 - [ ] Online/offline status appears in the header.
-- [ ] Header tabs show Practice, Resources, Teach, and Safety.
+- [ ] Header tabs show Learn, Teach, Home, and Library.
 
-## Practice
+## Independent Learn
 
 - [ ] Safe nickname can be entered.
 - [ ] Save learner updates the welcome message.
 - [ ] Continue Practice shows the first incomplete activity.
 - [ ] Open next activity opens the activity reader.
 - [ ] Back to activities returns to the activity list.
-- [ ] Mark activity complete updates progress.
+- [ ] Mark activity complete updates independent learner progress only.
 - [ ] Completed activity card changes state.
-- [ ] Quick check gives correct/incorrect feedback.
+- [ ] Only useful skill subjects appear in the independent learning list.
 
 ## Activity Library
 
@@ -29,9 +29,9 @@ Use this checklist before sharing the prototype with a pilot group.
 - [ ] Each activity opens with title, subject, level, content, and sources where available.
 - [ ] Teacher guidance does not appear inside the learner-facing activity reader.
 
-## Resources
+## Library
 
-- [ ] Resources tab opens the Download Library.
+- [ ] Library tab opens the resource library.
 - [ ] Resource categories appear.
 - [ ] External resource links open in a new tab while online.
 - [ ] Offline setup checklist explains that outside files must be downloaded separately.
@@ -39,6 +39,11 @@ Use this checklist before sharing the prototype with a pilot group.
 ## Teach
 
 - [ ] Teach tab opens Teaching Desk.
+- [ ] Existing progress appears under the migrated **Main class** batch.
+- [ ] A new batch can be created with a general name and approximate learner count.
+- [ ] Switching batches changes the completed and remaining activity counts.
+- [ ] Marking a suggested activity in Teach affects only the selected batch.
+- [ ] Class notes appear only under the batch where they were saved.
 - [ ] Activity, completed, and remaining counts are correct.
 - [ ] Load class material file picker is visible.
 - [ ] A downloaded image can be shown in the file viewer.
@@ -56,18 +61,19 @@ Use this checklist before sharing the prototype with a pilot group.
 - [ ] Teaching notes appear for each activity.
 - [ ] Export pilot report downloads a text file without private child data.
 
-## Safety
+## Home Learning
 
-- [ ] Safety tab opens the Offline Safety Kit.
-- [ ] Safety guidance is calm and non-graphic.
-- [ ] Safety guidance avoids tactical or military instructions.
-- [ ] Sensitive safety content is marked for local review in lessons where needed.
+- [ ] Home tab opens suggested learning paths for adults and children.
+- [ ] Saving a nickname and age range updates the local home profile.
+- [ ] Changing the age range filters the suggested paths.
+- [ ] Choosing a path updates the current home plan.
+- [ ] Home profile and selected path remain after refresh.
 
 ## Reset Progress
 
-- [ ] Reset progress asks for confirmation.
+- [ ] Reset current batch progress asks for confirmation and names the selected batch.
 - [ ] Cancel keeps progress unchanged.
-- [ ] Confirm clears completed activities.
+- [ ] Confirm clears completed activities only for the selected batch.
 - [ ] Progress returns to 0 completed activities.
 - [ ] Continue Practice returns to the first activity.
 
