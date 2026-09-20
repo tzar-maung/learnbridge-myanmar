@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#256f75" />
     <title>LearnBridge Offline</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=44" />
+    <link rel="stylesheet" href="./styles.css?v=47" />
   </head>
   <body>
     <header class="topbar">
@@ -194,8 +194,9 @@
               <p class="eyebrow">Class material</p>
               <h3>Open a downloaded teaching file</h3>
               <p>
-                Choose a PDF or image already saved on this device. The file is
-                displayed for this class only and is not uploaded anywhere.
+                Choose a PDF or image already saved on this device. Preview it
+                for this class or save it in this browser for later offline use.
+                It is not uploaded anywhere.
               </p>
             </div>
 
@@ -204,12 +205,28 @@
                 Load class material
                 <input id="classFile" type="file" accept="application/pdf,image/*" />
               </label>
+              <button id="saveClassFile" type="button" disabled>Save offline</button>
+              <button class="secondary-button" id="toggleFullscreen" type="button" disabled>Full screen</button>
               <button class="secondary-button" id="clearClassFile" type="button">Clear material</button>
             </div>
             <p class="textbook-status" id="classFileStatus">No file selected yet.</p>
             <div class="file-viewer empty" id="fileViewer">
               <p>Select a saved PDF or image before class starts.</p>
             </div>
+
+            <section class="offline-materials" aria-labelledby="offlineMaterialsTitle">
+              <div>
+                <p class="eyebrow">Device library</p>
+                <h4 id="offlineMaterialsTitle">My offline materials</h4>
+                <p>
+                  Saved files stay in this browser on this device. Clearing browser
+                  data removes them, so keep important originals elsewhere too.
+                </p>
+              </div>
+              <div class="offline-material-list" id="offlineMaterialList">
+                <p class="empty-note">Checking saved materials...</p>
+              </div>
+            </section>
           </section>
 
           <section class="class-notebook" aria-label="Class notebook">
@@ -318,6 +335,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=44"></script>
+    <script src="./app.js?v=47"></script>
   </body>
 </html>

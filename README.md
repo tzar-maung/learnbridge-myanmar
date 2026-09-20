@@ -1,210 +1,48 @@
 # LearnBridge Myanmar
 
-LearnBridge Myanmar is a free, offline-first teacher-guided learning kit for
-volunteers and teachers supporting displaced Myanmar and Arakanese learners age
-12+. It is designed for shared phones, tablets, and computers where internet
-access may be unstable or unavailable.
+LearnBridge Myanmar is an offline-first learning project for displaced Myanmar
+and Arakanese learners, especially in places where internet access and personal
+devices are limited.
 
-## Purpose
+I started this project because I wanted to explore a practical question: how can
+volunteer teachers prepare and run useful lessons when a class may have only one
+shared phone, tablet, or computer?
 
-Many displaced learners experience interrupted schooling, shared-device access,
-and privacy risks. This prototype explores how a small browser-based learning
-kit can support resource preparation, downloaded class materials, catch-up
-activities, offline safety guidance, and volunteer-led class notes while
-avoiding accounts, real names, or cloud data collection.
+The project is still growing. Right now, it is designed mainly as a simple
+classroom helper for teachers and volunteers, with learner-friendly activities
+that can be used together on a shared device.
 
-## Core Users
+## What It Can Do
 
-- Volunteers and teachers guiding shared-device learning sessions.
-- Learners age 12+ who need respectful catch-up learning activities.
-- Community helpers who need tools that work without reliable internet.
+- Run short practice activities and track progress on the device.
+- Organize free learning resources by subject and purpose.
+- Open PDFs and images for classroom teaching.
+- Save selected teaching materials in the browser for offline use.
+- Show teaching materials in full-screen mode.
+- Keep simple group notes without collecting children's private information.
+- Provide basic offline safety and privacy guidance.
+- Continue working with cached app content when the internet is unavailable.
 
-## Current Features
+## Privacy
 
-- Learner nickname saved locally on the device.
-- Language selector.
-- Four clear sections: Practice, Resources, Teach, and Safety.
-- Progress tracking with a visual progress bar.
-- Continue Practice panel that opens the next incomplete activity.
-- Download Library with resource categories and external download links.
-- Teaching Desk with a local PDF/image class material viewer.
-- Privacy-safe class notebook saved on this device.
-- Offline Safety Kit with calm safety and privacy guidance.
-- Lesson library generated from `lessons.json`.
-- Subject filter for finding activities by topic.
-- Focused activity reader view.
-- Mark activity complete flow.
-- Teaching notes and resource notes for volunteers.
-- Reset progress action for shared-device use.
-- Export pilot report action that avoids private child data.
-- Kiwix reference section explaining how offline library content could connect.
-- Offline setup checklist for preparing a device before a class.
-- Content review status labels for draft and locally reviewed lesson material.
-- Resource notes powered by `resources.json`.
-- Simple privacy quiz.
-- Service worker cache for offline-first behavior.
+LearnBridge does not require an account or a child's real name. Progress, class
+notes, and saved materials remain in that browser on that device. The project is
+intentionally designed to avoid collecting documents, exact locations, contact
+details, and private family information.
 
-## Lesson Content
+## Built With
 
-Practice activities are stored in `lessons.json` so content is separate from
-app behavior. Each activity includes:
+This version uses HTML, CSS, JavaScript, JSON, browser storage, IndexedDB, and a
+service worker. It is currently a frontend-only prototype with no backend,
+cloud accounts, analytics, or API keys.
 
-```json
-{
-  "id": "safety",
-  "icon": "1",
-  "title": "Learning safely",
-  "subject": "Digital safety",
-  "level": "Starter",
-  "description": "Short lesson summary.",
-  "content": "Full learner-facing lesson text.",
-  "goal": "What the learner should understand.",
-  "steps": ["Short guided activity step."],
-  "practice": "Small learner activity.",
-  "checkQuestion": "Simple comprehension question.",
-  "references": [
-    {
-      "title": "Trusted source title",
-      "url": "https://example.org"
-    }
-  ],
-  "reviewStatus": "Draft",
-  "teacherNote": "Guidance for teachers or volunteers."
-}
-```
+## Current Status
 
-Trusted resource links are stored in `resources.json`. Teaching Desk shows the
-resources that match each activity subject:
+This is an early portfolio and pilot project, not a finished school curriculum.
+The lesson content and safety guidance still need review from experienced
+teachers, local communities, and child-protection professionals before real
+classroom use.
 
-```json
-{
-  "subject": "Math",
-  "items": [
-    {
-      "title": "Khan Academy offline options",
-      "source": "Khan Academy",
-      "type": "Math and science practice",
-      "access": "App download or Kolibri for offline use",
-      "url": "https://www.khanacademy.org/downloads",
-      "note": "Useful for structured math practice."
-    }
-  ]
-}
-```
-
-## Tech Stack
-
-- HTML for structure.
-- CSS for layout and visual design.
-- JavaScript for app behavior.
-- JSON for lesson content.
-- `localStorage` for local progress.
-- Service worker for offline caching.
-- Python `http.server` for local development only.
-
-## How To Run Locally
-
-Open a terminal in the project folder:
-
-```powershell
-cd learnbridge
-python -m http.server 4173 --bind 127.0.0.1
-```
-
-Then open:
-
-```text
-http://127.0.0.1:4173/?fresh=44
-```
-
-The local server is needed because the app loads activity data from
-`lessons.json`.
-
-## Privacy And Safety Choices
-
-- No account is required.
-- No real child name is required.
-- No phone number, email, document number, or location is collected.
-- Progress stays in browser storage on the device.
-- Reset progress is placed in Teaching Desk for shared-device privacy.
-- Class notebook entries should use group names and general learning notes only.
-
-## Offline-First Design
-
-The service worker caches the app files and lesson data. When online, the app
-tries to load fresh files first. If the network is unavailable, it falls back to
-cached files.
-
-For a pilot, open the app once while the local server is running, open at least
-one lesson, then test with internet or Wi-Fi turned off. This confirms the
-browser has cached the app for offline use on that device.
-
-External teacher resource links are not automatically available offline. A
-teacher or volunteer needs to download those materials separately in tools such
-as Kiwix Reader, Kiwix Server, or Kolibri before using them without internet.
-
-Official textbook PDFs are linked for teacher access but are not bundled in
-LearnBridge. Teachers can download PDFs separately, then use the Teaching Desk
-file picker to display a saved PDF or image during offline sessions. The file is
-selected from the device for the current class and is not uploaded.
-
-For development on this laptop, LearnBridge only needs Python's local server.
-For real offline reading, install Kiwix Reader and download selected ZIM files
-before leaving internet access. Kolibri is optional and better suited for a
-larger course library.
-
-## Kiwix Integration Plan
-
-Kiwix is a separate offline knowledge tool. It can open downloaded ZIM files,
-such as offline encyclopedias, books, and other educational collections.
-
-For this MVP, LearnBridge does not bundle Kiwix content. The app only explains
-where Kiwix fits. A realistic deployment could use:
-
-- Kiwix Reader on one teacher laptop, tablet, or phone.
-- Downloaded ZIM files chosen by language, age level, and topic.
-- Kiwix Server on a local laptop or small server, so nearby learners can open
-  the library through a browser on the same local network.
-
-Useful official links:
-
-- Kiwix: https://kiwix.org/en/
-- Kiwix Reader: https://get.kiwix.org/en/solutions/applications/kiwix-reader/
-- Kiwix Server: https://get.kiwix.org/en/solutions/applications/kiwix-server/
-- Kiwix catalog: https://get.kiwix.org/en/solutions/catalog/
-
-## Current MVP Scope
-
-This is a frontend-only prototype. It does not include:
-
-- user accounts
-- backend database
-- cloud sync
-- analytics
-- admin content management
-- real Kiwix server integration
-
-Those features are intentionally left out to keep the first version simple,
-privacy-friendly, and realistic for a one-month portfolio project.
-
-## Future Improvements
-
-- Add more lesson packs by subject and age level.
-- Add printable worksheet files.
-- Add audio support for early readers.
-- Add import/export for progress.
-- Add local Wi-Fi sharing for classrooms or community centers.
-- Add deeper Kiwix integration.
-- Redesign the UI after the core feature set is stable.
-
-## Portfolio Focus
-
-This project demonstrates:
-
-- frontend fundamentals
-- offline-first thinking
-- local data storage
-- data-driven UI rendering
-- multi-section frontend navigation
-- privacy-aware product design
-- humanitarian technology constraints
+My next goals are to improve the interface, add better-reviewed learning
+materials, support more languages, and test the project with volunteers who
+understand the needs of displaced learners.

@@ -2,6 +2,13 @@ let lessons = [];
 let resourceLibraries = [];
 let currentLessonId = "";
 let activeFileUrl = "";
+let selectedClassFile = null;
+let fullscreenHistoryActive = false;
+let fullscreenClosedByBack = false;
+
+const MATERIAL_DB_NAME = "learnbridge-materials";
+const MATERIAL_STORE_NAME = "materials";
+const MAX_MATERIAL_SIZE = 25 * 1024 * 1024;
 
 const resourceCategories = [
   {
@@ -140,9 +147,12 @@ const teacherGuideList = document.querySelector("#teacherGuideList");
 const exportReport = document.querySelector("#exportReport");
 const resetProgress = document.querySelector("#resetProgress");
 const classFile = document.querySelector("#classFile");
+const saveClassFile = document.querySelector("#saveClassFile");
+const toggleFullscreen = document.querySelector("#toggleFullscreen");
 const clearClassFile = document.querySelector("#clearClassFile");
 const classFileStatus = document.querySelector("#classFileStatus");
 const fileViewer = document.querySelector("#fileViewer");
+const offlineMaterialList = document.querySelector("#offlineMaterialList");
 const groupName = document.querySelector("#groupName");
 const classResult = document.querySelector("#classResult");
 const classNote = document.querySelector("#classNote");
@@ -163,6 +173,122 @@ function saveState() {
   localStorage.setItem("language", state.language);
   localStorage.setItem("completeLessons", JSON.stringify(state.completeLessons));
   localStorage.setItem("classNotes", JSON.stringify(state.classNotes));
+}
+
+function openMaterialDatabase() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(MATERIAL_DB_NAME, 1);
+
+    request.onupgradeneeded = () => {
+      const database = request.result;
+      if (!database.objectStoreNames.contains(MATERIAL_STORE_NAME)) {
+        database.createObjectStore(MATERIAL_STORE_NAME, { keyPath: "id" });
+      }
+    };
+
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function useMaterialStore(mode, operation) {
+  const database = await openMaterialDatabase();
+
+  return new Promise((resolve, reject) => {
+    const transaction = database.transaction(MATERIAL_STORE_NAME, mode);
+    const store = transaction.objectStore(MATERIAL_STORE_NAME);
+    const request = operation(store);
+
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+    transaction.oncomplete = () => database.close();
+  });
+}
+
+function formatFileSize(bytes) {
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+async function getOfflineMaterials() {
+  const materials = await useMaterialStore("readonly", (store) => store.getAll());
+  return materials.sort((a, b) => b.savedAt - a.savedAt);
+}
+
+async function renderOfflineMaterials() {
+  if (!offlineMaterialList) return;
+
+  try {
+    const materials = await getOfflineMaterials();
+
+    if (materials.length === 0) {
+      offlineMaterialList.innerHTML = `<p class="empty-note">No materials saved offline yet.</p>`;
+      return;
+    }
+
+    offlineMaterialList.innerHTML = materials
+      .map(
+        (material) => `
+          <article class="offline-material-item">
+            <div>
+              <h5>${escapeHtml(material.name)}</h5>
+              <p>${escapeHtml(formatFileSize(material.size))} · Saved ${escapeHtml(new Date(material.savedAt).toLocaleDateString())}</p>
+            </div>
+            <div class="material-actions">
+              <button type="button" data-open-material-id="${escapeHtml(material.id)}">Open</button>
+              <button class="secondary-button" type="button" data-delete-material-id="${escapeHtml(material.id)}">Delete</button>
+            </div>
+          </article>
+        `
+      )
+      .join("");
+  } catch (error) {
+    offlineMaterialList.innerHTML = `<p class="empty-note">Offline storage is not available in this browser.</p>`;
+  }
+}
+
+async function saveSelectedMaterial() {
+  if (!selectedClassFile) return;
+
+  if (selectedClassFile.size > MAX_MATERIAL_SIZE) {
+    classFileStatus.textContent = "This file is larger than 25 MB. Choose a smaller PDF or image.";
+    return;
+  }
+
+  const material = {
+    id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${selectedClassFile.name}`,
+    name: selectedClassFile.name,
+    type: selectedClassFile.type,
+    size: selectedClassFile.size,
+    savedAt: Date.now(),
+    file: selectedClassFile,
+  };
+
+  try {
+    await useMaterialStore("readwrite", (store) => store.put(material));
+    saveClassFile.disabled = true;
+    classFileStatus.textContent = `${selectedClassFile.name} is saved for offline use on this device.`;
+    await renderOfflineMaterials();
+  } catch (error) {
+    classFileStatus.textContent = "The file could not be saved. This browser may be out of storage space.";
+  }
+}
+
+async function openSavedMaterial(materialId) {
+  const material = await useMaterialStore("readonly", (store) => store.get(materialId));
+  if (!material) return;
+
+  const storedFile =
+    material.file instanceof File
+      ? material.file
+      : new File([material.file], material.name, { type: material.type });
+  showClassFile(storedFile, true);
+  fileViewer.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function deleteSavedMaterial(materialId) {
+  await useMaterialStore("readwrite", (store) => store.delete(materialId));
+  await renderOfflineMaterials();
 }
 
 function showView(viewName) {
@@ -456,23 +582,35 @@ function saveClassNotebookEntry() {
 }
 
 function clearCurrentClassFile() {
+  if (document.fullscreenElement === fileViewer) {
+    document.exitFullscreen().catch(() => {});
+  }
+
   if (activeFileUrl) {
     URL.revokeObjectURL(activeFileUrl);
     activeFileUrl = "";
   }
 
   classFile.value = "";
+  selectedClassFile = null;
+  saveClassFile.disabled = true;
+  toggleFullscreen.disabled = true;
   classFileStatus.textContent = "No file selected yet.";
   fileViewer.className = "file-viewer empty";
   fileViewer.innerHTML = "<p>Select a saved PDF or image before class starts.</p>";
 }
 
-function showClassFile(file) {
+function showClassFile(file, isSaved = false) {
   if (!file) return;
 
   if (activeFileUrl) URL.revokeObjectURL(activeFileUrl);
   activeFileUrl = URL.createObjectURL(file);
-  classFileStatus.textContent = `Showing ${file.name}. This file stays on this device.`;
+  selectedClassFile = file;
+  saveClassFile.disabled = isSaved;
+  toggleFullscreen.disabled = false;
+  classFileStatus.textContent = isSaved
+    ? `Showing ${file.name} from this device's offline library.`
+    : `Showing ${file.name}. Select Save offline to keep it in this browser.`;
   fileViewer.className = "file-viewer";
 
   if (file.type === "application/pdf") {
@@ -487,6 +625,52 @@ function showClassFile(file) {
 
   classFileStatus.textContent = "Please choose a PDF or image file.";
   clearCurrentClassFile();
+}
+
+async function toggleClassFileFullscreen() {
+  if (!activeFileUrl) return;
+
+  try {
+    if (document.fullscreenElement === fileViewer) {
+      await document.exitFullscreen();
+    } else {
+      await fileViewer.requestFullscreen();
+      window.history.pushState({ learnbridgeFullscreen: true }, "");
+      fullscreenHistoryActive = true;
+    }
+  } catch (error) {
+    classFileStatus.textContent = "Full-screen viewing is not supported by this browser.";
+  }
+}
+
+function updateFullscreenButton() {
+  const isFullscreen = document.fullscreenElement === fileViewer;
+  toggleFullscreen.textContent = isFullscreen ? "Exit full screen" : "Full screen";
+  toggleFullscreen.setAttribute("aria-pressed", String(isFullscreen));
+
+  if (!isFullscreen && fullscreenHistoryActive && !fullscreenClosedByBack) {
+    fullscreenHistoryActive = false;
+    window.history.back();
+  }
+
+  if (!isFullscreen && fullscreenClosedByBack) {
+    fullscreenClosedByBack = false;
+  }
+}
+
+function closeFullscreenWithBackButton() {
+  if (!fullscreenHistoryActive) return;
+
+  fullscreenHistoryActive = false;
+  fullscreenClosedByBack = true;
+
+  if (document.fullscreenElement === fileViewer) {
+    document.exitFullscreen().catch(() => {
+      fullscreenClosedByBack = false;
+    });
+  } else {
+    fullscreenClosedByBack = false;
+  }
 }
 
 function downloadPilotReport() {
@@ -614,7 +798,35 @@ classFile.addEventListener("change", () => {
   showClassFile(classFile.files[0]);
 });
 
+saveClassFile.addEventListener("click", saveSelectedMaterial);
+
+toggleFullscreen.addEventListener("click", toggleClassFileFullscreen);
+
+document.addEventListener("fullscreenchange", updateFullscreenButton);
+
+window.addEventListener("popstate", closeFullscreenWithBackButton);
+
 clearClassFile.addEventListener("click", clearCurrentClassFile);
+
+offlineMaterialList.addEventListener("click", async (event) => {
+  const openButton = event.target.closest("button[data-open-material-id]");
+  const deleteButton = event.target.closest("button[data-delete-material-id]");
+
+  try {
+    if (openButton) {
+      await openSavedMaterial(openButton.dataset.openMaterialId);
+      return;
+    }
+
+    if (deleteButton) {
+      const shouldDelete = window.confirm("Delete this material from this browser?");
+      if (!shouldDelete) return;
+      await deleteSavedMaterial(deleteButton.dataset.deleteMaterialId);
+    }
+  } catch (error) {
+    classFileStatus.textContent = "The offline material could not be opened or changed.";
+  }
+});
 
 saveClassNote.addEventListener("click", saveClassNotebookEntry);
 
@@ -658,8 +870,8 @@ if ("serviceWorker" in navigator) {
 async function loadLessons() {
   try {
     const [lessonResponse, resourceResponse] = await Promise.all([
-      fetch("./lessons.json?v=44"),
-      fetch("./resources.json?v=44"),
+      fetch("./lessons.json?v=47"),
+      fetch("./resources.json?v=47"),
     ]);
 
     if (!lessonResponse.ok || !resourceResponse.ok) {
@@ -686,3 +898,4 @@ async function loadLessons() {
 }
 
 loadLessons();
+renderOfflineMaterials();

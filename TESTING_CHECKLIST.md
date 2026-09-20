@@ -5,7 +5,7 @@ Use this checklist before sharing the prototype with a pilot group.
 ## Basic Setup
 
 - [ ] Local server starts without errors.
-- [ ] App opens at `http://127.0.0.1:4173/?fresh=44`.
+- [ ] App opens at `http://127.0.0.1:4173/?fresh=47`.
 - [ ] Page shows LearnBridge Myanmar.
 - [ ] Online/offline status appears in the header.
 - [ ] Header tabs show Practice, Resources, Teach, and Safety.
@@ -43,6 +43,12 @@ Use this checklist before sharing the prototype with a pilot group.
 - [ ] Load class material file picker is visible.
 - [ ] A downloaded image can be shown in the file viewer.
 - [ ] A downloaded PDF can be selected for the file viewer.
+- [ ] A selected PDF or image can be saved under **My offline materials**.
+- [ ] A saved material remains listed after refreshing the page.
+- [ ] A saved material opens from the device library while offline.
+- [ ] **Full screen** expands an open PDF or image and `Esc` returns to the Teaching Desk.
+- [ ] On a phone or tablet, the browser or device Back button closes full screen without leaving LearnBridge.
+- [ ] A saved material can be deleted from the device library.
 - [ ] Clear material resets the file viewer.
 - [ ] Class notebook saves a group note.
 - [ ] Saved class notes remain after refresh.
