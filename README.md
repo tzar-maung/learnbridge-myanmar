@@ -1,8 +1,8 @@
 # LearnBridge Myanmar
 
-LearnBridge Myanmar is an offline-first learning project for displaced Myanmar
-and Arakanese learners, especially in places where internet access and personal
-devices are limited.
+LearnBridge Myanmar is an offline-first resource guide and teaching workspace
+for displaced Myanmar and Arakanese learners, especially in places where
+internet access and personal devices are limited.
 
 I started this project because I wanted to explore a practical question: how can
 volunteer teachers prepare and run useful lessons when a class may have only one
@@ -15,8 +15,9 @@ supporting children with suggested home-learning paths.
 ## What It Can Do
 
 - Track independent learning separately from teacher-led classes.
-- Follow useful language, maths, and reading learning paths.
-- Organize free learning resources by subject and purpose.
+- Follow a practical English demonstration path and smaller sample activities.
+- Find free learning resources organized by subject and purpose.
+- Visit original providers for available textbook and resource downloads.
 - Open PDFs and images for classroom teaching.
 - Save selected teaching materials in the browser for offline use.
 - Show teaching materials in full-screen mode.
@@ -41,13 +42,22 @@ cloud accounts, analytics, or API keys.
 ## Current Status
 
 This is an early portfolio and pilot project, not a finished school curriculum.
-The lesson content and safety guidance still need review from experienced
-teachers, local communities, and child-protection professionals before real
-classroom use.
+Its primary current purpose is helping learners, families, and volunteer
+teachers find, prepare, and use free resources from their original providers.
 
-My next goals are to develop complete skill levels, expand the suggested home
-plans, support more languages, and test the project with learners, parents, and
-teachers who understand local needs.
+Practical English demonstrates a fuller offline learning path. The other paths
+are early examples and should not be presented as complete courses. All lesson
+content still needs review from experienced teachers and relevant local
+communities before a public learning pilot.
+
+Future contributed lessons will be included only with clear permission. The
+project should record who granted permission, what may be reused or modified,
+how the contributor must be credited, and whether offline redistribution is
+allowed.
+
+My next goals are to invite volunteer teachers to review the existing content,
+seek permission for meaningful contributed lessons, test offline use, and learn
+from learners, families, and teachers who understand local needs.
 
 ## Future Idea: Community Contributions
 

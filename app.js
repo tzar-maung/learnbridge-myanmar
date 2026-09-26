@@ -130,7 +130,7 @@ const homeLearningPaths = [
 const INDEPENDENT_SUBJECTS = ["Math", "Thai language", "Japanese", "Literacy", "English"];
 const LEARNING_TOPIC_ORDER = ["English", "Math", "Japanese", "Thai language", "Literacy"];
 const LEARNING_TOPIC_LABELS = {
-  English: "English foundations",
+  English: "Practical English",
   Math: "Everyday mathematics",
   Japanese: "Practical Japanese",
   "Thai language": "Thai foundations and daily use",
@@ -250,6 +250,8 @@ const lessonDetailContent = document.querySelector("#lessonDetailContent");
 const lessonDetailMeta = document.querySelector("#lessonDetailMeta");
 const backToLessons = document.querySelector("#backToLessons");
 const completeCurrentLesson = document.querySelector("#completeCurrentLesson");
+const nextCurrentLesson = document.querySelector("#nextCurrentLesson");
+const lessonCompletionMessage = document.querySelector("#lessonCompletionMessage");
 const teacherTotalLessons = document.querySelector("#teacherTotalLessons");
 const teacherCompletedLessons = document.querySelector("#teacherCompletedLessons");
 const teacherRemainingLessons = document.querySelector("#teacherRemainingLessons");
@@ -598,7 +600,9 @@ function renderLessons() {
   }
 
   const learningGroups = [
-    { label: "English foundations", subject: "English" },
+    { label: "English foundations", subject: "English", minOrder: 1, maxOrder: 5 },
+    { label: "English for daily life", subject: "English", minOrder: 6, maxOrder: 9 },
+    { label: "English for study and work", subject: "English", minOrder: 10, maxOrder: 13 },
     { label: "Everyday mathematics", subject: "Math" },
     { label: "Practical Japanese", subject: "Japanese" },
     { label: "Thai foundations", subject: "Thai language", level: "Foundation" },
@@ -615,6 +619,8 @@ function renderLessons() {
               if (lesson.subject !== group.subject) return false;
               if (group.level && lesson.level !== group.level) return false;
               if (group.excludeLevel && lesson.level === group.excludeLevel) return false;
+              if (group.minOrder && (lesson.pathOrder || 0) < group.minOrder) return false;
+              if (group.maxOrder && (lesson.pathOrder || 0) > group.maxOrder) return false;
               return true;
             })
             .sort((a, b) => (a.pathOrder || 999) - (b.pathOrder || 999));
@@ -792,7 +798,9 @@ function renderTeacherView() {
   teacherRemainingLessons.textContent = remaining;
   teacherLearnerCount.textContent = activeBatch.learnerCount || "-";
   const guideGroups = [
-    { label: "English foundations", subject: "English" },
+    { label: "English foundations", subject: "English", minOrder: 1, maxOrder: 5 },
+    { label: "English for daily life", subject: "English", minOrder: 6, maxOrder: 9 },
+    { label: "English for study and work", subject: "English", minOrder: 10, maxOrder: 13 },
     { label: "Everyday mathematics", subject: "Math" },
     { label: "Practical Japanese", subject: "Japanese" },
     { label: "Thai foundations", subject: "Thai language", level: "Foundation" },
@@ -807,6 +815,8 @@ function renderTeacherView() {
           if (lesson.subject !== group.subject) return false;
           if (group.level && lesson.level !== group.level) return false;
           if (group.excludeLevel && lesson.level === group.excludeLevel) return false;
+          if (group.minOrder && (lesson.pathOrder || 0) < group.minOrder) return false;
+          if (group.maxOrder && (lesson.pathOrder || 0) > group.maxOrder) return false;
           return true;
         })
         .sort((a, b) => (a.pathOrder || 999) - (b.pathOrder || 999));
@@ -863,9 +873,16 @@ function showLessonReader(lessonId) {
   lessonDetailTitle.textContent = lesson.title;
   lessonDetailMeta.textContent = getLessonSequenceText(lesson);
   lessonDetailContent.innerHTML = renderLessonContent(lesson);
-  completeCurrentLesson.textContent = state.completeLessons.includes(lesson.id)
-    ? "Activity completed"
-    : "Mark activity complete";
+  const isComplete = state.completeLessons.includes(lesson.id);
+  const nextLesson = getNextLessonInSubject(lesson);
+  completeCurrentLesson.textContent = isComplete ? "Mark as not completed" : "Mark activity complete";
+  completeCurrentLesson.disabled = false;
+  lessonCompletionMessage.textContent = isComplete
+    ? "This activity was completed earlier on this device. You can continue or remove its completion status."
+    : "";
+  lessonCompletionMessage.classList.toggle("is-hidden", !isComplete);
+  nextCurrentLesson.textContent = nextLesson ? "Next activity" : "Back to English path";
+  nextCurrentLesson.classList.toggle("is-hidden", !isComplete);
   lessonListView.classList.add("is-hidden");
   lessonReader.classList.remove("is-hidden");
   lessonReader.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1022,6 +1039,14 @@ function renderLessonContent(lesson) {
     : "";
 
   return `${goalHtml}${realLifeHtml}${vocabularyHtml}${patternsHtml}${dialogueHtml}${workedExamplesHtml}${stepsHtml}${practiceHtml}${exercisesHtml}${finalTaskHtml}${takeawayHtml}${checkHtml}${resourceGuideHtml}${referencesHtml}`;
+}
+
+function getNextLessonInSubject(lesson) {
+  const pathLessons = getIndependentLessons()
+    .filter((item) => (item.subject || "General") === (lesson.subject || "General"))
+    .sort((a, b) => (a.pathOrder || 999) - (b.pathOrder || 999));
+  const currentIndex = pathLessons.findIndex((item) => item.id === lesson.id);
+  return currentIndex >= 0 ? pathLessons[currentIndex + 1] || null : null;
 }
 
 function renderClassNotes() {
@@ -1292,13 +1317,38 @@ backToLessons.addEventListener("click", showLessonList);
 completeCurrentLesson.addEventListener("click", () => {
   if (!currentLessonId) return;
 
-  if (!state.completeLessons.includes(currentLessonId)) {
+  const wasComplete = state.completeLessons.includes(currentLessonId);
+
+  if (wasComplete) {
+    state.completeLessons = state.completeLessons.filter((lessonId) => lessonId !== currentLessonId);
+  } else {
     state.completeLessons.push(currentLessonId);
   }
 
   saveState();
-  renderAll();
-  showLessonReader(currentLessonId);
+  renderLessons();
+  renderProgress();
+  renderContinueLearning();
+  completeCurrentLesson.textContent = wasComplete ? "Mark activity complete" : "Mark as not completed";
+  lessonCompletionMessage.textContent = wasComplete
+    ? "Completion removed. This activity is ready to start again."
+    : "Progress saved on this device. Continue when you are ready.";
+  lessonCompletionMessage.classList.remove("is-hidden");
+  nextCurrentLesson.classList.toggle("is-hidden", wasComplete);
+});
+
+nextCurrentLesson.addEventListener("click", () => {
+  const currentLesson = lessons.find((lesson) => lesson.id === currentLessonId);
+  if (!currentLesson) return;
+
+  const nextLesson = getNextLessonInSubject(currentLesson);
+  if (nextLesson) {
+    showLessonReader(nextLesson.id);
+    return;
+  }
+
+  showLessonList();
+  lessonListView.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 viewTabs.forEach((tab) => {
@@ -1464,8 +1514,8 @@ if ("serviceWorker" in navigator) {
 async function loadLessons() {
   try {
     const [lessonResponse, resourceResponse] = await Promise.all([
-      fetch("./lessons.json?v=99"),
-      fetch("./resources.json?v=99"),
+      fetch("./lessons.json?v=102"),
+      fetch("./resources.json?v=102"),
     ]);
 
     if (!lessonResponse.ok || !resourceResponse.ok) {

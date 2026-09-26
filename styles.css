@@ -911,6 +911,39 @@ button.learner-directory-item:hover {
   gap: 18px;
 }
 
+.lesson-completion-actions {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+  padding-top: 18px;
+}
+
+.lesson-completion-actions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lesson-completion-actions button {
+  min-width: 180px;
+}
+
+.lesson-completion-message {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+#completeCurrentLesson:disabled {
+  background: #e5f4ed;
+  color: #287653;
+  cursor: default;
+  opacity: 1;
+}
+
+@media (max-width: 560px) {
+  .lesson-completion-actions button { width: 100%; }
+}
+
 .real-life-use,
 .final-task {
   background: linear-gradient(90deg, #effcf4, #eef5ff);

@@ -337,6 +337,283 @@
     "reviewStatus": "Course checkpoint"
   },
   {
+    "id": "english-shopping",
+    "icon": "EN",
+    "title": "Shop and check a total",
+    "subject": "English",
+    "level": "Daily life · A1",
+    "pathOrder": 6,
+    "estimatedMinutes": 20,
+    "description": "Ask about prices, quantities, payment, and receipts before completing a purchase.",
+    "content": "Clear questions and careful number checking make everyday purchases easier. Point to the written price when spoken numbers are difficult.",
+    "goal": "Complete a simple purchase and check the expected total.",
+    "realLifeUse": "Use this at a market, food stall, pharmacy, ticket counter, or small shop.",
+    "vocabulary": [
+      { "term": "price", "meaning": "the amount of money an item costs" },
+      { "term": "total", "meaning": "the full amount to pay" },
+      { "term": "change", "meaning": "money returned after paying more than the total" },
+      { "term": "receipt", "meaning": "a record showing what you bought and paid" }
+    ],
+    "patterns": ["How much is this?", "I would like two, please.", "What is the total?", "Can I have a receipt, please?"],
+    "dialogue": [
+      { "speaker": "Customer", "text": "How much is this notebook?" },
+      { "speaker": "Seller", "text": "It is 40 baht." },
+      { "speaker": "Customer", "text": "I would like two, please. What is the total?" },
+      { "speaker": "Seller", "text": "The total is 80 baht." }
+    ],
+    "steps": ["Read each price aloud.", "Ask for one or two items politely.", "Calculate the expected total.", "Confirm the total before paying.", "Check the change or receipt."],
+    "practice": "Make a practice shop with three labelled items and fictional money. Switch customer and seller roles.",
+    "exercises": [
+      { "question": "Two notebooks cost 40 baht each. What is the total?", "options": ["40 baht", "80 baht", "100 baht"], "answer": 1, "explanation": "Two groups of 40 make 80." },
+      { "question": "Which question confirms the full amount to pay?", "options": ["What is the total?", "Where is the shop?", "What time is it?"], "answer": 0, "explanation": "The total is the full amount to pay." }
+    ],
+    "finalTask": "Choose two practice items, ask their prices, calculate and confirm the total, pay with fictional money, and check the change.",
+    "takeaway": ["Ask for the price before buying.", "Calculate the expected total.", "Check change and receipts."],
+    "checkQuestion": "Can you complete a purchase and confirm the total?",
+    "teacherNote": "Use familiar items and fictional money. Connect this lesson to the mathematics path.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-time-appointments",
+    "icon": "EN",
+    "title": "Make and confirm an appointment",
+    "subject": "English",
+    "level": "Daily life · A1",
+    "pathOrder": 7,
+    "estimatedMinutes": 20,
+    "description": "Ask about dates and times, arrange an appointment, and confirm what to bring.",
+    "content": "An appointment is easier to remember when you repeat the day, time, place, and required items.",
+    "goal": "Arrange and confirm a simple appointment.",
+    "realLifeUse": "Use this for a clinic, school meeting, course, interview, or community service.",
+    "vocabulary": [
+      { "term": "appointment", "meaning": "an arranged time to meet someone" },
+      { "term": "available", "meaning": "free and able to meet" },
+      { "term": "confirm", "meaning": "check that information is correct" },
+      { "term": "bring", "meaning": "take something with you" }
+    ],
+    "patterns": ["I would like to make an appointment.", "Are you available on Monday?", "What time should I arrive?", "What should I bring?"],
+    "dialogue": [
+      { "speaker": "Learner", "text": "I would like to make an appointment." },
+      { "speaker": "Staff", "text": "Are you available on Tuesday at 10 a.m.?" },
+      { "speaker": "Learner", "text": "Yes. Tuesday at 10 a.m. What should I bring?" }
+    ],
+    "steps": ["Choose a day from a calendar.", "Say the date and time clearly.", "Repeat the appointment details.", "Ask where to go and what to bring.", "Write a short reminder."],
+    "practice": "Partner A offers two appointment times. Partner B chooses one, confirms it, and writes a reminder.",
+    "exercises": [
+      { "question": "What should you repeat to confirm an appointment?", "options": ["Only your name", "The day, time, and place", "Your favourite subject"], "answer": 1, "explanation": "Repeating the details prevents misunderstandings." },
+      { "question": "Which question checks required items?", "options": ["What should I bring?", "Where do you live?", "How much is this?"], "answer": 0, "explanation": "Ask what to bring before attending." }
+    ],
+    "finalTask": "Arrange a practice appointment, repeat its day, time, and place, ask what to bring, and write a one-line reminder.",
+    "takeaway": ["Repeat important details.", "Ask what to bring.", "Write a reminder before leaving."],
+    "checkQuestion": "Can you confirm the day, time, place, and required item?",
+    "teacherNote": "Use a paper calendar and clocks. Do not ask learners to share real medical information.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-transport",
+    "icon": "EN",
+    "title": "Plan a bus or train journey",
+    "subject": "English",
+    "level": "Daily life · A1",
+    "pathOrder": 8,
+    "estimatedMinutes": 20,
+    "description": "Ask about destinations, departure times, fares, platforms, and transfers.",
+    "content": "Before travelling, confirm the destination and departure point. Written place names can support spoken English.",
+    "goal": "Ask for and confirm the basic details of a journey.",
+    "realLifeUse": "Use this at a bus stop, station, ticket counter, or information desk.",
+    "vocabulary": [
+      { "term": "destination", "meaning": "the place you are travelling to" },
+      { "term": "depart", "meaning": "leave a place" },
+      { "term": "platform", "meaning": "the place where passengers board a train" },
+      { "term": "transfer", "meaning": "change from one bus or train to another" }
+    ],
+    "patterns": ["Does this bus go to ___?", "What time does it leave?", "How much is the fare?", "Do I need to transfer?"],
+    "dialogue": [
+      { "speaker": "Traveller", "text": "Does this bus go to the city centre?" },
+      { "speaker": "Staff", "text": "Yes. It leaves at 9:30 from platform 4." },
+      { "speaker": "Traveller", "text": "How much is the fare? Do I need to transfer?" }
+    ],
+    "steps": ["Show the destination in writing.", "Confirm the route number.", "Ask the departure time and place.", "Ask the fare and whether a transfer is needed.", "Repeat the details."],
+    "practice": "Use a fictional timetable. Find one route and explain when and where it leaves.",
+    "exercises": [
+      { "question": "Which question checks the destination?", "options": ["Does this bus go to Chiang Mai?", "What should I bring?", "Can I have a receipt?"], "answer": 0, "explanation": "This pattern confirms a destination." },
+      { "question": "What is a transfer?", "options": ["Changing vehicles", "Buying food", "Missing a stop"], "answer": 0, "explanation": "A transfer means changing from one service to another." }
+    ],
+    "finalTask": "Ask about a destination, departure time, platform or stop, fare, and transfer, then repeat the journey plan.",
+    "takeaway": ["Show the destination in writing.", "Confirm time and boarding place.", "Ask about transfers."],
+    "checkQuestion": "Can you confirm five important journey details?",
+    "teacherNote": "Use fictional timetables. Remind learners to verify real routes with the operator.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-forms",
+    "icon": "EN",
+    "title": "Understand a simple form",
+    "subject": "English",
+    "level": "Daily life · A1",
+    "pathOrder": 9,
+    "estimatedMinutes": 25,
+    "description": "Recognize common form labels and ask for clarification without entering real private information.",
+    "content": "Forms often ask for similar information. Learn the labels first, then practise only with fictional details.",
+    "goal": "Read common form labels and complete a safe practice form.",
+    "realLifeUse": "Use this for classes, services, jobs, appointments, and applications.",
+    "vocabulary": [
+      { "term": "given name", "meaning": "your personal or first name" },
+      { "term": "family name", "meaning": "your surname or last name" },
+      { "term": "date of birth", "meaning": "the date when a person was born" },
+      { "term": "signature", "meaning": "a written name used for confirmation" }
+    ],
+    "patterns": ["What should I write here?", "Is this field required?", "Could you explain this section?", "May I take time to read it?"],
+    "dialogue": [
+      { "speaker": "Learner", "text": "What should I write here?" },
+      { "speaker": "Staff", "text": "Write your given name in this field." },
+      { "speaker": "Learner", "text": "Is the phone number required?" }
+    ],
+    "steps": ["Read the form title.", "Find required and optional fields.", "Ask about unfamiliar labels.", "Use fictional information for practice.", "Read everything before signing a real form."],
+    "practice": "Create a fictional class-registration form with five fields and complete it using an invented person.",
+    "exercises": [
+      { "question": "What does required mean on a form?", "options": ["It must be completed", "It can be skipped", "It must be translated"], "answer": 0, "explanation": "A required field must be completed." },
+      { "question": "What should you do before signing a real form?", "options": ["Read and understand it", "Guess unfamiliar words", "Leave immediately"], "answer": 0, "explanation": "Read the form and ask questions before signing." }
+    ],
+    "finalTask": "Complete a fictional five-field form, explain each label, identify one optional field, and ask one clarification question.",
+    "takeaway": ["Read the form title first.", "Check required fields.", "Ask before guessing or signing."],
+    "checkQuestion": "Can you identify common labels and ask for clarification?",
+    "teacherNote": "Use fictional details only. Explain that real forms should be reviewed carefully.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-work-schedule",
+    "icon": "EN",
+    "title": "Understand a schedule and task",
+    "subject": "English",
+    "level": "Study and work · A2",
+    "pathOrder": 10,
+    "estimatedMinutes": 20,
+    "description": "Confirm start times, deadlines, locations, responsibilities, and changes.",
+    "content": "Repeating a task in your own words helps prevent mistakes at school and work.",
+    "goal": "Read a short schedule and confirm one assigned task.",
+    "realLifeUse": "Use this in classes, volunteer work, training, part-time work, or shared projects.",
+    "vocabulary": [
+      { "term": "shift", "meaning": "a scheduled period of work" },
+      { "term": "deadline", "meaning": "the latest time work must be finished" },
+      { "term": "responsible for", "meaning": "expected to complete a task" },
+      { "term": "change", "meaning": "something different from the original plan" }
+    ],
+    "patterns": ["What time does my shift start?", "When is the deadline?", "Am I responsible for ___?", "Let me confirm the task."],
+    "dialogue": [
+      { "speaker": "Supervisor", "text": "Your shift starts at 8. Prepare the room before 8:30." },
+      { "speaker": "Learner", "text": "Let me confirm: I start at 8 and prepare the room by 8:30." }
+    ],
+    "steps": ["Find the date and start time.", "Underline the task and deadline.", "Identify who is responsible.", "Repeat the instruction in your own words.", "Ask how to report a change."],
+    "practice": "Read a fictional weekly schedule and explain one day's time, place, task, and deadline.",
+    "exercises": [
+      { "question": "Why repeat a task in your own words?", "options": ["To confirm understanding", "To change the deadline", "To avoid it"], "answer": 0, "explanation": "Repeating lets both people check the details." },
+      { "question": "What is a deadline?", "options": ["The latest completion time", "A lunch break", "A job title"], "answer": 0, "explanation": "A deadline is when work must be finished." }
+    ],
+    "finalTask": "Read a short schedule and confirm one assignment's start time, location, task, and deadline aloud.",
+    "takeaway": ["Check times and deadlines.", "Know who owns each task.", "Repeat instructions."],
+    "checkQuestion": "Can you explain an assigned task using four details?",
+    "teacherNote": "Use neutral fictional schedules. Accept clear meaning even when grammar is imperfect.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-useful-messages",
+    "icon": "EN",
+    "title": "Write a clear short message",
+    "subject": "English",
+    "level": "Study and work · A2",
+    "pathOrder": 11,
+    "estimatedMinutes": 20,
+    "description": "Write polite messages about lateness, absence, questions, and completed work.",
+    "content": "A useful message explains who you are, why you are writing, and what response you need.",
+    "goal": "Write a short, polite, actionable message.",
+    "realLifeUse": "Use this for a teacher, supervisor, course organiser, or classmate.",
+    "vocabulary": [
+      { "term": "subject", "meaning": "a short title explaining the message topic" },
+      { "term": "available", "meaning": "free and able to respond or meet" },
+      { "term": "attached", "meaning": "included as a file with a message" },
+      { "term": "regards", "meaning": "a polite closing" }
+    ],
+    "patterns": ["I am writing to ask about ___.", "I will be late because ___.", "Could you confirm ___?", "Thank you for your time."],
+    "dialogue": [
+      { "speaker": "Message", "text": "Hello Ms. May. I will be 15 minutes late because my bus is delayed. I expect to arrive at 9:15. Thank you, Lin." }
+    ],
+    "steps": ["Write a clear opening.", "State the reason in one sentence.", "Add the important time or action.", "Ask one clear question if needed.", "Reread before sending."],
+    "practice": "Write three unsent messages: reporting lateness, asking about a deadline, and confirming completed work.",
+    "exercises": [
+      { "question": "Which detail makes a lateness message useful?", "options": ["Expected arrival time", "Favourite food", "A long apology"], "answer": 0, "explanation": "The reader needs to know when you expect to arrive." },
+      { "question": "What should a request contain?", "options": ["One clear question", "Only a greeting", "Unrelated details"], "answer": 0, "explanation": "A clear question tells the reader what response you need." }
+    ],
+    "finalTask": "Write a five-sentence practice message that reports a problem, gives the relevant time, asks one question, and closes politely. Do not send it.",
+    "takeaway": ["Keep the reason concise.", "Include the important time or action.", "Ask clearly and reread."],
+    "checkQuestion": "Can the reader quickly understand what happened and what you need?",
+    "teacherNote": "Keep examples fictional and unsent. Do not require learners to share personal circumstances.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-interview",
+    "icon": "EN",
+    "title": "Prepare for a basic interview",
+    "subject": "English",
+    "level": "Study and work · A2",
+    "pathOrder": 12,
+    "estimatedMinutes": 25,
+    "description": "Describe strengths, experience, availability, and one question for an interviewer.",
+    "content": "Good answers are short, truthful, and supported by an example. Practise meaning rather than perfect sentences.",
+    "goal": "Answer four common introductory interview questions.",
+    "realLifeUse": "Use this for a course, scholarship, volunteer role, internship, or entry-level job.",
+    "vocabulary": [
+      { "term": "experience", "meaning": "knowledge gained by doing an activity" },
+      { "term": "strength", "meaning": "something you do well" },
+      { "term": "reliable", "meaning": "can be trusted to do what was agreed" },
+      { "term": "available", "meaning": "able to attend or work at a time" }
+    ],
+    "patterns": ["I am interested in this role because ___.", "One of my strengths is ___.", "For example, I ___.", "Could you tell me more about ___?"],
+    "dialogue": [
+      { "speaker": "Interviewer", "text": "Tell me about yourself." },
+      { "speaker": "Applicant", "text": "I am interested in design and technology. I am reliable and enjoy learning new tools." },
+      { "speaker": "Interviewer", "text": "Can you give an example?" },
+      { "speaker": "Applicant", "text": "I completed a team project on time and helped organise our files." }
+    ],
+    "steps": ["Prepare a 30-second introduction.", "Choose two truthful strengths.", "Add one example for each strength.", "Practise stating availability.", "Prepare one question."],
+    "practice": "Speak four short answers, remove unnecessary words, and repeat them naturally.",
+    "exercises": [
+      { "question": "What makes a strength answer convincing?", "options": ["A truthful example", "A very long speech", "Claiming every skill"], "answer": 0, "explanation": "A specific truthful example supports the claim." },
+      { "question": "Which is a useful question?", "options": ["What would I learn in this role?", "Can we end now?", "What is your private address?"], "answer": 0, "explanation": "This shows interest in the role." }
+    ],
+    "finalTask": "Complete a five-minute practice interview: introduce yourself, explain your interest, give one strength with an example, state availability, and ask one question.",
+    "takeaway": ["Keep answers short and truthful.", "Support strengths with examples.", "Prepare one useful question."],
+    "checkQuestion": "Can you answer four common questions without reading every sentence?",
+    "teacherNote": "Do not promise employment outcomes. Focus on clear communication and truthful examples.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-independence-checkpoint",
+    "icon": "EN",
+    "title": "Practical English checkpoint",
+    "subject": "English",
+    "level": "Study and work · A2",
+    "pathOrder": 13,
+    "estimatedMinutes": 30,
+    "description": "Combine shopping, appointments, transport, forms, schedules, messages, and interview skills.",
+    "content": "This checkpoint uses a fictional first week in a new town. Communicate clearly rather than aiming for perfect grammar.",
+    "goal": "Use practical English to solve connected daily-life, study, and work tasks.",
+    "realLifeUse": "Use these combined skills when becoming more independent in a new place.",
+    "patterns": ["Could you confirm the details?", "What should I write here?", "Let me repeat that.", "I am writing to ask about ___."],
+    "steps": ["Buy two items and check the total.", "Arrange an appointment.", "Plan a journey.", "Read a form and schedule.", "Write a message and practise an interview."],
+    "practice": "Complete the scenario on paper, then role-play the spoken parts with a partner or trusted adult.",
+    "exercises": [
+      { "question": "What habit appears in most situations?", "options": ["Confirming important details", "Guessing information", "Speaking quickly"], "answer": 0, "explanation": "Confirming details prevents misunderstandings." },
+      { "question": "What should you do when a form is unclear?", "options": ["Ask a focused question", "Sign immediately", "Ignore it"], "answer": 0, "explanation": "A clarification question is the useful response." },
+      { "question": "What makes a short message effective?", "options": ["A clear reason and requested action", "Unrelated details", "No context"], "answer": 0, "explanation": "The reader should know why you wrote and what you need." }
+    ],
+    "finalTask": "Complete a fictional independence day: read a schedule, plan transport, buy an item, confirm an appointment, complete a practice form, report a delay, and answer two interview questions.",
+    "takeaway": ["Confirm numbers, times, and places.", "Ask instead of guessing.", "Use short language that helps another person respond."],
+    "checkQuestion": "Can you complete the scenario and explain your decisions?",
+    "teacherNote": "Use fictional identities. Assess communication of meaning, not perfect grammar.",
+    "reviewStatus": "Course checkpoint"
+  },
+  {
     "id": "thai-writing-system",
     "icon": "TH",
     "title": "Meet the Thai writing system",

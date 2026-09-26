@@ -5,10 +5,10 @@ Use this checklist before sharing the prototype with a pilot group.
 ## Basic Setup
 
 - [ ] Local server starts without errors.
-- [ ] App opens at `http://127.0.0.1:4173/?fresh=50`.
+- [ ] App opens at `http://127.0.0.1:4173/?fresh=102`.
 - [ ] Page shows LearnBridge Myanmar.
 - [ ] Online/offline status appears in the header.
-- [ ] Header tabs show Learn, Teach, Home, and Library.
+- [ ] Header tabs show Learn, Teach, Family, and Library.
 
 ## Independent Learn
 
@@ -18,12 +18,15 @@ Use this checklist before sharing the prototype with a pilot group.
 - [ ] Open next activity opens the activity reader.
 - [ ] Back to activities returns to the activity list.
 - [ ] Mark activity complete updates independent learner progress only.
+- [ ] Completing an activity keeps the learner at the bottom of the lesson.
+- [ ] Next activity opens only when the learner chooses it.
+- [ ] Previously completed activities can be marked as not completed.
 - [ ] Completed activity card changes state.
 - [ ] Only useful skill subjects appear in the independent learning list.
 
-## Activity Library
+## Learning Activities
 
-- [ ] All 12 activity cards appear.
+- [ ] Practical English shows 13 activities across three sections.
 - [ ] Subject filter shows all activity subjects.
 - [ ] Filtering by each subject shows the correct activity cards.
 - [ ] Each activity opens with title, subject, level, content, and sources where available.
@@ -61,9 +64,9 @@ Use this checklist before sharing the prototype with a pilot group.
 - [ ] Teaching notes appear for each activity.
 - [ ] Export pilot report downloads a text file without private child data.
 
-## Home Learning
+## Family Learning
 
-- [ ] Home tab opens suggested learning paths for adults and children.
+- [ ] Family tab opens suggested learning paths for adults and children.
 - [ ] Saving a nickname and age range updates the local home profile.
 - [ ] Changing the age range filters the suggested paths.
 - [ ] Choosing a path updates the current home plan.

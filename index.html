@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#256f75" />
     <title>LearnBridge Offline</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=99" />
+    <link rel="stylesheet" href="./styles.css?v=102" />
   </head>
   <body>
     <header class="topbar">
@@ -114,7 +114,7 @@
             <div class="course-path-grid">
               <button class="course-path-card" data-path-subject="English" type="button" aria-pressed="false">
                 <img src="./assets/paths/english-foundations.png" alt="Notebook, headphones, and conversation cards for English practice" />
-                <span class="course-path-body"><small>Language · 5 activities</small><strong>English foundations</strong><span>Vocabulary, speaking, reading, and writing for everyday use.</span><b>View path</b></span>
+                <span class="course-path-body"><small>Language · 13 activities</small><strong>Practical English</strong><span>Daily communication for learning, travel, services, shopping, and work.</span><b>View path</b></span>
               </button>
               <button class="course-path-card" data-path-subject="Math" type="button" aria-pressed="false">
                 <img src="./assets/paths/everyday-mathematics.png" alt="Coins, groceries, measuring tools, shapes, and a calculator" />
@@ -175,7 +175,13 @@
           <div class="lesson-content" id="lessonDetailContent">
             <p>Open an activity to read it here.</p>
           </div>
-          <button id="completeCurrentLesson" type="button">Mark activity complete</button>
+          <div class="lesson-completion-actions">
+            <p class="lesson-completion-message is-hidden" id="lessonCompletionMessage" aria-live="polite"></p>
+            <div>
+              <button id="completeCurrentLesson" type="button">Mark activity complete</button>
+              <button class="secondary-button is-hidden" id="nextCurrentLesson" type="button">Next activity</button>
+            </div>
+          </div>
         </section>
 
         <aside class="resource-notice resource-notice-footer" aria-label="External resource notice">
@@ -428,6 +434,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=99"></script>
+    <script src="./app.js?v=102"></script>
   </body>
 </html>
