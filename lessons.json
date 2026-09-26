@@ -32,65 +32,597 @@
   },
   {
     "id": "numbers",
-    "icon": "2",
-    "title": "Number practice",
+    "icon": "M1",
+    "title": "Whole numbers and place value",
     "subject": "Math",
     "level": "Starter",
-    "description": "Build early number confidence by counting, grouping, comparing, and explaining with real objects.",
-    "content": "Numbers are easier to understand when learners can touch, move, and group real objects. This lesson uses safe nearby objects so children can count aloud, compare groups, and explain what they notice.",
-    "goal": "Count objects from 1 to 10, compare two groups, and explain which group has more or fewer.",
-    "steps": [
-      "Warm up by counting fingers from 1 to 10 together.",
-      "Place 5 safe objects in a row. Touch each object once while counting aloud.",
-      "Move the objects into two groups, such as 2 and 3. Count each group.",
-      "Ask: Which group has more? Which group has fewer? How do you know?",
-      "Add one more object and count again. Then remove one object and count again."
+    "pathOrder": 1,
+    "estimatedMinutes": 20,
+    "description": "Read, compare, and break apart whole numbers used in prices, distances, quantities, and records.",
+    "content": "Place value tells us what each digit is worth. In 47,582, the digit 4 means forty thousand, while the digit 7 means seven thousand.",
+    "goal": "Read and compare numbers up to 100,000 and identify the value of each digit.",
+    "realLifeUse": "Use place value to understand prices, wages, population figures, distances, stock counts, and written records.",
+    "vocabulary": [
+      { "term": "digit", "meaning": "one symbol from 0 to 9 used to write numbers" },
+      { "term": "place value", "meaning": "the value a digit has because of its position" },
+      { "term": "greater than", "meaning": "larger than another number" },
+      { "term": "less than", "meaning": "smaller than another number" }
     ],
-    "practice": "Use pencils, stones, leaves, cups, or paper pieces. Learners work in pairs: one learner makes a group, the other counts and says whether the group has more, fewer, or the same number as another group.",
-    "checkQuestion": "Show 7 objects. Split them into two groups. How many are in each group?",
-    "teacherNote": "Use concrete objects and let learners explain with words, pointing, or drawing. Khan Academy Kids and Global Digital Library both emphasize early math practice through accessible, child-friendly activities.",
-    "references": [
+    "workedExamples": [
+      { "title": "Break apart 47,582", "work": "40,000 + 7,000 + 500 + 80 + 2 = 47,582" },
+      { "title": "Compare 8,950 and 8,590", "work": "Both have 8 thousands. Compare hundreds: 9 hundreds is greater than 5 hundreds, so 8,950 > 8,590." }
+    ],
+    "steps": [
+      "Read 26,407 aloud: twenty-six thousand, four hundred and seven.",
+      "Identify each place from right to left: ones, tens, hundreds, thousands, ten-thousands.",
+      "Write 26,407 as 20,000 + 6,000 + 400 + 7.",
+      "Compare two numbers from the largest place first.",
+      "Order 3,450, 3,405, and 3,540 from smallest to largest."
+    ],
+    "practice": "Find three large numbers on a receipt, package, sign, or newspaper. Read each number, break it into place values, and arrange the three numbers from smallest to largest.",
+    "exercises": [
       {
-        "title": "Global Digital Library: early math and reading resources",
-        "url": "https://content.digitallibrary.io/about-the-gdl/"
+        "question": "What is the value of 7 in 47,582?",
+        "options": ["70", "700", "7,000"],
+        "answer": 2,
+        "explanation": "The 7 is in the thousands place, so its value is 7,000."
       },
       {
-        "title": "Khan Academy Kids: early math and reading app",
-        "url": "https://www.khanacademy.org/kids"
+        "question": "Which number is greatest?",
+        "options": ["9,405", "9,450", "9,045"],
+        "answer": 1,
+        "explanation": "All have 9 thousands. Comparing hundreds and then tens shows 9,450 is greatest."
+      },
+      {
+        "question": "Which expanded form equals 30,608?",
+        "options": ["30,000 + 600 + 8", "3,000 + 600 + 8", "30,000 + 60 + 8"],
+        "answer": 0,
+        "explanation": "30,608 contains 30,000, 600, no tens, and 8 ones."
       }
     ],
-    "reviewStatus": "Draft"
+    "finalTask": "Imagine you manage supplies for a learning centre. The stock records show 12,450 notebooks, 12,405 pencils, and 10,980 sheets of paper. Read each number aloud, write its expanded form, and arrange the quantities from greatest to smallest.",
+    "takeaway": [
+      "A digit's position determines its value.",
+      "Compare numbers from the largest place first.",
+      "Expanded form makes each place value visible."
+    ],
+    "checkQuestion": "Can you explain why 12,450 is greater than 12,405?",
+    "teacherNote": "Use locally familiar prices and quantities. Ask learners to explain their comparison rather than only naming the answer.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "math-money-change",
+    "icon": "M2",
+    "title": "Money, totals, and change",
+    "subject": "Math",
+    "level": "Starter",
+    "pathOrder": 2,
+    "estimatedMinutes": 25,
+    "description": "Add prices, check a total, and calculate the correct change during everyday purchases.",
+    "content": "A purchase has three important numbers: the price, the amount paid, and the change. Change = amount paid - total price.",
+    "goal": "Calculate a shopping total and verify change using addition and subtraction.",
+    "realLifeUse": "Use this skill at markets, shops, transport counters, and anywhere you pay with cash.",
+    "vocabulary": [
+      { "term": "price", "meaning": "the amount an item costs" },
+      { "term": "total", "meaning": "the amount after adding all prices" },
+      { "term": "pay", "meaning": "to give money for something" },
+      { "term": "change", "meaning": "money returned when you pay more than the total" }
+    ],
+    "workedExamples": [
+      { "title": "Find a total", "work": "Rice: 35 baht + eggs: 28 baht = 63 baht total." },
+      { "title": "Find the change", "work": "100 baht paid - 63 baht total = 37 baht change." },
+      { "title": "Check the answer", "work": "63 total + 37 change = 100 paid." }
+    ],
+    "steps": [
+      "Write each price in a vertical list with place values aligned.",
+      "Add the prices to find the total.",
+      "Subtract the total from the amount paid.",
+      "Check by adding the total and change; they should equal the amount paid.",
+      "Estimate first so you can notice an unreasonable answer."
+    ],
+    "practice": "Make a small shop using three objects and paper price labels. One person buys two items and pays with a chosen amount. The other calculates and checks the change. Switch roles.",
+    "exercises": [
+      {
+        "question": "A meal costs 45 baht and water costs 12 baht. What is the total?",
+        "options": ["33 baht", "57 baht", "67 baht"],
+        "answer": 1,
+        "explanation": "45 + 12 = 57 baht."
+      },
+      {
+        "question": "You pay 100 baht for a 57-baht purchase. What change should you receive?",
+        "options": ["43 baht", "53 baht", "157 baht"],
+        "answer": 0,
+        "explanation": "100 - 57 = 43 baht. Check: 57 + 43 = 100."
+      },
+      {
+        "question": "Which calculation checks 25 baht change from a 75-baht purchase paid with 100 baht?",
+        "options": ["75 - 25 = 50", "75 + 25 = 100", "100 + 25 = 125"],
+        "answer": 1,
+        "explanation": "The purchase total plus the change must equal the amount paid."
+      }
+    ],
+    "finalTask": "Plan a purchase of three useful items with prices of your choice. Find the total, choose an amount to pay, calculate the change, and prove your answer by adding the total and change.",
+    "takeaway": [
+      "Add every price to find the total.",
+      "Subtract the total from the amount paid to find change.",
+      "Check that total + change = amount paid.",
+      "Estimate before calculating."
+    ],
+    "checkQuestion": "Can you calculate and verify the change from a two-item purchase?",
+    "teacherNote": "Use a familiar local currency and realistic prices. Emphasize checking change rather than mental speed.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "math-measurement",
+    "icon": "M3",
+    "title": "Measure everyday objects",
+    "subject": "Math",
+    "level": "Starter",
+    "pathOrder": 3,
+    "estimatedMinutes": 25,
+    "description": "Choose suitable units and measure length, mass, and liquid volume.",
+    "content": "Measurements need both a number and a unit. A table might be 120 centimetres long, a rice bag 5 kilograms, and a water bottle 1 litre.",
+    "goal": "Choose suitable metric units and make reasonable everyday measurements.",
+    "realLifeUse": "Use measurement for cooking, building, sewing, transport, health, buying goods, and organising a room.",
+    "vocabulary": [
+      { "term": "length", "meaning": "how long or tall something is" },
+      { "term": "mass", "meaning": "how heavy something is" },
+      { "term": "volume", "meaning": "how much liquid a container holds" },
+      { "term": "estimate", "meaning": "a sensible answer made before exact measuring" }
+    ],
+    "workedExamples": [
+      { "title": "Length", "work": "A pencil is about 15 centimetres. A road distance is measured in kilometres." },
+      { "title": "Mass", "work": "A small food packet may be 500 grams. A rice bag may be 5 kilograms." },
+      { "title": "Volume", "work": "A small drink may be 250 millilitres. A large bottle may hold 2 litres." }
+    ],
+    "steps": [
+      "Decide what is being measured: length, mass, or liquid volume.",
+      "Choose a suitable unit: mm, cm, m, km, g, kg, mL, or L.",
+      "Estimate the measurement before using a tool.",
+      "Start the ruler or measuring tool at zero.",
+      "Record the number and unit, then compare it with your estimate."
+    ],
+    "practice": "Estimate and then measure three available objects. Record the object, your estimate, the measured result, and the difference. If no tools are available, compare objects using hand spans or equal containers and label the result as informal measurement.",
+    "exercises": [
+      {
+        "question": "Which unit is best for the length of a classroom?",
+        "options": ["metres", "millilitres", "grams"],
+        "answer": 0,
+        "explanation": "Metres measure the length of a room-sized space."
+      },
+      {
+        "question": "Which unit is suitable for a bag of rice?",
+        "options": ["kilograms", "centimetres", "litres"],
+        "answer": 0,
+        "explanation": "Kilograms are used for the mass of heavier everyday items."
+      },
+      {
+        "question": "A bottle holds 1,000 millilitres. How many litres is that?",
+        "options": ["1 litre", "10 litres", "100 litres"],
+        "answer": 0,
+        "explanation": "1,000 millilitres equals 1 litre."
+      }
+    ],
+    "finalTask": "Choose one task: plan the length of a shelf, divide 2 litres of water into equal containers, or compare the mass of three food packages. State the correct units, estimate first, then calculate or measure the result.",
+    "takeaway": [
+      "Always write a unit with a measurement.",
+      "Choose a unit that fits the object and purpose.",
+      "Estimate first, then measure and compare.",
+      "1,000 mL = 1 L and 1,000 g = 1 kg."
+    ],
+    "checkQuestion": "Can you choose suitable units for length, mass, and volume?",
+    "teacherNote": "Use available measuring tools, packages, and containers. Clearly distinguish informal estimates from standard metric measurements.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "math-fractions-percentages",
+    "icon": "M4",
+    "title": "Fractions, percentages, and discounts",
+    "subject": "Math",
+    "level": "Starter",
+    "pathOrder": 4,
+    "estimatedMinutes": 30,
+    "description": "Understand common fractions and calculate simple percentages and sale prices.",
+    "content": "Fractions and percentages describe parts of a whole. One half equals 50%, one quarter equals 25%, and one tenth equals 10%.",
+    "goal": "Connect common fractions to percentages and calculate 10%, 25%, and 50% of an amount.",
+    "realLifeUse": "Use percentages for discounts, savings, phone data, test scores, recipes, and sharing quantities fairly.",
+    "vocabulary": [
+      { "term": "fraction", "meaning": "a number that represents part of a whole" },
+      { "term": "percentage", "meaning": "a part out of 100" },
+      { "term": "discount", "meaning": "an amount removed from the original price" },
+      { "term": "original price", "meaning": "the price before a discount" }
+    ],
+    "workedExamples": [
+      { "title": "Find 10%", "work": "10% of 500 = 500 ÷ 10 = 50." },
+      { "title": "Find a discounted price", "work": "500 original price - 50 discount = 450 final price." },
+      { "title": "Use a common fraction", "work": "50% is one half, so 50% of 80 = 80 ÷ 2 = 40." }
+    ],
+    "steps": [
+      "Identify the whole amount or original price.",
+      "Translate common percentages: 50% = one half, 25% = one quarter, 10% = one tenth.",
+      "Divide the whole to find the percentage amount.",
+      "For a discount, subtract the discount amount from the original price.",
+      "Check that the discounted price is smaller than the original price."
+    ],
+    "practice": "Create price labels for 200, 400, and 800. Calculate a 10% discount for each. Then choose one price and calculate a 25% and 50% discount.",
+    "exercises": [
+      {
+        "question": "What is 10% of 600?",
+        "options": ["6", "60", "600"],
+        "answer": 1,
+        "explanation": "Divide by 10: 600 ÷ 10 = 60."
+      },
+      {
+        "question": "An item costs 500 with a 10% discount. What is the final price?",
+        "options": ["450", "490", "550"],
+        "answer": 0,
+        "explanation": "10% of 500 is 50. Subtract 50 from 500 to get 450."
+      },
+      {
+        "question": "Which percentage is equal to one quarter?",
+        "options": ["10%", "25%", "50%"],
+        "answer": 1,
+        "explanation": "One whole has four quarters, so one quarter is 25 out of 100, or 25%."
+      }
+    ],
+    "finalTask": "A shop lists a bag at 800 with a 25% discount. Calculate the discount and final price. Then compare it with a different offer of 100 off. Explain which offer saves more.",
+    "takeaway": [
+      "Percent means out of 100.",
+      "10% is one tenth, 25% is one quarter, and 50% is one half.",
+      "Discounted price = original price - discount.",
+      "Compare actual money saved, not only the advertised words."
+    ],
+    "checkQuestion": "Can you calculate a simple discount and explain the result?",
+    "teacherNote": "Use simple whole-number prices first. Allow calculators after learners can explain which operation they need and why.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "math-everyday-checkpoint",
+    "icon": "M5",
+    "title": "Everyday mathematics checkpoint",
+    "subject": "Math",
+    "level": "Starter",
+    "pathOrder": 5,
+    "estimatedMinutes": 30,
+    "description": "Use whole numbers, money, measurement, and percentages to plan a realistic weekly budget.",
+    "content": "This checkpoint combines the four mathematics lessons. Read the scenario carefully, choose the needed operations, and check whether each answer is reasonable.",
+    "goal": "Plan purchases within a fixed budget and explain each calculation.",
+    "realLifeUse": "Use this process to plan food, transport, phone credit, supplies, or another short-term budget.",
+    "workedExamples": [
+      { "title": "Example weekly plan", "work": "Budget 600. Rice 180 + vegetables 90 + transport 60 + phone 120 = 450 spent. 600 - 450 = 150 remaining." },
+      { "title": "Check", "work": "450 spent + 150 remaining = 600 total budget." }
+    ],
+    "steps": [
+      "Write the total budget.",
+      "List every planned cost using the same currency unit.",
+      "Add the costs to find total spending.",
+      "Subtract spending from the budget to find the remaining amount.",
+      "Check the result and decide whether the plan needs adjustment."
+    ],
+    "exercises": [
+      {
+        "question": "Using the example plan, what is the total spending?",
+        "options": ["400", "450", "600"],
+        "answer": 1,
+        "explanation": "180 + 90 + 60 + 120 = 450."
+      },
+      {
+        "question": "How much remains from the 600 budget?",
+        "options": ["50", "150", "1,050"],
+        "answer": 1,
+        "explanation": "600 - 450 = 150 remaining."
+      },
+      {
+        "question": "Phone credit has a 10% discount from 120. What is the discount?",
+        "options": ["10", "12", "108"],
+        "answer": 1,
+        "explanation": "10% of 120 is 120 ÷ 10 = 12."
+      },
+      {
+        "question": "A 2-litre bottle contains how many millilitres?",
+        "options": ["200 mL", "1,000 mL", "2,000 mL"],
+        "answer": 2,
+        "explanation": "Each litre has 1,000 millilitres, so 2 litres = 2,000 millilitres."
+      }
+    ],
+    "finalTask": "Create your own budget using at least four costs. Include one discounted item and one measured quantity. Calculate spending, savings, and the remaining balance. Check that spending plus the remaining balance equals the original budget, then explain one choice you would change if costs increased.",
+    "takeaway": [
+      "Write the problem clearly before calculating.",
+      "Use the correct operation and units.",
+      "Estimate so unreasonable answers are easier to notice.",
+      "Check calculations using a second operation whenever possible."
+    ],
+    "checkQuestion": "Can you create and verify a budget that does not exceed the available amount?",
+    "teacherNote": "Invite learners to choose realistic but fictional amounts. The goal is mathematical planning, not collecting private financial information.",
+    "reviewStatus": "Course checkpoint"
+  },
+  {
+    "id": "thai-writing-system",
+    "icon": "TH",
+    "title": "Meet the Thai writing system",
+    "subject": "Thai language",
+    "level": "Foundation",
+    "pathOrder": 1,
+    "description": "See how consonants, vowels, tone information, and syllables work together.",
+    "content": "Thai is written from left to right, but vowel symbols may appear before, after, above, or below a consonant. Learn the system in small sound groups instead of memorizing every symbol at once.",
+    "goal": "Identify the main parts of written Thai and explain why spelling carries pronunciation information.",
+    "realLifeUse": "Use this map when reading signs, names, lesson books, transport information, and dictionary entries.",
+    "vocabulary": [
+      { "term": "พยัญชนะ (phayanchana)", "meaning": "Consonant" },
+      { "term": "สระ (sara)", "meaning": "Vowel" },
+      { "term": "วรรณยุกต์ (wannayuk)", "meaning": "Tone and tone-mark system" },
+      { "term": "พยางค์ (phayang)", "meaning": "Syllable" }
+    ],
+    "workedExamples": [
+      { "title": "One written syllable", "work": "กา combines consonant ก with long vowel า. The parts are read together as one syllable." },
+      { "title": "A vowel can be written first", "work": "In เก, vowel symbol เ- is written before consonant ก even though the consonant sound begins the syllable." }
+    ],
+    "steps": ["Find the consonant in กา.", "Find the vowel in กา.", "Compare กา with เก and notice the vowel position.", "Copy both while naming the consonant and vowel parts."],
+    "practice": "Use two colours to mark consonants and vowels in a few teacher-checked syllables.",
+    "exercises": [{ "question": "Where can a Thai vowel symbol appear?", "options": ["Only after a consonant", "Before, after, above, or below a consonant", "Only on another line"], "answer": 1, "explanation": "Thai vowel symbols can be written in several positions around a consonant." }],
+    "finalTask": "Label the consonant and vowel parts in three teacher-checked Thai syllables.",
+    "takeaway": ["Thai is written left to right.", "Written vowel position is not always sound order.", "Learn symbols together with their sounds."],
+    "checkQuestion": "Can you point out a consonant and vowel in a simple syllable?",
+    "teacherNote": "This is an orientation, not a complete alphabet chart. Verify every example with a fluent Thai reader.",
+    "references": [{ "title": "Thailand government: the Thai language", "url": "https://www.thailand.go.th/page/thai-language" }, { "title": "SEAsite Thai alphabet study guide", "url": "https://seasite.niu.edu/thai/guide.htm" }],
+    "reviewStatus": "Needs fluent-speaker review"
+  },
+  {
+    "id": "thai-consonants",
+    "icon": "TH",
+    "title": "Consonant sounds and classes",
+    "subject": "Thai language",
+    "level": "Foundation",
+    "pathOrder": 2,
+    "description": "Learn why Thai consonants belong to mid, high, and low tone classes.",
+    "content": "Thai traditionally lists 44 consonant symbols; two are obsolete in modern use. They represent 21 initial consonant sounds and belong to three classes that help determine tone.",
+    "goal": "Recognize a starter set of consonants and understand the purpose of consonant classes.",
+    "realLifeUse": "Consonant class is needed later when working out the tone of a written syllable.",
+    "vocabulary": [
+      { "term": "อักษรกลาง", "meaning": "Mid-class consonants" },
+      { "term": "อักษรสูง", "meaning": "High-class consonants" },
+      { "term": "อักษรต่ำ", "meaning": "Low-class consonants" },
+      { "term": "ก จ ด ต บ ป อ", "meaning": "A starter selection of mid-class consonants" }
+    ],
+    "workedExamples": [{ "title": "Same initial sound, different class", "work": "ข and ค both begin with an aspirated kh sound, but ข is high class and ค is low class." }, { "title": "Initial and final sounds", "work": "Some letters have a different final sound, so learn them in real syllables as well as in the alphabet." }],
+    "steps": ["Listen to five selected consonants.", "Trace each while saying its sound.", "Sort them into mid, high, or low class using a chart.", "Find them in short printed words."],
+    "practice": "Make cards with the symbol on one side and its class and sound on the other. Study five at a time.",
+    "exercises": [{ "question": "Why do consonant classes matter?", "options": ["They determine text colour", "They help determine syllable tone", "They show spaces"], "answer": 1, "explanation": "Consonant class is one factor used to determine a written syllable's tone." }],
+    "finalTask": "Identify the sound and class of five consonants from your current study set.",
+    "takeaway": ["There are more symbols than initial consonant sounds.", "The three classes are mid, high, and low.", "Study a small cumulative set."],
+    "checkQuestion": "Can you explain the difference between consonant sound and class?",
+    "teacherNote": "Do not require all 44 symbols at once. Build a cumulative chart and teach initial and final sounds in context.",
+    "references": [{ "title": "SEAsite Thai consonant table", "url": "https://seasite.niu.edu/Thai/basic/alpha_cons_table.htm" }, { "title": "Thai-language.com consonant reference", "url": "https://www.thai-language.com/ref/consonants" }],
+    "reviewStatus": "Needs fluent-speaker review"
+  },
+  {
+    "id": "thai-vowels",
+    "icon": "TH",
+    "title": "Vowels and vowel length",
+    "subject": "Thai language",
+    "level": "Foundation",
+    "pathOrder": 3,
+    "description": "Recognize common vowel shapes, positions, and short-long contrasts.",
+    "content": "Thai vowel forms are written around a consonant placeholder. Vowel length can distinguish words and can matter when applying tone rules.",
+    "goal": "Read and contrast a starter set of short and long vowel patterns.",
+    "realLifeUse": "Accurate vowel length makes spoken words easier to understand and supports reading.",
+    "vocabulary": [{ "term": "-ะ / -า", "meaning": "Short / long a" }, { "term": "-ิ / -ี", "meaning": "Short / long i" }, { "term": "-ุ / -ู", "meaning": "Short / long u" }, { "term": "เ-", "meaning": "A vowel written before its consonant" }],
+    "workedExamples": [{ "title": "Short and long", "work": "Listen carefully: a short vowel and its long partner can distinguish words." }, { "title": "The dash is a placeholder", "work": "In a chart, the dash in เ- shows where the consonant belongs." }],
+    "steps": ["Listen to one short-long pair.", "Repeat without changing the consonant.", "Identify the vowel position.", "Copy the pair and underline the changing vowel."],
+    "practice": "Hear a teacher-checked syllable and point to the short or long vowel card you hear.",
+    "exercises": [{ "question": "Why should learners notice vowel length?", "options": ["It can affect meaning and tone rules", "It changes font size", "It marks a question"], "answer": 0, "explanation": "Vowel length can distinguish words and is relevant in some tone rules." }],
+    "finalTask": "Identify short or long vowels in four teacher-checked syllables and copy each pattern.",
+    "takeaway": ["Vowels can surround a consonant.", "Short and long vowels contrast.", "Connect every written vowel with trusted audio."],
+    "checkQuestion": "Can you identify one short-long pair in writing and by listening?",
+    "teacherNote": "Use recordings or a fluent model. Keep one romanization system within a lesson.",
+    "references": [{ "title": "SEAsite Thai alphabet and vowels", "url": "https://seasite.niu.edu/thai/home_page/alphabet.htm" }, { "title": "SEAsite structured vowel examples", "url": "https://seasite.niu.edu/thai/maanii1/lesson12/structureUni.htm" }],
+    "reviewStatus": "Needs fluent-speaker review"
+  },
+  {
+    "id": "thai-tones",
+    "icon": "TH",
+    "title": "Five tones and four tone marks",
+    "subject": "Thai language",
+    "level": "Foundation",
+    "pathOrder": 4,
+    "description": "Hear the five spoken tones and learn why a tone mark alone does not give the answer.",
+    "content": "Standard Thai distinguishes five spoken tones: mid, low, falling, high, and rising. Thai uses four written tone marks, but spoken tone also depends on consonant class, syllable type, and sometimes vowel length.",
+    "goal": "Name the five tones, recognize the four marks, and use a tone chart instead of guessing.",
+    "realLifeUse": "Tone can distinguish meaning, so listening practice improves understanding and speech.",
+    "vocabulary": [{ "term": "เสียงสามัญ", "meaning": "Mid tone" }, { "term": "เสียงเอก", "meaning": "Low tone" }, { "term": "เสียงโท", "meaning": "Falling tone" }, { "term": "เสียงตรี", "meaning": "High tone" }, { "term": "เสียงจัตวา", "meaning": "Rising tone" }, { "term": "่  ้  ๊  ๋", "meaning": "Four written tone marks" }],
+    "workedExamples": [{ "title": "Five sounds, four marks", "work": "A syllable can have no tone mark and still carry one of the five spoken tones." }, { "title": "The mark is not the whole rule", "work": "The same mark can produce different spoken tones with different consonant classes." }, { "title": "Live and dead syllables", "work": "Classify the syllable before applying a tone rule." }],
+    "steps": ["Listen to five tones on a controlled syllable set.", "Trace pitch movement with your hand.", "Match the four mark shapes to their names.", "Use a chart on one syllable: class, live or dead, mark, then spoken tone.", "Check against trusted audio."],
+    "practice": "Listen to two versions of a syllable and decide whether the pitch movement is the same or different before reading labels.",
+    "exercises": [{ "question": "How many spoken tones are commonly described in Standard Thai?", "options": ["Three", "Four", "Five"], "answer": 2, "explanation": "Standard Thai is commonly described with five spoken tones." }, { "question": "Is a tone mark enough by itself?", "options": ["Yes", "No; consonant class and syllable type also matter"], "answer": 1, "explanation": "Use consonant class, syllable type, the mark, and relevant vowel length." }],
+    "finalTask": "Use a chart to analyse three teacher-checked syllables and verify each spoken tone against audio.",
+    "takeaway": ["The five tones are mid, low, falling, high, and rising.", "There are four written tone marks.", "Apply the complete rule and confirm by listening."],
+    "checkQuestion": "Why do five spoken tones not require five written marks?",
+    "resourceGuide": { "title": "Use an interactive tone chart while online", "description": "SEAsite provides charts and playable examples. Use notes or legally downloaded course files offline.", "steps": ["Listen before looking at the label.", "Compare one pattern across tones.", "Record class and syllable type.", "Ask a fluent speaker to check production."], "links": [{ "title": "Open the SEAsite tones lesson", "url": "https://seasite.niu.edu/thai/tones/default.htm" }, { "title": "Open the SEAsite tone chart", "url": "https://seasite.niu.edu/Thai/tones/tonechart.htm" }] },
+    "teacherNote": "Do not reduce tones to arrows alone. Learners need repeated listening discrimination and fluent feedback.",
+    "references": [{ "title": "SEAsite: Thai tones", "url": "https://seasite.niu.edu/thai/tones/default.htm" }, { "title": "SEAsite: tone chart", "url": "https://seasite.niu.edu/Thai/tones/tonechart.htm" }, { "title": "SEAsite profile of Thai", "url": "https://seasite.niu.edu/thai/LLF/profile.htm" }],
+    "reviewStatus": "Needs fluent-speaker review"
   },
   {
     "id": "thai",
-    "icon": "3",
-    "title": "Thai daily words",
+    "icon": "TH",
+    "title": "Greet people politely",
     "subject": "Thai language",
-    "level": "Starter",
-    "description": "Practice a small set of Thai words that can help learners greet people and ask for basic help.",
-    "content": "Thai words can help learners move through daily life more safely, especially when asking for water, toilets, school, hospital, or help. Pronunciation can vary, so a local Thai speaker should review this lesson before real use.",
-    "goal": "Recognize and practice simple Thai words for greetings, basic needs, and asking for help.",
+    "level": "Starter · A1",
+    "pathOrder": 5,
+    "description": "Use a greeting, polite particle, thanks, and a simple clarification phrase.",
+    "content": "Thai is tonal, so written approximations cannot show pronunciation completely. Listen to a trusted speaker or recording, copy the sound, and use the writing as a reminder.",
+    "goal": "Greet someone, thank them, and say that you do not understand.",
+    "realLifeUse": "Use these phrases when meeting a teacher, neighbour, coworker, shop worker, or community helper.",
+    "vocabulary": [
+      { "term": "สวัสดี (sawatdi)", "meaning": "Hello" },
+      { "term": "ครับ (khrap) / ค่ะ (kha)", "meaning": "Polite sentence-ending particles; usage commonly depends on the speaker" },
+      { "term": "ขอบคุณ (khop khun)", "meaning": "Thank you" },
+      { "term": "ขอโทษ (kho thot)", "meaning": "Sorry / excuse me" },
+      { "term": "ไม่เข้าใจ (mai khao jai)", "meaning": "I do not understand" }
+    ],
+    "patterns": ["สวัสดีครับ / สวัสดีค่ะ", "ขอบคุณครับ / ขอบคุณค่ะ", "ขอโทษครับ / ขอโทษค่ะ", "ไม่เข้าใจครับ / ไม่เข้าใจค่ะ"],
+    "dialogue": [
+      { "speaker": "A", "text": "สวัสดีครับ / สวัสดีค่ะ (Hello.)" },
+      { "speaker": "B", "text": "สวัสดีครับ / สวัสดีค่ะ" },
+      { "speaker": "A", "text": "[A short instruction in Thai]" },
+      { "speaker": "B", "text": "ขอโทษครับ / ค่ะ ไม่เข้าใจครับ / ค่ะ (Sorry, I do not understand.)" }
+    ],
     "steps": [
-      "Listen first. The teacher says each word slowly: sawatdee, khop khun, nam, hong nam, chuai duai, rong rian, rong phayaban.",
-      "Repeat as a group. Do not force learners to speak alone if they are shy.",
-      "Match each word to a meaning: hello, thank you, water, toilet, help, school, hospital.",
-      "Practice pointing or showing a card if speaking feels hard.",
-      "Practice one useful phrase: chuai duai, which means help me or please help."
+      "Listen to a trusted Thai speaker or recording before reading the romanization.",
+      "Repeat the greeting and thanks three times at a comfortable speed.",
+      "Practise adding the polite particle used by the speaker.",
+      "Role-play hearing an instruction and saying that you do not understand."
     ],
-    "practice": "The teacher gives a situation: I need water, I need the toilet, I need help, I need school, or I need hospital. Learners choose the useful word by speaking, pointing, or holding up a card.",
-    "checkQuestion": "Which Thai word or phrase could you use if you need help?",
-    "teacherNote": "Ask a local Thai speaker to review pronunciation and wording. This lesson is for basic survival communication, not formal Thai language instruction.",
+    "practice": "Take turns greeting someone, receiving a short instruction, saying you do not understand, and thanking the speaker after they repeat it.",
+    "exercises": [{ "question": "Which phrase means 'I do not understand'?", "options": ["ขอบคุณ", "ไม่เข้าใจ", "สวัสดี"], "answer": 1, "explanation": "ไม่เข้าใจ means 'I do not understand.'" }],
+    "finalTask": "Complete a four-line exchange: greet, listen, say you do not understand, and thank the other person.",
+    "takeaway": ["Thai tones affect meaning, so listen as well as read.", "Polite particles make short phrases more courteous.", "It is better to ask than to pretend you understood."],
+    "checkQuestion": "Can you greet someone and say that you do not understand?",
+    "teacherNote": "Ask a fluent Thai speaker to review pronunciation and local usage. Explain polite particles carefully and respectfully; do not force learners into a gender label.",
     "references": [
-      {
-        "title": "Learning Passport Myanmar",
-        "url": "https://mm.learningpassport.org/"
-      },
-      {
-        "title": "UNICEF: Learning Passport",
-        "url": "https://www.unicef.org/digitaleducation/learning-passport"
-      }
+      { "title": "SEAsite Spoken Thai: greetings and general phrases", "url": "https://seasite.niu.edu/thai/spokenthai/unit1/basic/wordmain.htm" },
+      { "title": "Thailand government: the Thai language", "url": "https://www.thailand.go.th/page/thai-language" }
     ],
-    "reviewStatus": "Draft"
+    "reviewStatus": "Needs fluent-speaker review"
+  },
+  {
+    "id": "thai-basic-needs",
+    "icon": "TH",
+    "title": "Ask for basic needs and help",
+    "subject": "Thai language",
+    "level": "Starter · A1",
+    "pathOrder": 6,
+    "description": "Ask for water, food, a toilet, or help using short phrases and visual support.",
+    "content": "A few well-practised requests are more useful than a long word list. Combine speech with pointing, a picture card, or a written place name.",
+    "goal": "Make a simple request for an immediate everyday need.",
+    "realLifeUse": "Use these phrases at home, class, work, a clinic, a food stall, or while travelling.",
+    "vocabulary": [
+      { "term": "น้ำ (nam)", "meaning": "Water" },
+      { "term": "อาหาร (ahan)", "meaning": "Food" },
+      { "term": "ห้องน้ำ (hong nam)", "meaning": "Toilet / restroom" },
+      { "term": "ช่วยด้วย (chuai duai)", "meaning": "Please help / help me" },
+      { "term": "อยู่ที่ไหน (yu thi nai)", "meaning": "Where is it?" }
+    ],
+    "patterns": ["ขอน้ำหน่อยครับ / ค่ะ — Water, please.", "ห้องน้ำอยู่ที่ไหนครับ / คะ — Where is the toilet?", "ช่วยด้วยครับ / ค่ะ — Please help."],
+    "dialogue": [
+      { "speaker": "Learner", "text": "ขอโทษครับ / ค่ะ ห้องน้ำอยู่ที่ไหนครับ / คะ (Excuse me, where is the toilet?)" },
+      { "speaker": "Helper", "text": "อยู่ทางซ้าย (It is on the left.)" },
+      { "speaker": "Learner", "text": "ขอบคุณครับ / ค่ะ (Thank you.)" }
+    ],
+    "steps": ["Match each Thai word to a picture.", "Listen and repeat one complete request.", "Practise pointing to a picture while making the request.", "Finish the exchange with thanks."],
+    "practice": "Use four picture cards: water, food, toilet, and help. Draw a card and make the matching request without showing private information.",
+    "exercises": [{ "question": "Which phrase asks where the toilet is?", "options": ["ห้องน้ำอยู่ที่ไหน", "ขอบคุณ", "สวัสดี"], "answer": 0, "explanation": "ห้องน้ำ means toilet and อยู่ที่ไหน asks where it is." }],
+    "finalTask": "Choose one need, get a person's attention politely, make the request, use a picture if needed, and thank the person.",
+    "takeaway": ["Pointing or a picture can support speech.", "Use ช่วยด้วย for an urgent request for help.", "Repeat the location back or check a sign when possible."],
+    "checkQuestion": "Can you ask for one basic need using words and a visual clue?",
+    "teacherNote": "A fluent Thai speaker must check pronunciation and whether phrases fit the local context. Do not treat this lesson as emergency-response training.",
+    "references": [{ "title": "SEAsite Spoken Thai: directions and useful phrases", "url": "https://seasite.niu.edu/thai/spokenthai/unit1/basic/phrases.htm" }],
+    "reviewStatus": "Needs fluent-speaker review"
+  },
+  {
+    "id": "thai-shopping",
+    "icon": "TH",
+    "title": "Shop and check a price",
+    "subject": "Thai language",
+    "level": "Starter · A1",
+    "pathOrder": 7,
+    "description": "Ask how much something costs, understand the purpose of a price response, and choose an item.",
+    "content": "Shopping practice combines language with everyday mathematics. Always check written prices and calculate totals rather than relying on speech alone.",
+    "goal": "Ask a price and complete a simple practice purchase.",
+    "realLifeUse": "Use this at a market, food stall, pharmacy, stationery shop, or ticket counter.",
+    "vocabulary": [
+      { "term": "อันนี้ (an ni)", "meaning": "This one" },
+      { "term": "เท่าไหร่ (thao rai)", "meaning": "How much?" },
+      { "term": "บาท (baht)", "meaning": "Thai currency unit" },
+      { "term": "เอาอันนี้ (ao an ni)", "meaning": "I will take this one" },
+      { "term": "แพง (phaeng)", "meaning": "Expensive" }
+    ],
+    "patterns": ["อันนี้เท่าไหร่ครับ / คะ — How much is this?", "เอาอันนี้ครับ / ค่ะ — I will take this one.", "ไม่เอาครับ / ค่ะ — I will not take it."],
+    "dialogue": [
+      { "speaker": "Customer", "text": "ขอโทษครับ / ค่ะ อันนี้เท่าไหร่ครับ / คะ (Excuse me, how much is this?)" },
+      { "speaker": "Seller", "text": "ห้าสิบบาท (50 baht.)" },
+      { "speaker": "Customer", "text": "เอาอันนี้ครับ / ค่ะ (I will take this one.)" }
+    ],
+    "steps": ["Place written prices on three practice items.", "Ask the price of one item.", "Compare the spoken answer with the written price.", "Choose the item or politely decline.", "Calculate the expected change before paying."],
+    "practice": "Run a small pretend market using fictional money. Swap customer and seller roles after each purchase.",
+    "exercises": [{ "question": "Which phrase asks 'How much is this?'", "options": ["อันนี้เท่าไหร่", "ห้องน้ำอยู่ที่ไหน", "ไม่เข้าใจ"], "answer": 0, "explanation": "อันนี้ means 'this one' and เท่าไหร่ asks how much." }],
+    "finalTask": "Ask the price, verify it against a label, decide whether to buy, and check the change for one practice item.",
+    "takeaway": ["Check written prices.", "Use the maths course to practise totals and change.", "You can politely decide not to buy."],
+    "checkQuestion": "Can you ask a price and verify a simple purchase total?",
+    "teacherNote": "Use familiar low-risk items and fictional prices. A fluent speaker should review pronunciation, particles, and natural wording.",
+    "references": [{ "title": "SEAsite Quick Thai: shopping and numbers", "url": "https://seasite.niu.edu/thai/QuickThai/Intro.htm" }],
+    "reviewStatus": "Needs fluent-speaker review"
+  },
+  {
+    "id": "thai-directions",
+    "icon": "TH",
+    "title": "Ask for a place or transport",
+    "subject": "Thai language",
+    "level": "Starter · A1",
+    "pathOrder": 8,
+    "description": "Ask where a place is and confirm a simple left, right, or straight-ahead direction.",
+    "content": "Directions work best when speech is supported by a map, destination card, transport number, or landmark.",
+    "goal": "Ask where a place is and identify three basic direction words.",
+    "realLifeUse": "Use this for a school, clinic, station, bus stop, workplace, toilet, or another public place.",
+    "vocabulary": [
+      { "term": "อยู่ที่ไหน (yu thi nai)", "meaning": "Where is it?" },
+      { "term": "ซ้าย (sai)", "meaning": "Left" },
+      { "term": "ขวา (khwa)", "meaning": "Right" },
+      { "term": "ตรงไป (trong pai)", "meaning": "Go straight" },
+      { "term": "สถานี (sathani)", "meaning": "Station" }
+    ],
+    "patterns": ["[place] อยู่ที่ไหนครับ / คะ — Where is [place]?", "ไป [place] ไหมครับ / คะ — Does it go to [place]?", "ซ้าย / ขวา / ตรงไป — left / right / straight"],
+    "dialogue": [
+      { "speaker": "Traveller", "text": "ขอโทษครับ / ค่ะ สถานีรถไฟอยู่ที่ไหนครับ / คะ (Where is the railway station?)" },
+      { "speaker": "Helper", "text": "ตรงไป แล้วเลี้ยวซ้าย (Go straight, then turn left.)" },
+      { "speaker": "Traveller", "text": "ขอบคุณครับ / ค่ะ" }
+    ],
+    "steps": ["Write or show the destination.", "Ask where it is.", "Listen for left, right, or straight.", "Point on a simple map and repeat the direction.", "Confirm against signs or a route number."],
+    "practice": "Place three destinations on a small map. One person asks; the other gives a one- or two-step direction.",
+    "exercises": [{ "question": "Which word means right?", "options": ["ซ้าย", "ขวา", "ตรงไป"], "answer": 1, "explanation": "ขวา means right; ซ้าย means left." }],
+    "finalTask": "Use a map to ask for one destination, follow a two-step direction, and point to the correct place.",
+    "takeaway": ["Show the destination as well as saying it.", "Repeat the direction and point on a map.", "Verify real transport routes separately."],
+    "checkQuestion": "Can you ask where a place is and recognize left, right, and straight?",
+    "teacherNote": "This teaches language, not verified travel information. Replace destinations with useful local examples and confirm real routes independently.",
+    "references": [{ "title": "SEAsite Spoken Thai: directions", "url": "https://seasite.niu.edu/thai/spokenthai/unit1/basic/wordmain.htm" }],
+    "reviewStatus": "Needs fluent-speaker review"
+  },
+  {
+    "id": "thai-checkpoint",
+    "icon": "TH",
+    "title": "Practical Thai checkpoint",
+    "subject": "Thai language",
+    "level": "Starter · A1",
+    "pathOrder": 9,
+    "description": "Combine greetings, basic needs, shopping, and directions in short real-life role-plays.",
+    "content": "The checkpoint measures whether a learner can complete a useful task. Perfect spelling, tone, or speed is not required, but pronunciation should keep improving with trusted audio and feedback.",
+    "goal": "Complete four short practical exchanges with speech and visual support.",
+    "realLifeUse": "Use this review to decide which phrases are ready and which need another round of listening practice.",
+    "steps": ["Greet someone and say you do not understand.", "Ask for water, a toilet, or help.", "Ask an item's price and verify it.", "Ask where a place is and follow a direction.", "Review and retry any unclear task."],
+    "practice": "Create four stations using picture cards, labelled objects, fictional money, and a simple map. Swap roles at every station.",
+    "exercises": [
+      { "question": "You need the toilet. Which question is useful?", "options": ["อันนี้เท่าไหร่", "ห้องน้ำอยู่ที่ไหน", "สวัสดี"], "answer": 1, "explanation": "ห้องน้ำอยู่ที่ไหน asks where the toilet is." },
+      { "question": "You did not understand the answer. What should you do?", "options": ["Pretend you understood", "Ask again and show a picture or map", "Give a stranger private documents"], "answer": 1, "explanation": "Ask again and use visual support to reduce misunderstanding." }
+    ],
+    "finalTask": "Complete two role-plays without reading every line: one basic-needs or directions task and one shopping task. Use a polite greeting and thanks.",
+    "takeaway": ["Listening practice is essential for a tonal language.", "Pictures, maps, numbers, and signs support communication.", "A fluent speaker should correct pronunciation before real use."],
+    "checkQuestion": "Which real-life task can you now complete, and which needs more listening practice?",
+    "resourceGuide": {
+      "title": "Prepare trusted Thai materials for offline study",
+      "description": "LearnBridge provides a practical sequence. Use the original providers for fuller lessons, Thai script, and pronunciation practice.",
+      "steps": ["While online, open the Royal Thai Consulate textbook library and choose an appropriate beginner book or workbook.", "Download the PDF to the device and test that it opens before going offline.", "Use SEAsite while connected for spoken examples and repeat them with a fluent speaker when possible.", "Keep the original provider name and link with every downloaded resource."],
+      "links": [
+        { "title": "Open Thai textbook downloads", "url": "https://thaiconsulatela.thaiembassy.org/th/page/book/" },
+        { "title": "Open SEAsite Quick Thai", "url": "https://seasite.niu.edu/thai/QuickThai/Intro.htm" }
+      ]
+    },
+    "teacherNote": "Complete a fluent-speaker review before field use. The linked textbook library and SEAsite materials remain with their original providers; verify their current terms before redistributing files.",
+    "references": [
+      { "title": "Royal Thai Consulate-General Los Angeles: Thai textbook library", "url": "https://thaiconsulatela.thaiembassy.org/th/page/book/" },
+      { "title": "Northern Illinois University SEAsite Thai materials", "url": "https://seasite.niu.edu/thai/QuickThai/Intro.htm" },
+      { "title": "SEAsite Thai Language Learning Framework", "url": "https://seasite.niu.edu/Thai/LLF/Default.htm" }
+    ],
+    "reviewStatus": "Course checkpoint · Needs fluent-speaker review"
   },
   {
     "id": "reading",
@@ -486,21 +1018,38 @@
   {
     "id": "japanese-first-phrases",
     "icon": "JP",
-    "title": "Japanese first phrases",
+    "title": "Greet people and ask them to repeat",
     "subject": "Japanese",
     "level": "Starter · A1",
-    "description": "Practice polite Japanese phrases for greeting someone, asking for attention, and saying that you do not understand.",
-    "content": "Practical Japanese starts with short expressions you can use in real situations. Listen to a trusted pronunciation source when internet is available, then keep the lesson and audio on your device for offline practice.",
-    "goal": "Recognize and use five polite phrases in a simple daily conversation.",
-    "steps": [
-      "おはようございます (ohayou gozaimasu) — Good morning.",
-      "すみません (sumimasen) — Excuse me / I am sorry.",
-      "わかりません (wakarimasen) — I do not understand.",
-      "もういちど おねがいします (mou ichido onegaishimasu) — Please say it again.",
-      "ありがとうございます (arigatou gozaimasu) — Thank you."
+    "pathOrder": 1,
+    "description": "Use polite phrases when meeting someone or when spoken Japanese is difficult to understand.",
+    "content": "Start with phrases that solve an immediate communication problem. Listen to official audio when possible, then practise the exchange offline.",
+    "goal": "Greet someone, get their attention, and ask them to repeat.",
+    "realLifeUse": "Use these phrases in a class, workplace, shop, station, clinic reception area, or community office.",
+    "vocabulary": [
+      { "term": "おはようございます (ohayou gozaimasu)", "meaning": "Good morning" },
+      { "term": "すみません (sumimasen)", "meaning": "Excuse me / sorry" },
+      { "term": "よく わかりません (yoku wakarimasen)", "meaning": "I do not really understand" },
+      { "term": "もういちど おねがいします (mou ichido onegaishimasu)", "meaning": "One more time, please" },
+      { "term": "ありがとうございます (arigatou gozaimasu)", "meaning": "Thank you" }
     ],
-    "practice": "Choose one situation: meeting a teacher, asking a station worker for attention, or not understanding an instruction. Practice a two-line conversation using two phrases. Repeat after reliable audio when available.",
-    "checkQuestion": "Which phrase can you use when you need someone to repeat an instruction?",
+    "dialogue": [
+      { "speaker": "A", "text": "おはようございます。 (Good morning.)" },
+      { "speaker": "B", "text": "おはようございます。" },
+      { "speaker": "A", "text": "[A short instruction in Japanese]" },
+      { "speaker": "B", "text": "すみません。よく わかりません。もういちど おねがいします。" }
+    ],
+    "steps": [
+      "Listen to each phrase twice using the official audio when internet is available.",
+      "Say each phrase slowly, then at normal speaking speed.",
+      "Practise with one person giving an instruction and the other asking for repetition.",
+      "Swap roles and repeat without reading every word."
+    ],
+    "practice": "Choose a class, station, or shop situation. Begin with すみません, say that you do not understand, and ask for one more repetition.",
+    "exercises": [{ "question": "What should you say when you need to hear the sentence again?", "options": ["ありがとうございます", "もういちど おねがいします", "おはようございます"], "answer": 1, "explanation": "もういちど おねがいします means 'One more time, please.'" }],
+    "finalTask": "Complete a four-line role-play: greet someone, listen to an instruction, explain that you do not understand, and ask them to repeat.",
+    "takeaway": ["Use すみません before asking for help.", "It is useful and polite to say that you do not understand.", "Practise with trusted audio, not romanization alone."],
+    "checkQuestion": "Can you ask for repetition without reading the full phrase?",
     "teacherNote": "Prioritize listening and speaking before writing systems. Use Japan Foundation audio for pronunciation and avoid presenting romanization as a complete substitute for learning Japanese script.",
     "references": [
       {
@@ -512,7 +1061,142 @@
         "url": "https://minato-jf.jp/"
       }
     ],
-    "reviewStatus": "Starter draft"
+    "reviewStatus": "Needs language review"
+  },
+  {
+    "id": "japanese-introduction",
+    "icon": "JP",
+    "title": "Introduce yourself",
+    "subject": "Japanese",
+    "level": "Starter · A1",
+    "pathOrder": 2,
+    "description": "Share your name, where you came from, and where you live now in a first meeting.",
+    "content": "A short introduction helps with a new class, workplace, or community. Use only information you feel comfortable sharing.",
+    "goal": "Give a short first introduction and respond politely.",
+    "realLifeUse": "Use this when joining a course, meeting a colleague, or speaking to someone for the first time.",
+    "vocabulary": [
+      { "term": "はじめまして (hajimemashite)", "meaning": "Nice to meet you / first time meeting" },
+      { "term": "わたしは ___ です (watashi wa ___ desu)", "meaning": "I am ___" },
+      { "term": "ミャンマーから きました (Myanmar kara kimashita)", "meaning": "I came from Myanmar" },
+      { "term": "___ に すんでいます (___ ni sunde imasu)", "meaning": "I live in ___" },
+      { "term": "よろしく おねがいします (yoroshiku onegaishimasu)", "meaning": "A polite closing used in a first introduction" }
+    ],
+    "patterns": ["はじめまして。わたしは [name] です。", "[place] から きました。", "いま [place] に すんでいます。", "よろしく おねがいします。"],
+    "dialogue": [
+      { "speaker": "A", "text": "はじめまして。わたしは ミナ です。ミャンマーから きました。" },
+      { "speaker": "B", "text": "はじめまして。わたしは ケン です。よろしく おねがいします。" }
+    ],
+    "steps": ["Choose a nickname for practice.", "Build a three-line introduction using the patterns.", "Listen to official Irodori Lesson 3 audio while online.", "Say your introduction twice without rushing."],
+    "practice": "Work in pairs and swap roles. Do not require learners to share a legal name, address, or immigration details.",
+    "exercises": [{ "question": "Which phrase normally begins a first introduction?", "options": ["はじめまして", "いくらですか", "もういちど おねがいします"], "answer": 0, "explanation": "はじめまして is used when meeting someone for the first time." }],
+    "finalTask": "Give a four-part introduction: first-meeting greeting, nickname, country or city, and polite closing.",
+    "takeaway": ["A short introduction can be enough.", "Use から for where you came from.", "Keep private details optional."],
+    "checkQuestion": "Can you introduce yourself in three or four short lines?",
+    "teacherNote": "The English meaning of よろしく おねがいします is approximate because there is no single exact equivalent. Teach it as a conventional polite closing here.",
+    "references": [{ "title": "Irodori Starter lessons and audio", "url": "https://www.irodori.jpf.go.jp/en/starter/pdf.html" }],
+    "reviewStatus": "Needs language review"
+  },
+  {
+    "id": "japanese-shopping",
+    "icon": "JP",
+    "title": "Buy an everyday item",
+    "subject": "Japanese",
+    "level": "Starter · A1",
+    "pathOrder": 3,
+    "description": "Ask whether a shop has an item, ask the price, and say what you want.",
+    "content": "Shopping language becomes useful quickly. Practise with pictures or safe objects before trying the phrases in a real shop.",
+    "goal": "Ask for one everyday item and ask its price.",
+    "realLifeUse": "Use this for food, batteries, stationery, toiletries, or another everyday purchase.",
+    "vocabulary": [
+      { "term": "___ は ありますか (___ wa arimasu ka)", "meaning": "Do you have ___?" },
+      { "term": "これは いくらですか (kore wa ikura desu ka)", "meaning": "How much is this?" },
+      { "term": "___ を ください (___ o kudasai)", "meaning": "Please give me ___ / I will take ___" },
+      { "term": "たかい (takai)", "meaning": "Expensive / high" },
+      { "term": "やすい (yasui)", "meaning": "Inexpensive / cheap" }
+    ],
+    "dialogue": [
+      { "speaker": "Customer", "text": "すみません。でんちは ありますか。 (Excuse me. Do you have batteries?)" },
+      { "speaker": "Staff", "text": "はい、あります。 (Yes, we do.)" },
+      { "speaker": "Customer", "text": "これは いくらですか。 (How much is this?)" },
+      { "speaker": "Customer", "text": "これを ください。 (I will take this, please.)" }
+    ],
+    "steps": ["Choose one object to buy.", "Ask whether the shop has it.", "Point to an item and ask the price.", "Finish with これを ください and ありがとうございます."],
+    "practice": "Make a tiny pretend shop with three labelled objects. Take turns being the customer and staff member.",
+    "exercises": [{ "question": "Which question asks the price?", "options": ["これは いくらですか", "どこですか", "はじめまして"], "answer": 0, "explanation": "いくら means 'how much' in this shopping question." }],
+    "finalTask": "Role-play buying one item: get attention, ask if it is available, ask the price, choose it, and thank the staff member.",
+    "takeaway": ["Begin politely with すみません.", "Use いくらですか to ask a price.", "Check the displayed price as well as listening."],
+    "checkQuestion": "Can you ask for an item and its price?",
+    "teacherNote": "Use real price labels and calculators where helpful. Do not expect mastery of Japanese counters in this starter activity.",
+    "references": [{ "title": "Irodori Starter lessons 15 and 16", "url": "https://www.irodori.jpf.go.jp/en/starter/pdf.html" }],
+    "reviewStatus": "Needs language review"
+  },
+  {
+    "id": "japanese-transport",
+    "icon": "JP",
+    "title": "Check a bus or train",
+    "subject": "Japanese",
+    "level": "Starter · A1",
+    "pathOrder": 4,
+    "description": "Ask whether public transport goes to your destination and confirm a location.",
+    "content": "Transport questions are easier when you combine short Japanese with a written destination, map, or phone screen.",
+    "goal": "Ask whether a bus or train goes to a destination.",
+    "realLifeUse": "Use this at a bus stop, station, ticket counter, or information desk.",
+    "vocabulary": [
+      { "term": "この バスは ___ に いきますか (kono basu wa ___ ni ikimasu ka)", "meaning": "Does this bus go to ___?" },
+      { "term": "___ は どこですか (___ wa doko desu ka)", "meaning": "Where is ___?" },
+      { "term": "はい (hai)", "meaning": "Yes" },
+      { "term": "いいえ (iie)", "meaning": "No" }
+    ],
+    "dialogue": [
+      { "speaker": "Traveller", "text": "すみません。この バスは くうこうに いきますか。 (Does this bus go to the airport?)" },
+      { "speaker": "Staff", "text": "はい、いきます。 (Yes, it does.)" },
+      { "speaker": "Traveller", "text": "ありがとうございます。" }
+    ],
+    "steps": ["Write or display the destination clearly.", "Begin with すみません.", "Ask whether this bus goes to the destination.", "Listen for はい or いいえ and confirm using a map or sign."],
+    "practice": "Use a simple map with three destinations. One learner chooses a route; another asks whether it reaches a chosen place.",
+    "exercises": [{ "question": "What should you show while asking about an unfamiliar destination?", "options": ["Only a blank page", "The written destination or a map", "Private account information"], "answer": 1, "explanation": "A written destination or map can reduce misunderstanding." }],
+    "finalTask": "Plan a short journey on a practice map. Ask about the correct bus, understand a yes or no answer, and thank the helper.",
+    "takeaway": ["Show the destination as well as saying it.", "Confirm using signs, maps, or route numbers.", "Ask again when the answer is unclear."],
+    "checkQuestion": "Can you ask if a bus goes to a named destination?",
+    "teacherNote": "This is language practice, not local transport advice. Verify real routes separately.",
+    "references": [{ "title": "Irodori Starter lesson 13", "url": "https://www.irodori.jpf.go.jp/en/starter/pdf.html" }],
+    "reviewStatus": "Needs language review"
+  },
+  {
+    "id": "japanese-checkpoint",
+    "icon": "JP",
+    "title": "Practical Japanese checkpoint",
+    "subject": "Japanese",
+    "level": "Starter · A1",
+    "pathOrder": 5,
+    "description": "Combine greetings, introductions, shopping, and transport questions in short role-plays.",
+    "content": "This checkpoint focuses on useful tasks. Clear communication matters more than perfect speed or accent.",
+    "goal": "Complete four short everyday communication tasks using speech, gestures, and written information.",
+    "realLifeUse": "Use this review to identify which phrases are ready for real use and which need more listening practice.",
+    "steps": ["Greet someone and ask them to repeat one sentence.", "Give a short first introduction.", "Ask for one item and its price.", "Ask whether a bus goes to a destination.", "Review and repeat any difficult task."],
+    "practice": "Set up four role-play stations. Give simple feedback: message understood, almost understood, or needs another try.",
+    "exercises": [
+      { "question": "You do not understand an answer. What is the most useful next step?", "options": ["Pretend you understood", "Ask for one more repetition", "Share private documents"], "answer": 1, "explanation": "Use もういちど おねがいします to request another repetition." },
+      { "question": "Which question belongs in a shop?", "options": ["これは いくらですか", "この バスは くうこうに いきますか", "はじめまして"], "answer": 0, "explanation": "これは いくらですか asks how much an item costs." }
+    ],
+    "finalTask": "Complete two role-plays without reading every line: one first meeting and either one shop purchase or one transport question. Use a clarification phrase at least once.",
+    "takeaway": ["Short, clear phrases can solve real problems.", "Written destinations and prices support spoken communication.", "Continue with official audio and the writing system after these first tasks."],
+    "checkQuestion": "Which practical situation can you now complete, and which one needs more practice?",
+    "resourceGuide": {
+      "title": "Keep the official Irodori course available offline",
+      "description": "LearnBridge provides practice and a path. The Japan Foundation provides the full free course materials and trusted audio.",
+      "steps": ["While online, open the official Irodori Starter page.", "Download the lesson PDFs and matching MP3 ZIP files.", "Extract the MP3 files and test one recording before going offline.", "On phones and tablets, use separate MP3 files because audio embedded in a PDF may not play."],
+      "links": [
+        { "title": "Open Irodori Starter downloads", "url": "https://www.irodori.jpf.go.jp/en/starter/pdf.html" },
+        { "title": "Open Irodori support resources", "url": "https://www.irodori.jpf.go.jp/en/resources.html" }
+      ]
+    },
+    "teacherNote": "Ask a competent Japanese speaker to review local adaptations before group use. Keep official files outside LearnBridge unless their license permits the planned distribution.",
+    "references": [
+      { "title": "About Irodori: Japanese for Life in Japan", "url": "https://www.irodori.jpf.go.jp/en/about.html" },
+      { "title": "Irodori teaching and learning resources", "url": "https://www.irodori.jpf.go.jp/en/resources.html" }
+    ],
+    "reviewStatus": "Course checkpoint · Needs language review"
   },
   {
     "id": "calm-breathing",

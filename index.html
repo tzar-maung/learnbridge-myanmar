@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#256f75" />
     <title>LearnBridge Offline</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=78" />
+    <link rel="stylesheet" href="./styles.css?v=93" />
   </head>
   <body>
     <header class="topbar">
@@ -41,8 +41,8 @@
           </div>
           <div class="learning-scene">
             <img
-              src="./assets/arakan-landscape.jfif"
-              alt="Historic pagodas in Arakan landscape"
+              src="./assets/learnbridge-temple-hero.png"
+              alt="Original temple landscape created for LearnBridge Myanmar"
             />
           </div>
         </section>
@@ -88,53 +88,71 @@
             </div>
           </article>
         </section>
-        <aside class="resource-notice" aria-label="External resource notice">
-          <div>
-            <p class="eyebrow">About our resources</p>
-            <p>
-              LearnBridge helps you discover free learning resources from their
-              original providers. We do not own or host external materials.
-              Availability, licences, and download conditions are controlled by
-              each provider.
-            </p>
-          </div>
-          <button class="secondary-button" data-open-view="library" type="button">Browse the library</button>
-        </aside>
-        <section class="path-overview" aria-labelledby="learningPathsTitle">
-          <div class="section-heading path-heading">
-            <div>
-              <p class="eyebrow">Learning paths</p>
-              <h2 id="learningPathsTitle">Choose one useful skill to build.</h2>
-              <p>Select an available path to show its activities below.</p>
+        <section class="course-path-browser" aria-labelledby="learningPathsTitle">
+          <div class="course-browser-header">
+            <p class="eyebrow">Learning paths</p>
+            <h2 id="learningPathsTitle">Explore skills you can use.</h2>
+            <p>Choose a subject to see its complete learning path and continue at your own pace.</p>
+            <div class="path-filter-row" aria-label="Filter learning paths">
+              <button class="path-filter-chip active-path-button" data-path-subject="All" type="button" aria-pressed="true">All</button>
+              <button class="path-filter-chip" data-path-subject="English" type="button" aria-pressed="false">English</button>
+              <button class="path-filter-chip" data-path-subject="Math" type="button" aria-pressed="false">Maths</button>
+              <button class="path-filter-chip" data-path-subject="Japanese" type="button" aria-pressed="false">Japanese</button>
+              <button class="path-filter-chip" data-path-subject="Thai language" type="button" aria-pressed="false">Thai</button>
+              <button class="path-filter-chip" data-path-subject="Literacy" type="button" aria-pressed="false">Reading</button>
             </div>
-            <button class="secondary-button active-path-button" data-path-subject="All" type="button">All activities</button>
           </div>
-          <div class="path-overview-grid">
-            <button class="path-overview-card" data-path-subject="English" type="button" aria-pressed="false">
-              <span>Available now</span>
-              <h3>English foundations</h3>
-              <p>Useful vocabulary, short reading, speaking, and writing practice.</p>
-            </button>
-            <button class="path-overview-card" data-path-subject="Japanese" type="button" aria-pressed="false">
-              <span>Available now</span>
-              <h3>Practical Japanese</h3>
-              <p>Daily communication for study, transport, shopping, work, and life in Japan.</p>
-            </button>
-            <button class="path-overview-card" data-path-subject="Math" type="button" aria-pressed="false">
-              <span>Available now</span>
-              <h3>Everyday mathematics</h3>
-              <p>Numbers, money, measurement, percentages, and practical problems.</p>
-            </button>
-            <article class="path-overview-card proposed">
-              <span>Proposed pack</span>
-              <h3>Science explorer</h3>
-              <p>Short explanations, observations, and selected offline PhET experiments.</p>
-            </article>
-            <article class="path-overview-card proposed">
-              <span>Proposed pack</span>
-              <h3>Digital skills</h3>
-              <p>Files, typing, documents, spreadsheets, internet basics, and introductory coding.</p>
-            </article>
+
+          <div class="course-path-content">
+            <div class="course-path-heading">
+              <div>
+                <p class="eyebrow">Available now</p>
+                <h3>Start a learning path</h3>
+              </div>
+              <p>Activities and progress work offline after the app has loaded.</p>
+            </div>
+            <div class="course-path-grid">
+              <button class="course-path-card" data-path-subject="English" type="button" aria-pressed="false">
+                <img src="./assets/paths/english-foundations.png" alt="Notebook, headphones, and conversation cards for English practice" />
+                <span class="course-path-body"><small>Language · 5 activities</small><strong>English foundations</strong><span>Vocabulary, speaking, reading, and writing for everyday use.</span><b>View path</b></span>
+              </button>
+              <button class="course-path-card" data-path-subject="Math" type="button" aria-pressed="false">
+                <img src="./assets/paths/everyday-mathematics.png" alt="Coins, groceries, measuring tools, shapes, and a calculator" />
+                <span class="course-path-body"><small>Practical skills · 5 activities</small><strong>Everyday mathematics</strong><span>Money, measurement, percentages, and useful problem-solving.</span><b>View path</b></span>
+              </button>
+              <button class="course-path-card" data-path-subject="Japanese" type="button" aria-pressed="false">
+                <img src="./assets/paths/practical-japanese.png" alt="Train, map, notebook, and conversation cards for Japanese practice" />
+                <span class="course-path-body"><small>Language · 5 activities</small><strong>Practical Japanese</strong><span>Communication for transport, shopping, study, and daily life.</span><b>View path</b></span>
+              </button>
+              <button class="course-path-card" data-path-subject="Thai language" type="button" aria-pressed="false">
+                <img src="./assets/paths/thai-foundations.png" alt="Thai travel, market, map, and language study materials" />
+                <span class="course-path-body"><small>Language · 9 activities</small><strong>Thai foundations and daily use</strong><span>Writing basics, tones, essential needs, prices, and directions.</span><b>View path</b></span>
+              </button>
+              <button class="course-path-card" data-path-subject="Literacy" type="button" aria-pressed="false">
+                <img src="./assets/paths/reading-practice.png" alt="Open picture book, reading lamp, and sequencing cards" />
+                <span class="course-path-body"><small>Foundation · 1 activity</small><strong>Reading practice</strong><span>Build confidence with short sentences, pictures, and retelling.</span><b>View path</b></span>
+              </button>
+            </div>
+
+            <div class="planned-paths" aria-labelledby="plannedPathsTitle">
+              <div class="course-path-heading compact">
+                <div>
+                  <p class="eyebrow">In development</p>
+                  <h3 id="plannedPathsTitle">Planned learning paths</h3>
+                </div>
+                <p>These are design proposals, not finished lessons yet.</p>
+              </div>
+              <div class="planned-path-grid">
+                <article class="planned-path-card">
+                  <img src="./assets/paths/science-explorer.png" alt="Magnifying glass, plant, rocks, magnet, and science notebook" />
+                  <div><span>Planned</span><h4>Science explorer</h4><p>Observation, simple experiments, and selected offline simulations.</p></div>
+                </article>
+                <article class="planned-path-card">
+                  <img src="./assets/paths/digital-skills.png" alt="Laptop, folders, notebook, and practical computer tools" />
+                  <div><span>Planned</span><h4>Digital skills</h4><p>Files, typing, documents, spreadsheets, and internet basics.</p></div>
+                </article>
+              </div>
+            </div>
           </div>
         </section>
         <section class="lesson-list-view" id="lessonListView">
@@ -159,6 +177,19 @@
           </div>
           <button id="completeCurrentLesson" type="button">Mark activity complete</button>
         </section>
+
+        <aside class="resource-notice resource-notice-footer" aria-label="External resource notice">
+          <div>
+            <p class="eyebrow">About our resources</p>
+            <p>
+              LearnBridge helps you discover free learning resources from their
+              original providers. We do not own or host external materials.
+              Availability, licences, and download conditions are controlled by
+              each provider.
+            </p>
+          </div>
+          <button class="secondary-button" data-open-view="library" type="button">Browse the library</button>
+        </aside>
 
       </section>
 
@@ -397,6 +428,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=78"></script>
+    <script src="./app.js?v=92"></script>
   </body>
 </html>

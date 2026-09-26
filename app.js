@@ -116,6 +116,14 @@ const homeLearningPaths = [
 ];
 
 const INDEPENDENT_SUBJECTS = ["Math", "Thai language", "Japanese", "Literacy", "English"];
+const LEARNING_TOPIC_ORDER = ["English", "Math", "Japanese", "Thai language", "Literacy"];
+const LEARNING_TOPIC_LABELS = {
+  English: "English foundations",
+  Math: "Everyday mathematics",
+  Japanese: "Practical Japanese",
+  "Thai language": "Thai foundations and daily use",
+  Literacy: "Reading practice",
+};
 
 const translations = {
   en: {
@@ -577,29 +585,58 @@ function renderLessons() {
     return;
   }
 
-  lessonGrid.innerHTML = visibleLessons
-    .map((lesson) => {
-      const isComplete = state.completeLessons.includes(lesson.id);
-      const buttonText = isComplete ? "Review activity" : "Open activity";
-      const reviewStatus = lesson.reviewStatus || "Draft";
-      const sequenceText = getLessonSequenceText(lesson);
+  const learningGroups = [
+    { label: "English foundations", subject: "English" },
+    { label: "Everyday mathematics", subject: "Math" },
+    { label: "Practical Japanese", subject: "Japanese" },
+    { label: "Thai foundations", subject: "Thai language", level: "Foundation" },
+    { label: "Thai daily communication", subject: "Thai language", excludeLevel: "Foundation" },
+    { label: "Reading practice", subject: "Literacy" },
+  ].filter((group) => state.selectedSubject === "All" || group.subject === state.selectedSubject);
 
-      return `
-        <article class="lesson-card ${isComplete ? "complete" : ""}">
-          <div>
-            <span class="review-badge">${escapeHtml(reviewStatus)}</span>
-            <h3>${escapeHtml(lesson.title)}</h3>
-            <p class="lesson-card-meta">${escapeHtml(sequenceText)}</p>
-            <p>${escapeHtml(lesson.description)}</p>
-            <p class="lesson-card-focus"><strong>Goal:</strong> ${escapeHtml(lesson.goal || "Open the activity to start learning.")}</p>
-          </div>
-          <div class="lesson-actions">
-            <button type="button" data-open-lesson-id="${escapeHtml(lesson.id)}">${buttonText}</button>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
+  lessonGrid.innerHTML = `
+    <div class="learner-directory ${learningGroups.length <= 2 ? "focused-directory" : ""}">
+      ${learningGroups
+        .map((group) => {
+          const groupLessons = visibleLessons
+            .filter((lesson) => {
+              if (lesson.subject !== group.subject) return false;
+              if (group.level && lesson.level !== group.level) return false;
+              if (group.excludeLevel && lesson.level === group.excludeLevel) return false;
+              return true;
+            })
+            .sort((a, b) => (a.pathOrder || 999) - (b.pathOrder || 999));
+          const completeCount = groupLessons.filter((lesson) => state.completeLessons.includes(lesson.id)).length;
+
+          return `
+            <section class="learner-directory-column" aria-label="${escapeHtml(group.label)}">
+              <header>
+                <h3>${escapeHtml(group.label)}</h3>
+                <span>${completeCount}/${groupLessons.length}</span>
+              </header>
+              <div class="learner-directory-links">
+                ${groupLessons
+                  .map((lesson) => {
+                    const isComplete = state.completeLessons.includes(lesson.id);
+                    return `
+                      <button class="learner-directory-item ${isComplete ? "complete" : ""}" type="button" data-open-lesson-id="${escapeHtml(lesson.id)}">
+                        <span class="lesson-state" aria-hidden="true">${isComplete ? "✓" : escapeHtml(String(lesson.pathOrder || "•"))}</span>
+                        <span class="learner-directory-copy">
+                          <strong>${escapeHtml(lesson.title)}</strong>
+                          <small>${escapeHtml(lesson.level || "Starter")}</small>
+                        </span>
+                        <span class="learner-open-label">${isComplete ? "Review" : "Open"}</span>
+                      </button>
+                    `;
+                  })
+                  .join("")}
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
 }
 
 function renderResourceCategories() {
@@ -741,24 +778,59 @@ function renderTeacherView() {
   teacherCompletedLessons.textContent = completed;
   teacherRemainingLessons.textContent = remaining;
   teacherLearnerCount.textContent = activeBatch.learnerCount || "-";
-  teacherGuideList.innerHTML = suggestedLessons
-    .map((lesson) => {
-      const isComplete = activeBatch.completeLessons.includes(lesson.id);
-      const status = isComplete ? "Mark incomplete" : "Mark complete";
-      const reviewStatus = lesson.reviewStatus || "Draft";
-      const resourcesHtml = renderTeacherResources(lesson.subject || "General");
+  const guideGroups = [
+    { label: "English foundations", subject: "English" },
+    { label: "Everyday mathematics", subject: "Math" },
+    { label: "Practical Japanese", subject: "Japanese" },
+    { label: "Thai foundations", subject: "Thai language", level: "Foundation" },
+    { label: "Thai daily communication", subject: "Thai language", excludeLevel: "Foundation" },
+    { label: "Reading practice", subject: "Literacy" },
+  ];
+
+  teacherGuideList.innerHTML = guideGroups
+    .map((group) => {
+      const subjectLessons = suggestedLessons
+        .filter((lesson) => {
+          if (lesson.subject !== group.subject) return false;
+          if (group.level && lesson.level !== group.level) return false;
+          if (group.excludeLevel && lesson.level === group.excludeLevel) return false;
+          return true;
+        })
+        .sort((a, b) => (a.pathOrder || 999) - (b.pathOrder || 999));
+      const subjectComplete = subjectLessons.filter((lesson) => activeBatch.completeLessons.includes(lesson.id)).length;
 
       return `
-        <article class="teacher-guide-card">
-          <div>
-            <p class="lesson-card-meta">${escapeHtml(lesson.subject || "General")} · ${escapeHtml(lesson.level || "Starter")}</p>
-            <h3>${escapeHtml(lesson.title)}</h3>
-            <span class="review-badge">${escapeHtml(reviewStatus)}</span>
-            <p>${escapeHtml(lesson.teacherNote || "Teaching guidance is coming soon.")}</p>
-            ${resourcesHtml}
+        <section class="teacher-activity-column" aria-label="${escapeHtml(group.label)}">
+          <header>
+            <h4>${escapeHtml(group.label)}</h4>
+            <span>${subjectComplete}/${subjectLessons.length}</span>
+          </header>
+          <div class="teacher-activity-links">
+            ${subjectLessons
+              .map((lesson) => {
+                const isComplete = activeBatch.completeLessons.includes(lesson.id);
+                const status = isComplete ? "Mark incomplete" : "Mark complete";
+                const reviewStatus = lesson.reviewStatus || "Draft";
+                const resourcesHtml = renderTeacherResources(group.subject);
+
+                return `
+                  <details class="teacher-activity-item ${isComplete ? "complete" : ""}">
+                    <summary>
+                      <span>${escapeHtml(lesson.title)}</span>
+                      <span class="activity-state" aria-label="${isComplete ? "Complete" : "Not complete"}">${isComplete ? "✓" : "+"}</span>
+                    </summary>
+                    <div class="teacher-activity-detail">
+                      <p class="teacher-activity-meta">${escapeHtml(lesson.level || "Starter")} · ${escapeHtml(reviewStatus)}</p>
+                      <p>${escapeHtml(lesson.teacherNote || "Teaching guidance is coming soon.")}</p>
+                      ${resourcesHtml}
+                      <button class="${isComplete ? "secondary-button" : ""}" type="button" data-batch-lesson-id="${escapeHtml(lesson.id)}">${status}</button>
+                    </div>
+                  </details>
+                `;
+              })
+              .join("")}
           </div>
-          <button class="${isComplete ? "secondary-button" : ""}" type="button" data-batch-lesson-id="${escapeHtml(lesson.id)}">${status}</button>
-        </article>
+        </section>
       `;
     })
     .join("");
@@ -831,6 +903,25 @@ function renderLessonContent(lesson) {
       </section>
     `
     : "";
+  const workedExamplesHtml = Array.isArray(lesson.workedExamples)
+    ? `
+      <section class="lesson-block">
+        <p class="eyebrow">Worked examples</p>
+        <div class="worked-example-list">
+          ${lesson.workedExamples
+            .map(
+              (example) => `
+                <article>
+                  <h3>${escapeHtml(example.title)}</h3>
+                  <p>${escapeHtml(example.work)}</p>
+                </article>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    `
+    : "";
   const stepsHtml = Array.isArray(lesson.steps)
     ? `
       <section class="lesson-block">
@@ -873,6 +964,26 @@ function renderLessonContent(lesson) {
   const finalTaskHtml = lesson.finalTask
     ? `<section class="lesson-block final-task"><p class="eyebrow">Real-world challenge</p><p>${escapeHtml(lesson.finalTask)}</p></section>`
     : "";
+  const resourceGuideHtml = lesson.resourceGuide
+    ? `
+      <section class="lesson-block lesson-resource-guide">
+        <p class="eyebrow">Download for offline study</p>
+        <h3>${escapeHtml(lesson.resourceGuide.title)}</h3>
+        <p>${escapeHtml(lesson.resourceGuide.description)}</p>
+        ${Array.isArray(lesson.resourceGuide.steps)
+          ? `<ol>${lesson.resourceGuide.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>`
+          : ""}
+        ${Array.isArray(lesson.resourceGuide.links)
+          ? `<div class="resource-guide-links">${lesson.resourceGuide.links
+              .map(
+                (link) =>
+                  `<a class="button-link secondary-button" href="${link.url}" target="_blank" rel="noreferrer">${escapeHtml(link.title)}</a>`,
+              )
+              .join("")}</div>`
+          : ""}
+      </section>
+    `
+    : "";
   const takeawayHtml = Array.isArray(lesson.takeaway)
     ? `
       <section class="lesson-block">
@@ -897,7 +1008,7 @@ function renderLessonContent(lesson) {
     `
     : "";
 
-  return `${goalHtml}${realLifeHtml}${vocabularyHtml}${patternsHtml}${dialogueHtml}${stepsHtml}${practiceHtml}${exercisesHtml}${finalTaskHtml}${takeawayHtml}${checkHtml}${referencesHtml}`;
+  return `${goalHtml}${realLifeHtml}${vocabularyHtml}${patternsHtml}${dialogueHtml}${workedExamplesHtml}${stepsHtml}${practiceHtml}${exercisesHtml}${finalTaskHtml}${takeawayHtml}${checkHtml}${resourceGuideHtml}${referencesHtml}`;
 }
 
 function renderClassNotes() {
@@ -1340,8 +1451,8 @@ if ("serviceWorker" in navigator) {
 async function loadLessons() {
   try {
     const [lessonResponse, resourceResponse] = await Promise.all([
-      fetch("./lessons.json?v=78"),
-      fetch("./resources.json?v=78"),
+      fetch("./lessons.json?v=92"),
+      fetch("./resources.json?v=92"),
     ]);
 
     if (!lessonResponse.ok || !resourceResponse.ok) {

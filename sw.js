@@ -1,17 +1,24 @@
-const CACHE_NAME = "learnbridge-v78";
+const CACHE_NAME = "learnbridge-v95";
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./styles.css",
-  "./styles.css?v=78",
+  "./styles.css?v=93",
   "./app.js",
-  "./app.js?v=78",
+  "./app.js?v=92",
   "./lessons.json",
-  "./lessons.json?v=78",
+  "./lessons.json?v=92",
   "./resources.json",
-  "./resources.json?v=78",
+  "./resources.json?v=92",
   "./assets/learnbridge-mark.svg",
-  "./assets/arakan-landscape.jfif",
+  "./assets/learnbridge-temple-hero.png",
+  "./assets/paths/english-foundations.png",
+  "./assets/paths/everyday-mathematics.png",
+  "./assets/paths/practical-japanese.png",
+  "./assets/paths/thai-foundations.png",
+  "./assets/paths/reading-practice.png",
+  "./assets/paths/science-explorer.png",
+  "./assets/paths/digital-skills.png",
   "./manifest.webmanifest",
 ];
 
