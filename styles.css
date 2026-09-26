@@ -273,7 +273,7 @@ button:disabled {
 }
 
 .dashboard {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .section-heading h2,
@@ -357,13 +357,45 @@ button:disabled {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.path-heading {
+  align-items: end;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
 .path-overview-card,
 .teaching-pack-grid article {
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
+  color: var(--ink);
   display: grid;
   gap: 8px;
+  min-height: 150px;
   padding: 15px;
+  text-align: left;
+}
+
+button.path-overview-card {
+  align-content: start;
+  justify-content: stretch;
+}
+
+button.path-overview-card:hover {
+  border-color: var(--teal);
+}
+
+button.path-overview-card[aria-pressed="true"] {
+  background: #eef6f3;
+  border-color: var(--teal);
+  box-shadow: inset 0 0 0 1px var(--teal);
+}
+
+.secondary-button.active-path-button {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #ffffff;
 }
 
 .path-overview-card.proposed {
@@ -381,6 +413,11 @@ button:disabled {
 .path-overview-card h3,
 .path-overview-card p {
   margin: 0;
+}
+
+.path-overview-card p {
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .resource-facts {
@@ -431,10 +468,39 @@ button:disabled {
   text-decoration: none;
 }
 
-.continue-panel {
-  align-content: start;
+.learning-summary {
+  align-items: center;
   display: grid;
-  gap: 12px;
+  gap: 24px;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1.2fr);
+  min-height: 0;
+}
+
+.learning-progress-summary {
+  display: grid;
+  gap: 10px;
+}
+
+.learning-progress-summary p,
+.next-activity-summary p {
+  margin: 0;
+}
+
+.next-activity-summary {
+  align-items: center;
+  border-left: 1px solid var(--line);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding-left: 24px;
+}
+
+.next-activity-summary button {
+  min-width: 132px;
+}
+
+.mobile-path-filter {
+  display: none;
 }
 
 .panel,
@@ -552,6 +618,86 @@ button:disabled {
 .lesson-content {
   display: grid;
   gap: 18px;
+}
+
+.real-life-use,
+.final-task {
+  background: linear-gradient(90deg, #effcf4, #eef5ff);
+  border-left: 4px solid #65a989;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.vocabulary-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.vocabulary-grid div {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.vocabulary-grid dt { color: var(--ink); font-weight: 800; }
+.vocabulary-grid dd { color: var(--muted); margin: 4px 0 0; }
+
+.phrase-list { display: grid; gap: 8px; }
+.phrase-list p,
+.lesson-dialogue p { margin: 0; }
+
+.phrase-list p {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 11px 14px;
+}
+
+.lesson-dialogue {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+
+.exercise-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 14px 0 0;
+  padding: 16px;
+}
+
+.exercise-card legend { color: var(--ink); font-weight: 800; padding: 0 6px; }
+.exercise-options { display: grid; gap: 8px; margin-top: 8px; }
+
+.exercise-options button {
+  background: var(--paper);
+  border-color: var(--line);
+  color: var(--ink);
+  text-align: left;
+}
+
+.exercise-options button:hover { background: #eef8f6; }
+.exercise-options .correct-answer { background: #e5f7eb; border-color: #65a989; }
+.exercise-options .incorrect-answer { background: #fff0ed; border-color: #d46c59; }
+
+.exercise-feedback {
+  font-weight: 700;
+  margin: 10px 0 0;
+  min-height: 24px;
+}
+
+.exercise-feedback.correct { color: #287653; }
+.exercise-feedback.incorrect { color: #a94c3e; }
+
+@media (max-width: 620px) {
+  .vocabulary-grid { grid-template-columns: 1fr; }
 }
 
 .lesson-block {
@@ -725,10 +871,40 @@ button:disabled {
   align-items: end;
   display: grid;
   gap: 12px;
-  grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr) minmax(150px, 0.6fr) auto;
+  grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr) minmax(150px, 0.6fr) auto;
 }
 
 .batch-controls button {
+  min-height: 48px;
+}
+
+.batch-actions,
+.batch-edit-controls {
+  align-items: end;
+  display: flex;
+  gap: 8px;
+}
+
+.batch-actions button {
+  padding-inline: 16px;
+}
+
+.batch-edit-controls {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.batch-edit-controls[hidden] {
+  display: none;
+}
+
+.batch-edit-controls label {
+  flex: 1;
+}
+
+.batch-edit-controls button {
   min-height: 48px;
 }
 
@@ -1246,13 +1422,13 @@ button:disabled {
 }
 
 @media (max-width: 1040px) {
-  .dashboard,
   .resource-category-grid,
   .lesson-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .batch-controls,
+  .batch-edit-controls,
   .home-profile,
   .teacher-summary,
   .path-overview-grid,
@@ -1264,6 +1440,7 @@ button:disabled {
 @media (max-width: 820px) {
   .teacher-summary,
   .batch-controls,
+  .batch-edit-controls,
   .home-profile,
   .home-path-grid,
   .guide-grid,
@@ -1276,9 +1453,35 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 
+  .batch-edit-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
   .resource-notice {
     align-items: stretch;
     grid-template-columns: 1fr;
+  }
+
+  .learning-summary,
+  .next-activity-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .next-activity-summary {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 18px;
+  }
+
+  .path-heading {
+    align-items: stretch;
+    display: grid;
+  }
+
+  .mobile-path-filter {
+    display: block;
   }
 
 
@@ -1296,4 +1499,827 @@ button:disabled {
   .lesson-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/*
+ * Learning Courtyard
+ * Architectural principles: datum, circulation, threshold, rhythm, and bays.
+ */
+:root {
+  --architect-paper: #f4f1e9;
+  --architect-plaster: #fffdf8;
+  --architect-ink: #18312f;
+  --architect-frame: #176b64;
+  --architect-clay: #bd5b42;
+  --architect-sun: #d6a93f;
+  --architect-line: #b9c8c2;
+}
+
+body {
+  background: var(--architect-paper);
+  color: var(--architect-ink);
+}
+
+.topbar {
+  background: var(--architect-plaster);
+  border-bottom: 3px solid var(--architect-frame);
+  box-shadow: none;
+  padding-bottom: 18px;
+  padding-top: 18px;
+}
+
+.brand-mark { border-radius: 0; }
+
+.view-tabs {
+  background: transparent;
+  border: 1px solid var(--architect-line);
+  border-radius: 0;
+  gap: 0;
+  padding: 0;
+}
+
+.view-tabs .tab-button {
+  background: var(--architect-plaster) !important;
+  border-left: 1px solid var(--architect-line);
+  border-radius: 0;
+  color: var(--architect-frame);
+  min-width: 92px;
+}
+
+.view-tabs .tab-button:first-child { border-left: 0; }
+
+.view-tabs .tab-button.active {
+  background: var(--architect-frame) !important;
+  color: white;
+  position: relative;
+}
+
+.view-tabs .tab-button.active::after {
+  background: var(--architect-sun);
+  bottom: -7px;
+  content: "";
+  height: 4px;
+  left: 18px;
+  position: absolute;
+  right: 18px;
+}
+
+.status-pill {
+  background: transparent;
+  border: 1px solid var(--architect-frame);
+  border-radius: 0;
+}
+
+.app-shell {
+  gap: 40px;
+  max-width: 1200px;
+}
+
+.app-view { gap: 40px; }
+
+.intro {
+  align-items: stretch;
+  gap: 0;
+  grid-template-columns: 7fr 5fr;
+}
+
+.intro-copy {
+  background: var(--architect-plaster);
+  border-left: 9px solid var(--architect-frame);
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 390px;
+  padding: 54px 58px;
+  position: relative;
+}
+
+.intro-copy::after {
+  background: var(--architect-clay);
+  bottom: 0;
+  content: "";
+  height: 9px;
+  left: 0;
+  position: absolute;
+  width: 34%;
+}
+
+.intro-copy h2 {
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.03;
+  max-width: 720px;
+}
+
+.learning-scene {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 390px;
+  position: relative;
+}
+
+.learning-scene::after {
+  border: 2px solid rgba(255, 253, 248, 0.85);
+  bottom: 22px;
+  content: "";
+  left: 22px;
+  pointer-events: none;
+  position: absolute;
+  right: 22px;
+  top: 22px;
+}
+
+.learning-scene img {
+  min-height: 390px;
+  object-position: center;
+}
+
+.eyebrow {
+  letter-spacing: 0;
+  position: relative;
+}
+
+.eyebrow::before {
+  background: var(--architect-clay);
+  content: "";
+  display: inline-block;
+  height: 3px;
+  margin-right: 9px;
+  vertical-align: middle;
+  width: 28px;
+}
+
+.controls,
+.batch-manager,
+.home-profile {
+  background: #e5eee9;
+  border: 1px solid var(--architect-line);
+  border-left: 7px solid var(--architect-frame);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+input,
+select,
+textarea {
+  border-color: var(--architect-line);
+  border-radius: 2px;
+}
+
+button,
+.button-link {
+  border-radius: 2px;
+}
+
+button:not(.secondary-button):not(.danger-button),
+.button-link {
+  background: var(--architect-frame);
+}
+
+.secondary-button {
+  background: transparent;
+  border: 1px solid var(--architect-frame);
+  color: var(--architect-frame);
+}
+
+.danger-button { background: var(--architect-clay); }
+
+.learning-summary {
+  border-bottom: 1px solid var(--architect-line);
+  border-top: 1px solid var(--architect-line);
+  gap: 0;
+}
+
+.learning-progress-summary {
+  border-right: 1px solid var(--architect-line);
+  padding: 34px 42px 34px 0;
+}
+
+.learning-progress-summary::after { display: none; }
+
+.next-activity-summary {
+  background: var(--architect-plaster);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 34px 0 34px 42px;
+}
+
+.resource-notice {
+  background: transparent;
+  border: 1px solid var(--architect-line);
+  border-left: 7px solid var(--architect-sun);
+  border-radius: 0;
+}
+
+.path-overview,
+.teaching-packs,
+.suggested-teaching,
+.resource-center,
+.teacher-view,
+.home-learning {
+  box-shadow: none;
+}
+
+.path-heading,
+.section-heading,
+.resource-center > .section-heading,
+.teacher-view > div:first-child,
+.home-learning > .section-heading {
+  border-top: 3px solid var(--architect-frame);
+  max-width: none;
+  padding-top: 22px;
+}
+
+.path-overview-grid,
+.teaching-pack-grid,
+.resource-category-grid {
+  gap: 1px;
+  background: var(--architect-line);
+  border: 1px solid var(--architect-line);
+}
+
+.path-overview-card,
+.teaching-pack-grid article,
+.resource-category-card {
+  background: var(--architect-plaster);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.path-overview-card:hover,
+.resource-category-card:hover {
+  box-shadow: inset 0 -5px 0 var(--architect-sun);
+  transform: none;
+}
+
+.lesson-grid {
+  background: var(--architect-line);
+  border: 1px solid var(--architect-line);
+  gap: 1px;
+}
+
+.lesson-card {
+  background: var(--architect-plaster);
+  border: 0;
+  border-radius: 0;
+}
+
+.lesson-card.complete { box-shadow: inset 6px 0 0 var(--leaf); }
+
+.lesson-reader,
+.teaching-file {
+  background: var(--architect-plaster);
+  border: 1px solid var(--architect-line);
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+}
+
+.lesson-reader::before,
+.teaching-file::before {
+  background: var(--architect-frame);
+  content: "";
+  height: 8px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 34%;
+}
+
+.lesson-sources,
+.resource-facts,
+.teaching-file-actions {
+  border-radius: 0;
+}
+
+.teacher-summary {
+  border-color: var(--architect-frame);
+}
+
+.summary-tile {
+  background: var(--architect-plaster);
+  border-color: var(--architect-line);
+}
+
+.summary-tile strong { color: var(--architect-frame); }
+
+.file-viewer {
+  border-radius: 0;
+}
+
+.class-notebook {
+  background: #fff4df;
+  border-left-color: var(--architect-clay);
+  border-radius: 0;
+}
+
+.notebook-form { border-radius: 0; }
+
+.home-current-plan {
+  background: var(--architect-frame);
+  border-radius: 0;
+  position: relative;
+}
+
+.home-current-plan::after {
+  background: var(--architect-sun);
+  content: "";
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 9px;
+}
+
+.home-path-grid {
+  background: var(--architect-line);
+  border: 1px solid var(--architect-line);
+  gap: 1px;
+}
+
+.home-path-card {
+  background: var(--architect-plaster);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.home-path-card.current {
+  background: #e5eee9;
+  box-shadow: inset 7px 0 0 var(--architect-frame);
+}
+
+.offline-guide {
+  background: #e5eee9;
+  border: 1px solid var(--architect-line);
+  border-radius: 0;
+  position: relative;
+}
+
+.offline-guide::before {
+  background: var(--architect-sun);
+  content: "";
+  height: 8px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 25%;
+}
+
+.offline-note { border-radius: 0; }
+
+@media (max-width: 820px) {
+  .topbar { border-bottom-width: 2px; }
+
+  .view-tabs {
+    border: 0;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .view-tabs .tab-button {
+    border: 1px solid var(--architect-line);
+    min-height: 46px;
+  }
+
+  .view-tabs .tab-button.active::after { bottom: 0; }
+
+  .intro { grid-template-columns: 1fr; }
+
+  .intro-copy {
+    border-left-width: 7px;
+    min-height: 0;
+    padding: 40px 28px 46px;
+  }
+
+  .intro-copy h2 { font-size: 40px; }
+
+  .learning-scene,
+  .learning-scene img { min-height: 250px; }
+
+  .controls,
+  .batch-manager,
+  .home-profile { border-left-width: 6px; }
+
+  .learning-progress-summary {
+    border-bottom: 1px solid var(--architect-line);
+    border-right: 0;
+    padding: 26px 0;
+  }
+
+  .next-activity-summary { padding: 26px 0; }
+
+  .lesson-reader,
+  .teaching-file,
+  .class-notebook,
+  .offline-guide { border-radius: 0; }
+}
+
+/* Canva-inspired hero silhouettes with a matching inset photo frame. */
+.intro-copy {
+  border-left: 6px solid #a98973;
+  border-radius: 34px 34px 34px 86px;
+}
+
+.intro-copy::after {
+  display: none;
+}
+
+.learning-scene,
+.learning-scene img {
+  border-radius: 86px 30px 86px 30px;
+}
+
+.learning-scene::after {
+  border-radius: 66px 18px 66px 18px;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  top: 24px;
+}
+
+@media (max-width: 820px) {
+  .intro-copy {
+    border-left-width: 5px;
+    border-radius: 26px 26px 26px 58px;
+  }
+
+  .learning-scene,
+  .learning-scene img { border-radius: 58px 22px 58px 22px; }
+
+  .learning-scene::after {
+    border-radius: 42px 13px 42px 13px;
+    bottom: 17px;
+    left: 17px;
+    right: 17px;
+    top: 17px;
+  }
+}
+
+/* Cool learning palette coordinated with the mint-to-sky action gradient. */
+:root {
+  --ink: #18383f;
+  --muted: #587078;
+  --paper: #f4faf8;
+  --line: #c6dbd8;
+  --teal: #397c7a;
+  --leaf: #65a989;
+  --gold: #94b9ff;
+  --coral: #c96855;
+  --sky: #dceef5;
+  --surface: #ffffff;
+  --shadow: 0 14px 34px rgba(43, 88, 92, 0.1);
+  --architect-paper: #f4faf8;
+  --architect-plaster: #ffffff;
+  --architect-ink: #18383f;
+  --architect-frame: #4d8f8a;
+  --architect-clay: #c96855;
+  --architect-sun: #94b9ff;
+  --architect-line: #c6dbd8;
+}
+
+body { background: #f4faf8; }
+
+.topbar { border-bottom-color: #75aaa5; }
+
+.view-tabs .tab-button {
+  background: #ffffff !important;
+  border-color: #bdd5d3;
+  color: #285f64;
+}
+
+.view-tabs .tab-button.active {
+  background: linear-gradient(90deg, #cdffd8, #94b9ff) !important;
+  border-color: #8fc4c4;
+  color: #18383f;
+}
+
+.view-tabs .tab-button.active::after { background: #4d8f8a; }
+
+.status-pill {
+  border-color: #75aaa5;
+  color: #285f64;
+}
+
+.intro-copy {
+  background: #ffffff;
+  border-left-color: #86b8b1;
+}
+
+.eyebrow::before { background: #65a989; }
+
+.controls,
+.batch-manager,
+.home-profile {
+  background: #e9f5f1;
+  border-color: #bdd8d2;
+  border-left-color: #75aaa5;
+}
+
+input,
+select,
+textarea {
+  border-color: #bcd5d4;
+  color: #18383f;
+}
+
+.secondary-button {
+  border-color: #4d8f8a;
+  color: #285f64;
+}
+
+.resource-notice {
+  background: #f1f8ff;
+  border-color: #c3dce5;
+  border-left-color: #94b9ff;
+}
+
+.path-heading,
+.section-heading,
+.resource-center > .section-heading,
+.teacher-view > div:first-child,
+.home-learning > .section-heading { border-top-color: #75aaa5; }
+
+.path-overview-card,
+.lesson-card,
+.resource-category-card,
+.home-path-card,
+.teaching-pack-grid article,
+.teacher-guide-card {
+  background: #ffffff;
+  border-color: #c6dbd8;
+  box-shadow: 0 9px 24px rgba(43, 88, 92, 0.08);
+}
+
+button.path-overview-card,
+button.path-overview-card:not(.secondary-button):not(.danger-button) {
+  background: #ffffff !important;
+  color: #18383f;
+}
+
+button.path-overview-card:hover {
+  background: #eaf7f4 !important;
+  border-color: #75aaa5;
+  box-shadow: 0 10px 25px rgba(43, 88, 92, 0.12);
+}
+
+button.path-overview-card[aria-pressed="true"] {
+  background: #dff3ed !important;
+  border-color: #4d8f8a;
+  box-shadow: inset 0 0 0 2px #4d8f8a;
+}
+
+.path-overview-card h3 { color: #18383f; }
+.path-overview-card p { color: #587078; }
+.path-overview-card span { color: #4d7d7b; }
+
+.path-overview-card.proposed { background: #f5f9f8; }
+
+.learning-summary,
+.teacher-summary { border-color: #bcd5d4; }
+
+.progress-track { background: #dcebe8; }
+.progress-fill { background: #65a989; }
+
+.next-activity-summary,
+.lesson-reader,
+.teaching-file { background: #ffffff; }
+
+.lesson-reader::before,
+.teaching-file::before { background: #75aaa5; }
+
+.lesson-sources,
+.resource-facts,
+.teaching-file-actions { background: #eaf5f2; }
+
+.summary-tile strong { color: #397c7a; }
+
+.class-notebook {
+  background: #eef5ff;
+  border-left-color: #94b9ff;
+}
+
+.home-current-plan { background: #397c7a; }
+.home-current-plan::after { background: #94b9ff; }
+
+.home-path-card.current {
+  background: #e9f5f1;
+  box-shadow: inset 5px 0 0 #65a989, var(--shadow);
+}
+
+.offline-guide {
+  background: #e9f5f1;
+  border-color: #bdd8d2;
+}
+
+.offline-guide::before { background: #94b9ff; }
+
+.offline-note {
+  background: #ffffff;
+  border-left-color: #94b9ff;
+  color: #59656b;
+}
+
+.review-badge {
+  background: #edf3ff;
+  border-color: #bfd2f7;
+  color: #385a78;
+}
+
+/* Airier pastel surfaces and controls. */
+button:not(.secondary-button):not(.danger-button):not(.path-overview-card),
+.button-link {
+  background: linear-gradient(90deg, #e8ffed, #dceaff);
+  border-color: #c8dcdf;
+  color: #18383f;
+}
+
+button:not(.secondary-button):not(.danger-button):not(.path-overview-card):hover,
+.button-link:hover {
+  background: linear-gradient(90deg, #dcf8e3, #cfe2ff);
+  border-color: #aeced2;
+}
+
+.view-tabs .tab-button.active {
+  background: linear-gradient(90deg, #e8ffed, #dceaff) !important;
+  border-color: #c8dcdf;
+}
+
+.view-tabs .tab-button.active::after { background: #86b8b1; }
+
+.controls,
+.batch-manager,
+.home-profile,
+.offline-guide { background: #f1f8f6; }
+
+.home-current-plan {
+  background: linear-gradient(90deg, #e6f8ee, #e5efff);
+  border: 1px solid #c8dcdf;
+  box-shadow: 0 10px 26px rgba(43, 88, 92, 0.07);
+}
+
+.home-current-plan .eyebrow,
+.home-current-plan h3,
+.home-current-plan p { color: #24464d; }
+
+.home-current-plan::after { background: #bdd5ff; }
+
+.home-path-card.current { background: #f0f9f5; }
+
+.class-notebook {
+  background: #f6f9ff;
+  border-left-color: #c3d8ff;
+}
+
+.notebook-form { background: rgba(255, 255, 255, 0.82); }
+
+.danger-button {
+  background: #f4d5cf;
+  border-color: #e6b9b0;
+  color: #743c33;
+}
+
+.danger-button:hover {
+  background: #efc7bf;
+  border-color: #dca49a;
+  color: #643027;
+}
+
+/* Final component geometry: soft architectural modules and balanced bays. */
+.topbar {
+  padding: 14px clamp(18px, 5vw, 72px);
+}
+
+.brand-lockup {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand-mark {
+  flex: 0 0 auto;
+  height: 46px;
+  width: 46px;
+}
+
+.brand-lockup h1 {
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.topbar-actions { gap: 16px; }
+
+.view-tabs {
+  border-radius: 12px;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.view-tabs .tab-button,
+.status-pill,
+input,
+select,
+textarea,
+button,
+.button-link { border-radius: 10px; }
+
+.intro { gap: 18px; }
+
+.intro-copy { box-shadow: var(--shadow); }
+
+.learning-scene { box-shadow: var(--shadow); }
+
+.controls,
+.batch-manager,
+.home-profile { border-radius: 16px; }
+
+.next-activity-summary {
+  border-radius: 16px;
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+.resource-notice { border-radius: 14px; }
+
+.path-overview-grid {
+  background: transparent;
+  border: 0;
+  gap: 16px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.path-overview-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  grid-column: span 2;
+}
+
+.path-overview-card:nth-child(4),
+.path-overview-card:nth-child(5) { grid-column: span 3; }
+
+.lesson-grid,
+.resource-category-grid,
+.home-path-grid,
+.teaching-pack-grid {
+  background: transparent;
+  border: 0;
+  gap: 16px;
+}
+
+.lesson-card,
+.resource-category-card,
+.home-path-card,
+.teaching-pack-grid article,
+.teacher-guide-card,
+.class-notebook { border-radius: 16px; }
+
+.lesson-reader,
+.teaching-file,
+.offline-guide { border-radius: 18px; }
+
+.lesson-reader::before,
+.teaching-file::before,
+.offline-guide::before { border-radius: 18px 0 8px 0; }
+
+.lesson-sources,
+.resource-facts,
+.teaching-file-actions,
+.file-viewer,
+.notebook-form { border-radius: 12px; }
+
+.home-current-plan { border-radius: 16px; }
+.home-current-plan::after { border-radius: 0 16px 16px 0; }
+.offline-note { border-radius: 10px; }
+
+@media (max-width: 820px) {
+  .topbar {
+    align-items: stretch;
+    padding: 14px 18px 16px;
+  }
+
+  .brand-mark {
+    height: 40px;
+    width: 40px;
+  }
+
+  .brand-lockup h1 {
+    font-size: 20px;
+    white-space: normal;
+  }
+
+  .view-tabs {
+    gap: 5px;
+    overflow: visible;
+  }
+
+  .intro { gap: 14px; }
+
+  .path-overview-grid { grid-template-columns: 1fr; }
+
+  .path-overview-card,
+  .path-overview-card:nth-child(4),
+  .path-overview-card:nth-child(5) { grid-column: auto; }
+
+  .next-activity-summary { padding: 26px 20px; }
 }

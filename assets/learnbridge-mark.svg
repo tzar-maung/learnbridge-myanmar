@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">LearnBridge Myanmar mark</title>
+  <desc id="desc">An open golden book beneath a teal learning light and bridge arch.</desc>
+  <g fill="none" stroke="#0d625c" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 39c7-5 14-5 22 1v15c-8-6-15-6-22-1V39Z" fill="#e7a33e" stroke-width="3"/>
+    <path d="M54 39c-7-5-14-5-22 1v15c8-6 15-6 22-1V39Z" fill="#f3c45f" stroke-width="3"/>
+    <path d="M32 40V55" stroke-width="3"/>
+    <path d="M20 34c2-7 6-11 12-11s10 4 12 11" stroke-width="3"/>
+    <path d="M27 23c-2-2-3-5-2-8a7.5 7.5 0 0 1 14 0c1 3 0 6-2 8l-2 3h-6l-2-3Z" fill="#f3c45f" stroke-width="3"/>
+    <path d="M29 30h6M32 7V3M20 12l-3-2M44 12l3-2M19 22h-4M45 22h4" stroke-width="2.6"/>
+  </g>
+</svg>

@@ -213,6 +213,7 @@ const viewPanels = document.querySelectorAll("[data-view-panel]");
 const lessonGrid = document.querySelector("#lessonGrid");
 const resourceCategoryGrid = document.querySelector("#resourceCategoryGrid");
 const subjectFilter = document.querySelector("#subjectFilter");
+const pathFilterButtons = document.querySelectorAll("[data-path-subject]");
 const learnerName = document.querySelector("#learnerName");
 const languageSelect = document.querySelector("#languageSelect");
 const welcomeTitle = document.querySelector("#welcomeTitle");
@@ -247,6 +248,12 @@ const batchSelect = document.querySelector("#batchSelect");
 const newBatchName = document.querySelector("#newBatchName");
 const newBatchLearnerCount = document.querySelector("#newBatchLearnerCount");
 const addBatch = document.querySelector("#addBatch");
+const renameBatch = document.querySelector("#renameBatch");
+const deleteBatch = document.querySelector("#deleteBatch");
+const batchEditControls = document.querySelector("#batchEditControls");
+const editBatchName = document.querySelector("#editBatchName");
+const saveBatchName = document.querySelector("#saveBatchName");
+const cancelBatchRename = document.querySelector("#cancelBatchRename");
 const batchMessage = document.querySelector("#batchMessage");
 const classResult = document.querySelector("#classResult");
 const classNote = document.querySelector("#classNote");
@@ -290,6 +297,71 @@ function renderBatchControls() {
     .map((batch) => `<option value="${escapeHtml(batch.id)}">${escapeHtml(batch.name)}</option>`)
     .join("");
   batchSelect.value = activeBatch.id;
+  deleteBatch.disabled = state.teachingBatches.length === 1;
+  deleteBatch.title = state.teachingBatches.length === 1
+    ? "Keep at least one class batch."
+    : `Delete ${activeBatch.name}`;
+}
+
+function closeBatchRename() {
+  batchEditControls.hidden = true;
+  editBatchName.value = "";
+}
+
+function openBatchRename() {
+  const activeBatch = getActiveBatch();
+  editBatchName.value = activeBatch.name;
+  batchEditControls.hidden = false;
+  editBatchName.focus();
+  editBatchName.select();
+}
+
+function renameTeachingBatch() {
+  const activeBatch = getActiveBatch();
+  const name = editBatchName.value.trim();
+
+  if (!name) {
+    batchMessage.textContent = "Enter a batch name before saving.";
+    editBatchName.focus();
+    return;
+  }
+
+  const duplicate = state.teachingBatches.some(
+    (batch) => batch.id !== activeBatch.id && batch.name.toLowerCase() === name.toLowerCase(),
+  );
+  if (duplicate) {
+    batchMessage.textContent = "A batch with this name already exists.";
+    return;
+  }
+
+  const previousName = activeBatch.name;
+  activeBatch.name = name;
+  closeBatchRename();
+  batchMessage.textContent = `${previousName} was renamed to ${name}. Its progress and notes are unchanged.`;
+  saveState();
+  renderAll();
+}
+
+function deleteTeachingBatch() {
+  if (state.teachingBatches.length === 1) {
+    batchMessage.textContent = "Keep at least one class batch.";
+    return;
+  }
+
+  const activeBatch = getActiveBatch();
+  const shouldDelete = window.confirm(
+    `Delete ${activeBatch.name}? This removes its progress and notes from this device and cannot be undone.`,
+  );
+  if (!shouldDelete) return;
+
+  state.teachingBatches = state.teachingBatches.filter((batch) => batch.id !== activeBatch.id);
+  const mainBatch = state.teachingBatches.find((batch) => batch.id === "main-class");
+  state.activeBatchId = (mainBatch || state.teachingBatches[0]).id;
+  closeBatchRename();
+  batchMessage.textContent = `${activeBatch.name} was deleted. Now tracking ${getActiveBatch().name}.`;
+  saveState();
+  showLessonList();
+  renderAll();
 }
 
 function addTeachingBatch() {
@@ -477,6 +549,13 @@ function renderSubjectFilter() {
     })
     .join("");
   subjectFilter.value = state.selectedSubject;
+  pathFilterButtons.forEach((button) => {
+    const isActive = button.dataset.pathSubject === state.selectedSubject;
+    button.classList.toggle("active-path-button", isActive);
+    if (button.hasAttribute("aria-pressed")) {
+      button.setAttribute("aria-pressed", String(isActive));
+    }
+  });
 }
 
 function renderLessons() {
@@ -501,21 +580,21 @@ function renderLessons() {
   lessonGrid.innerHTML = visibleLessons
     .map((lesson) => {
       const isComplete = state.completeLessons.includes(lesson.id);
-      const buttonText = isComplete ? "Completed" : "Mark complete";
+      const buttonText = isComplete ? "Review activity" : "Open activity";
       const reviewStatus = lesson.reviewStatus || "Draft";
+      const sequenceText = getLessonSequenceText(lesson);
 
       return `
         <article class="lesson-card ${isComplete ? "complete" : ""}">
           <div>
             <span class="review-badge">${escapeHtml(reviewStatus)}</span>
             <h3>${escapeHtml(lesson.title)}</h3>
-            <p class="lesson-card-meta">${escapeHtml(lesson.subject || "General")} · ${escapeHtml(lesson.level || "Starter")}</p>
+            <p class="lesson-card-meta">${escapeHtml(sequenceText)}</p>
             <p>${escapeHtml(lesson.description)}</p>
             <p class="lesson-card-focus"><strong>Goal:</strong> ${escapeHtml(lesson.goal || "Open the activity to start learning.")}</p>
           </div>
           <div class="lesson-actions">
-            <button type="button" data-open-lesson-id="${escapeHtml(lesson.id)}">Open activity</button>
-            <button type="button" data-lesson-id="${escapeHtml(lesson.id)}">${buttonText}</button>
+            <button type="button" data-open-lesson-id="${escapeHtml(lesson.id)}">${buttonText}</button>
           </div>
         </article>
       `;
@@ -621,15 +700,22 @@ function renderProgress() {
 }
 
 function getNextLesson() {
-  return getIndependentLessons().find((lesson) => !state.completeLessons.includes(lesson.id));
+  const availableLessons = state.selectedSubject === "All"
+    ? getIndependentLessons()
+    : getIndependentLessons()
+        .filter((lesson) => (lesson.subject || "General") === state.selectedSubject)
+        .sort((a, b) => (a.pathOrder || 999) - (b.pathOrder || 999));
+  return availableLessons.find((lesson) => !state.completeLessons.includes(lesson.id));
 }
 
 function renderContinueLearning() {
   const nextLesson = getNextLesson();
 
   if (!nextLesson) {
-    continueTitle.textContent = "All activities complete";
-    continueText.textContent = "Reset progress in Teaching Desk when a new group uses the device.";
+    continueTitle.textContent = state.selectedSubject === "All" ? "All activities complete" : `${state.selectedSubject} path complete`;
+    continueText.textContent = state.selectedSubject === "All"
+      ? "You have completed every available independent activity."
+      : "Choose another learning path or review an activity.";
     openNextLesson.disabled = true;
     openNextLesson.textContent = "Nothing to open";
     return;
@@ -638,7 +724,7 @@ function renderContinueLearning() {
   continueTitle.textContent = nextLesson.title;
   continueText.textContent = `${nextLesson.subject || "General"} · ${nextLesson.level || "Starter"}`;
   openNextLesson.disabled = false;
-  openNextLesson.textContent = "Open next activity";
+  openNextLesson.textContent = "Continue";
 }
 
 function updateNetworkStatus() {
@@ -690,7 +776,7 @@ function showLessonReader(lessonId) {
 
   currentLessonId = lesson.id;
   lessonDetailTitle.textContent = lesson.title;
-  lessonDetailMeta.textContent = `${lesson.subject || "General"} · ${lesson.level || "Starter"}`;
+  lessonDetailMeta.textContent = getLessonSequenceText(lesson);
   lessonDetailContent.innerHTML = renderLessonContent(lesson);
   completeCurrentLesson.textContent = state.completeLessons.includes(lesson.id)
     ? "Activity completed"
@@ -708,6 +794,43 @@ function renderLessonContent(lesson) {
   const goalHtml = lesson.goal
     ? `<section class="lesson-block"><p class="eyebrow">Goal</p><p>${escapeHtml(lesson.goal)}</p></section>`
     : "";
+  const realLifeHtml = lesson.realLifeUse
+    ? `<section class="lesson-block real-life-use"><p class="eyebrow">Use it in real life</p><p>${escapeHtml(lesson.realLifeUse)}</p></section>`
+    : "";
+  const vocabularyHtml = Array.isArray(lesson.vocabulary)
+    ? `
+      <section class="lesson-block">
+        <p class="eyebrow">Useful words</p>
+        <dl class="vocabulary-grid">
+          ${lesson.vocabulary
+            .map((item) => `<div><dt>${escapeHtml(item.term)}</dt><dd>${escapeHtml(item.meaning)}</dd></div>`)
+            .join("")}
+        </dl>
+      </section>
+    `
+    : "";
+  const patternsHtml = Array.isArray(lesson.patterns)
+    ? `
+      <section class="lesson-block">
+        <p class="eyebrow">Sentence patterns</p>
+        <div class="phrase-list">
+          ${lesson.patterns.map((pattern) => `<p>${escapeHtml(pattern)}</p>`).join("")}
+        </div>
+      </section>
+    `
+    : "";
+  const dialogueHtml = Array.isArray(lesson.dialogue)
+    ? `
+      <section class="lesson-block">
+        <p class="eyebrow">Real conversation</p>
+        <div class="lesson-dialogue">
+          ${lesson.dialogue
+            .map((line) => `<p><strong>${escapeHtml(line.speaker)}:</strong> ${escapeHtml(line.text)}</p>`)
+            .join("")}
+        </div>
+      </section>
+    `
+    : "";
   const stepsHtml = Array.isArray(lesson.steps)
     ? `
       <section class="lesson-block">
@@ -718,6 +841,45 @@ function renderLessonContent(lesson) {
     : "";
   const practiceHtml = lesson.practice
     ? `<section class="lesson-block"><p class="eyebrow">Practice</p><p>${escapeHtml(lesson.practice)}</p></section>`
+    : "";
+  const exercisesHtml = Array.isArray(lesson.exercises)
+    ? `
+      <section class="lesson-block lesson-exercises">
+        <p class="eyebrow">Quick check</p>
+        ${lesson.exercises
+          .map(
+            (exercise, exerciseIndex) => `
+              <fieldset class="exercise-card">
+                <legend>${exerciseIndex + 1}. ${escapeHtml(exercise.question)}</legend>
+                <div class="exercise-options">
+                  ${exercise.options
+                    .map(
+                      (option, optionIndex) => `
+                        <button type="button" data-exercise-option="${optionIndex}" data-correct="${optionIndex === exercise.answer}">
+                          ${escapeHtml(option)}
+                        </button>
+                      `,
+                    )
+                    .join("")}
+                </div>
+                <p class="exercise-feedback" aria-live="polite" data-exercise-feedback data-explanation="${escapeHtml(exercise.explanation)}"></p>
+              </fieldset>
+            `,
+          )
+          .join("")}
+      </section>
+    `
+    : "";
+  const finalTaskHtml = lesson.finalTask
+    ? `<section class="lesson-block final-task"><p class="eyebrow">Real-world challenge</p><p>${escapeHtml(lesson.finalTask)}</p></section>`
+    : "";
+  const takeawayHtml = Array.isArray(lesson.takeaway)
+    ? `
+      <section class="lesson-block">
+        <p class="eyebrow">Remember</p>
+        <ul>${lesson.takeaway.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+      </section>
+    `
     : "";
   const checkHtml = lesson.checkQuestion
     ? `<section class="lesson-block"><p class="eyebrow">Check</p><p>${escapeHtml(lesson.checkQuestion)}</p></section>`
@@ -735,7 +897,7 @@ function renderLessonContent(lesson) {
     `
     : "";
 
-  return `${goalHtml}${stepsHtml}${practiceHtml}${checkHtml}${referencesHtml}`;
+  return `${goalHtml}${realLifeHtml}${vocabularyHtml}${patternsHtml}${dialogueHtml}${stepsHtml}${practiceHtml}${exercisesHtml}${finalTaskHtml}${takeawayHtml}${checkHtml}${referencesHtml}`;
 }
 
 function renderClassNotes() {
@@ -934,6 +1096,22 @@ function renderAll() {
   updateNetworkStatus();
 }
 
+function getLessonSequenceText(lesson) {
+  const subject = lesson.subject || "General";
+  const details = [subject, lesson.level || "Starter"];
+  const pathLessons = getIndependentLessons()
+    .filter((item) => (item.subject || "General") === subject)
+    .sort((a, b) => (a.pathOrder || 999) - (b.pathOrder || 999));
+
+  if (lesson.pathOrder && pathLessons.length > 1) {
+    const position = pathLessons.findIndex((item) => item.id === lesson.id) + 1;
+    details.push(`Step ${position} of ${pathLessons.length}`);
+  }
+  if (lesson.estimatedMinutes) details.push(`${lesson.estimatedMinutes} min`);
+
+  return details.join(" · ");
+}
+
 document.querySelector("#saveLearner").addEventListener("click", () => {
   state.learnerName = learnerName.value.trim();
   state.language = languageSelect.value;
@@ -949,7 +1127,19 @@ languageSelect.addEventListener("change", () => {
 
 subjectFilter.addEventListener("change", () => {
   state.selectedSubject = subjectFilter.value;
+  renderSubjectFilter();
   renderLessons();
+  renderContinueLearning();
+});
+
+pathFilterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    state.selectedSubject = button.dataset.pathSubject;
+    renderSubjectFilter();
+    renderLessons();
+    renderContinueLearning();
+    lessonListView.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 });
 
 lessonGrid.addEventListener("click", (event) => {
@@ -991,6 +1181,23 @@ viewTabs.forEach((tab) => {
   tab.addEventListener("click", () => showView(tab.dataset.view));
 });
 
+lessonDetailContent.addEventListener("click", (event) => {
+  const option = event.target.closest("button[data-exercise-option]");
+  if (!option) return;
+
+  const exercise = option.closest(".exercise-card");
+  const feedback = exercise.querySelector("[data-exercise-feedback]");
+  const options = exercise.querySelectorAll("button[data-exercise-option]");
+  const isCorrect = option.dataset.correct === "true";
+
+  options.forEach((button) => {
+    button.classList.remove("correct-answer", "incorrect-answer");
+  });
+  option.classList.add(isCorrect ? "correct-answer" : "incorrect-answer");
+  feedback.className = `exercise-feedback ${isCorrect ? "correct" : "incorrect"}`;
+  feedback.textContent = `${isCorrect ? "Correct. " : "Try again. "}${feedback.dataset.explanation}`;
+});
+
 document.querySelectorAll("[data-open-view]").forEach((button) => {
   button.addEventListener("click", () => showView(button.dataset.openView));
 });
@@ -1009,6 +1216,7 @@ exportReport.addEventListener("click", downloadPilotReport);
 
 batchSelect.addEventListener("change", () => {
   state.activeBatchId = batchSelect.value;
+  closeBatchRename();
   batchMessage.textContent = `Now tracking ${getActiveBatch().name}.`;
   saveState();
   showLessonList();
@@ -1016,6 +1224,15 @@ batchSelect.addEventListener("change", () => {
 });
 
 addBatch.addEventListener("click", addTeachingBatch);
+renameBatch.addEventListener("click", openBatchRename);
+deleteBatch.addEventListener("click", deleteTeachingBatch);
+saveBatchName.addEventListener("click", renameTeachingBatch);
+cancelBatchRename.addEventListener("click", closeBatchRename);
+
+editBatchName.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") renameTeachingBatch();
+  if (event.key === "Escape") closeBatchRename();
+});
 
 newBatchName.addEventListener("keydown", (event) => {
   if (event.key === "Enter") addTeachingBatch();
@@ -1123,8 +1340,8 @@ if ("serviceWorker" in navigator) {
 async function loadLessons() {
   try {
     const [lessonResponse, resourceResponse] = await Promise.all([
-      fetch("./lessons.json?v=54"),
-      fetch("./resources.json?v=54"),
+      fetch("./lessons.json?v=78"),
+      fetch("./resources.json?v=78"),
     ]);
 
     if (!lessonResponse.ok || !resourceResponse.ok) {

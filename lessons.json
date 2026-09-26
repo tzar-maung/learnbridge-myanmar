@@ -129,9 +129,32 @@
     "title": "English greetings",
     "subject": "English",
     "level": "Starter",
+    "pathOrder": 1,
+    "estimatedMinutes": 10,
     "description": "Practice simple English greetings for meeting teachers, helpers, and classmates.",
     "content": "Practice these greetings: Hello. My name is ___. Thank you. Please help me. Say each phrase slowly. Then practice with a partner using a safe nickname instead of a real full name.",
     "goal": "Practice simple English phrases for greetings and asking for help.",
+    "realLifeUse": "Use these phrases when arriving at a class, meeting a new person, thanking someone, or asking a teacher or worker for help.",
+    "vocabulary": [
+      { "term": "hello", "meaning": "a greeting used when you meet someone" },
+      { "term": "please", "meaning": "a polite word used when asking" },
+      { "term": "thank you", "meaning": "words used to show appreciation" },
+      { "term": "help", "meaning": "support when something is difficult" }
+    ],
+    "patterns": [
+      "Hello. My name is ___.",
+      "Nice to meet you.",
+      "Please help me.",
+      "Thank you for your help."
+    ],
+    "dialogue": [
+      { "speaker": "A", "text": "Hello. My name is Lin. What is your name?" },
+      { "speaker": "B", "text": "My name is May. Nice to meet you." },
+      { "speaker": "A", "text": "Nice to meet you too." },
+      { "speaker": "B", "text": "Please help me find the classroom." },
+      { "speaker": "A", "text": "Yes. It is this way." },
+      { "speaker": "B", "text": "Thank you for your help." }
+    ],
     "steps": [
       "Say together: Hello.",
       "Say together: My name is ___. Use a safe nickname.",
@@ -140,9 +163,325 @@
       "Practice a short greeting with a partner."
     ],
     "practice": "Learners practice a two-line conversation: Hello. My name is ___. Hello. Please help me. They can use safe nicknames only.",
+    "exercises": [
+      {
+        "question": "What is the best phrase when meeting someone for the first time?",
+        "options": ["Nice to meet you.", "Turn left.", "I do not understand."],
+        "answer": 0,
+        "explanation": "'Nice to meet you' is a polite response during a first introduction."
+      },
+      {
+        "question": "Choose the polite request.",
+        "options": ["Help now.", "Please help me.", "You help."],
+        "answer": 1,
+        "explanation": "Adding 'please' makes the request polite and natural."
+      },
+      {
+        "question": "What can you say after someone helps you?",
+        "options": ["Thank you for your help.", "What is your name?", "Hello."],
+        "answer": 0,
+        "explanation": "Use 'Thank you for your help' to show appreciation."
+      }
+    ],
+    "finalTask": "Imagine it is your first day in a new class. Greet one person, introduce yourself with a nickname, ask for help finding the classroom, and thank them. Practice until you can say all four parts without reading.",
+    "takeaway": [
+      "Begin with 'Hello.'",
+      "Use 'Nice to meet you' during a first introduction.",
+      "Use 'Please help me' for a polite request.",
+      "Thank the person after receiving help."
+    ],
     "checkQuestion": "What English phrase can you use when you need help?",
     "teacherNote": "Let learners practice in pairs after group repetition. Remind them that nicknames are enough for learning activities.",
     "reviewStatus": "Draft"
+  },
+  {
+    "id": "english-introductions",
+    "icon": "EN",
+    "title": "Introduce yourself",
+    "subject": "English",
+    "level": "Starter",
+    "pathOrder": 2,
+    "estimatedMinutes": 15,
+    "description": "Build a short introduction using a name, where you are from, and one interest.",
+    "content": "A simple introduction helps people begin a conversation at school, work, or in a new community. Use a nickname when you do not need to share your legal name.",
+    "goal": "Say and understand a simple three-sentence personal introduction.",
+    "realLifeUse": "Use this skill when meeting a classmate, joining a course, speaking to a volunteer, or beginning a job interview.",
+    "vocabulary": [
+      { "term": "name", "meaning": "what people call you" },
+      { "term": "from", "meaning": "the place where you began or grew up" },
+      { "term": "live", "meaning": "to have your home in a place" },
+      { "term": "speak", "meaning": "to use a language when talking" },
+      { "term": "interested in", "meaning": "wanting to learn or know more about something" }
+    ],
+    "patterns": [
+      "My name is ___.",
+      "I am from ___.",
+      "I live in ___.",
+      "I speak ___ and ___.",
+      "I am interested in ___."
+    ],
+    "dialogue": [
+      { "speaker": "A", "text": "Hello. My name is Maya. What is your name?" },
+      { "speaker": "B", "text": "Hi, Maya. I am Ko. Nice to meet you." },
+      { "speaker": "A", "text": "Nice to meet you too. Where are you from?" },
+      { "speaker": "B", "text": "I am from Myanmar, and I live in Thailand now." },
+      { "speaker": "A", "text": "What are you interested in?" },
+      { "speaker": "B", "text": "I am interested in computers and English." }
+    ],
+    "steps": [
+      "Read aloud: Hello. My name is Maya.",
+      "Add a place: I am from Myanmar.",
+      "Add one interest: I like music.",
+      "Join the sentences: Hello. My name is Maya. I am from Myanmar. I like music.",
+      "Ask a partner: What is your name? What do you like?"
+    ],
+    "practice": "Choose a nickname, a country or town, and one interest. Say your introduction twice. On the second try, look up from the screen and speak from memory.",
+    "exercises": [
+      {
+        "question": "Which sentence tells someone your current home?",
+        "options": ["I am from Myanmar.", "I live in Chiang Mai.", "I speak Burmese."],
+        "answer": 1,
+        "explanation": "Use 'I live in ...' for the place where your home is now."
+      },
+      {
+        "question": "Choose the best reply to: What are you interested in?",
+        "options": ["I am interested in design.", "I live in Bangkok.", "My name is Lin."],
+        "answer": 0,
+        "explanation": "'I am interested in ...' introduces a subject or activity you want to learn more about."
+      },
+      {
+        "question": "Complete the sentence: I ___ Burmese and English.",
+        "options": ["live", "speak", "from"],
+        "answer": 1,
+        "explanation": "We use 'speak' before the name of a language."
+      }
+    ],
+    "finalTask": "Imagine you are joining a new class. Prepare a five-sentence introduction using your name or nickname, where you are from, where you live now, the languages you speak, and one interest. Say it aloud without reading every word. Then ask another person two questions: What is your name? What are you interested in?",
+    "takeaway": [
+      "Use 'I am from ...' for your place of origin.",
+      "Use 'I live in ...' for your current home.",
+      "Use 'I speak ...' for languages.",
+      "Use 'I am interested in ...' for interests or learning goals."
+    ],
+    "checkQuestion": "Can you introduce yourself using three short sentences?",
+    "teacherNote": "Model the introduction first. Learners may replace the place sentence with 'I live in ___' or skip it if they prefer not to share that information.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-classroom-questions",
+    "icon": "EN",
+    "title": "Ask when you do not understand",
+    "subject": "English",
+    "level": "Starter",
+    "pathOrder": 3,
+    "estimatedMinutes": 15,
+    "description": "Practice useful questions for lessons, instructions, and everyday conversations.",
+    "content": "Asking a clear question is a learning skill. These short phrases help when someone speaks too quickly or an instruction is unclear.",
+    "goal": "Use four polite phrases to ask for repetition, meaning, or help.",
+    "realLifeUse": "Use these questions in a classroom, workplace, clinic, shop, or public office when instructions are unclear.",
+    "vocabulary": [
+      { "term": "understand", "meaning": "to know the meaning of something" },
+      { "term": "repeat", "meaning": "to say or do something again" },
+      { "term": "slowly", "meaning": "at a speed that is easier to follow" },
+      { "term": "mean", "meaning": "to have a particular definition or message" }
+    ],
+    "patterns": [
+      "I do not understand.",
+      "Could you say that again, please?",
+      "Could you speak more slowly, please?",
+      "What does ___ mean?"
+    ],
+    "dialogue": [
+      { "speaker": "Teacher", "text": "Please submit the form before noon." },
+      { "speaker": "Learner", "text": "I do not understand. What does submit mean?" },
+      { "speaker": "Teacher", "text": "It means give the completed form to me." },
+      { "speaker": "Learner", "text": "Could you say the time again, please?" },
+      { "speaker": "Teacher", "text": "Before twelve o'clock." },
+      { "speaker": "Learner", "text": "Thank you. I understand now." }
+    ],
+    "steps": [
+      "Say: I do not understand.",
+      "Say: Please say that again.",
+      "Say: Please speak slowly.",
+      "Ask: What does this mean?",
+      "Practice choosing the best phrase for a fast speaker, a new word, and a difficult instruction."
+    ],
+    "practice": "Partner A reads a short instruction quickly. Partner B asks them to repeat or speak slowly. Switch roles, then use 'What does this mean?' for one unfamiliar word.",
+    "exercises": [
+      {
+        "question": "Someone speaks too fast. What should you ask?",
+        "options": ["Could you speak more slowly, please?", "Where do you live?", "Turn right."],
+        "answer": 0,
+        "explanation": "Ask the speaker to slow down when speed is the problem."
+      },
+      {
+        "question": "You hear an unfamiliar word. Which question is most useful?",
+        "options": ["What does this word mean?", "What time is it?", "How old are you?"],
+        "answer": 0,
+        "explanation": "Ask what a word means when you need its definition."
+      },
+      {
+        "question": "Which request is the most polite?",
+        "options": ["Say again.", "Could you say that again, please?", "You repeat."],
+        "answer": 1,
+        "explanation": "'Could you ... please?' is a polite request pattern."
+      }
+    ],
+    "finalTask": "Ask another person to give you a two-step instruction. Use at least two clarification phrases before repeating the instruction back in your own words. Finish with: I understand now. Thank you.",
+    "takeaway": [
+      "Say clearly when you do not understand.",
+      "Ask for repetition when you missed the message.",
+      "Ask for slower speech when speed is the problem.",
+      "Ask what a word means when vocabulary is the problem."
+    ],
+    "checkQuestion": "What can you say when someone is speaking too quickly?",
+    "teacherNote": "Treat asking questions as a positive skill. Allow learners to read the phrases from the screen until they become comfortable.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-signs-directions",
+    "icon": "EN",
+    "title": "Signs and simple directions",
+    "subject": "English",
+    "level": "Starter",
+    "pathOrder": 4,
+    "estimatedMinutes": 20,
+    "description": "Recognize common signs and follow short directions in schools, stations, clinics, and public places.",
+    "content": "A few common words can make public places easier to understand. Focus on meaning first, then practice giving and following one-step directions.",
+    "goal": "Recognize six common signs and follow four basic direction words.",
+    "realLifeUse": "Use this skill to find entrances, exits, toilets, information desks, clinics, and transport stops.",
+    "vocabulary": [
+      { "term": "entrance", "meaning": "the place where you go into a building" },
+      { "term": "exit", "meaning": "the place where you leave a building" },
+      { "term": "information", "meaning": "a place where you can ask questions" },
+      { "term": "straight", "meaning": "forward without turning" },
+      { "term": "left / right", "meaning": "the two directions on either side of you" }
+    ],
+    "patterns": [
+      "Where is the ___?",
+      "Go straight.",
+      "Turn left / Turn right.",
+      "It is next to the ___.",
+      "It is across from the ___."
+    ],
+    "dialogue": [
+      { "speaker": "A", "text": "Excuse me. Where is the information desk?" },
+      { "speaker": "B", "text": "Go straight and turn right." },
+      { "speaker": "A", "text": "Is it next to the entrance?" },
+      { "speaker": "B", "text": "Yes. It is across from the ticket office." },
+      { "speaker": "A", "text": "Thank you." },
+      { "speaker": "B", "text": "You're welcome." }
+    ],
+    "steps": [
+      "Read the signs: Entrance, Exit, Toilet, Information, Hospital, and Bus stop.",
+      "Practice the directions: left, right, straight, and stop.",
+      "Say: Go straight. Turn left. Turn right. Stop here.",
+      "Draw a simple map with a start point and one destination.",
+      "Guide a partner across the map using two or three short directions."
+    ],
+    "practice": "Place three paper labels around the room, such as Exit, Information, and Bus stop. One learner asks, 'Where is the bus stop?' Another gives a simple direction using left, right, or straight.",
+    "exercises": [
+      {
+        "question": "Which sign shows the way out of a building?",
+        "options": ["Entrance", "Exit", "Information"],
+        "answer": 1,
+        "explanation": "An exit is the place where you leave a building."
+      },
+      {
+        "question": "Which question asks for a location?",
+        "options": ["Where is the toilet?", "What does toilet mean?", "Please speak slowly."],
+        "answer": 0,
+        "explanation": "Use 'Where is ...?' to ask for the location of a place."
+      },
+      {
+        "question": "What does 'go straight' mean?",
+        "options": ["Move forward without turning.", "Turn around.", "Stop immediately."],
+        "answer": 0,
+        "explanation": "'Go straight' means continue forward without turning left or right."
+      }
+    ],
+    "finalTask": "Draw a small map containing an entrance, information desk, toilet, and bus stop. Ask a partner for one location, then guide them with at least three direction phrases. Switch roles and try a new destination.",
+    "takeaway": [
+      "Use 'Where is ...?' to ask for a place.",
+      "Use straight, left, and right to guide movement.",
+      "Use next to and across from to describe a location.",
+      "Repeat the direction back if you are unsure."
+    ],
+    "checkQuestion": "Which sign shows where you can ask for help or directions?",
+    "teacherNote": "Use signs learners are likely to see locally. Explain that real signs may use symbols or another language as well as English.",
+    "reviewStatus": "Starter draft"
+  },
+  {
+    "id": "english-foundations-checkpoint",
+    "icon": "EN",
+    "title": "English foundations checkpoint",
+    "subject": "English",
+    "level": "Starter",
+    "pathOrder": 5,
+    "estimatedMinutes": 25,
+    "description": "Combine greetings, introductions, clarification questions, signs, and directions in one practical challenge.",
+    "content": "This checkpoint brings the four English lessons together. Review any lesson you need, then complete the questions and the real-world scenario.",
+    "goal": "Use the English foundations skills together in a realistic first-day situation.",
+    "realLifeUse": "Use this combined skill when arriving at a new school, training centre, workplace, clinic, or community service.",
+    "patterns": [
+      "Hello. My name is ___.",
+      "I am from ___, and I live in ___.",
+      "Could you say that again, please?",
+      "Where is the ___?",
+      "Thank you for your help."
+    ],
+    "dialogue": [
+      { "speaker": "Learner", "text": "Hello. My name is Zaw. I am here for the computer class." },
+      { "speaker": "Staff", "text": "Welcome. Please register at the information desk." },
+      { "speaker": "Learner", "text": "What does register mean?" },
+      { "speaker": "Staff", "text": "Write your name on the class list." },
+      { "speaker": "Learner", "text": "I understand. Where is the information desk?" },
+      { "speaker": "Staff", "text": "Go straight. It is next to the classroom." },
+      { "speaker": "Learner", "text": "Thank you for your help." }
+    ],
+    "steps": [
+      "Read the conversation once for meaning.",
+      "Read it again and identify the greeting, introduction, clarification question, and direction.",
+      "Replace the learner's name and class with your own example.",
+      "Practice the conversation aloud, then switch roles.",
+      "Complete the quick check before doing the final scenario."
+    ],
+    "exercises": [
+      {
+        "question": "Which sentence is an introduction?",
+        "options": ["My name is Zaw.", "Go straight.", "Please speak slowly."],
+        "answer": 0,
+        "explanation": "'My name is ...' introduces you to another person."
+      },
+      {
+        "question": "You do not know the word register. What should you ask?",
+        "options": ["Where is register?", "What does register mean?", "Turn left, please."],
+        "answer": 1,
+        "explanation": "Use 'What does ... mean?' for an unfamiliar word."
+      },
+      {
+        "question": "Which question helps you find a classroom?",
+        "options": ["Where is the classroom?", "Who is the classroom?", "What is your classroom?"],
+        "answer": 0,
+        "explanation": "Use 'Where is ...?' to ask for a location."
+      },
+      {
+        "question": "What should you say after receiving directions?",
+        "options": ["My name is Lin.", "Thank you for your help.", "I am from Myanmar."],
+        "answer": 1,
+        "explanation": "Thank the person after they help you."
+      }
+    ],
+    "finalTask": "Role-play arriving at a new class. Greet the staff member, introduce yourself, explain which class you need, ask the meaning of one unfamiliar word, ask where the classroom is, repeat the direction, and thank them. Complete the scenario without reading every sentence.",
+    "takeaway": [
+      "You can begin a conversation politely.",
+      "You can give a short introduction.",
+      "You can ask when you do not understand.",
+      "You can ask for and follow simple directions."
+    ],
+    "checkQuestion": "Can you complete the arrival scenario using at least five English sentences?",
+    "teacherNote": "Observe whether learners can communicate meaning rather than requiring perfect grammar or pronunciation. Let them review earlier lessons before retrying.",
+    "reviewStatus": "Course checkpoint"
   },
   {
     "id": "japanese-first-phrases",

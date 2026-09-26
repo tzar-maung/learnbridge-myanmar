@@ -6,13 +6,16 @@
     <meta name="theme-color" content="#256f75" />
     <title>LearnBridge Offline</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=54" />
+    <link rel="stylesheet" href="./styles.css?v=78" />
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Offline learning kit</p>
-        <h1>LearnBridge Myanmar</h1>
+      <div class="brand-lockup">
+        <img class="brand-mark" src="./assets/learnbridge-mark.svg" alt="" />
+        <div>
+          <p class="eyebrow">Offline learning kit</p>
+          <h1>LearnBridge Myanmar</h1>
+        </div>
       </div>
       <div class="topbar-actions">
         <nav class="view-tabs" aria-label="Main sections">
@@ -64,24 +67,25 @@
         </section>
 
         <section class="dashboard" aria-label="Learning dashboard">
-          <article class="panel">
-            <div class="panel-heading">
-              <p class="eyebrow">Today</p>
-              <h2 id="welcomeTitle">Welcome, learner</h2>
+          <article class="panel learning-summary">
+            <div class="learning-progress-summary">
+              <div class="panel-heading">
+                <p class="eyebrow">Your learning</p>
+                <h2 id="welcomeTitle">Welcome, learner</h2>
+              </div>
+              <div class="progress-track" aria-label="Course progress">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+              <p id="progressText">0 activities complete</p>
             </div>
-            <div class="progress-track" aria-label="Course progress">
-              <div class="progress-fill" id="progressFill"></div>
+            <div class="next-activity-summary">
+              <div>
+                <p class="eyebrow">Continue learning</p>
+                <h2 id="continueTitle">Choose an activity</h2>
+                <p id="continueText">Your next activity will appear here.</p>
+              </div>
+              <button id="openNextLesson" type="button">Continue</button>
             </div>
-            <p id="progressText">0 activities complete</p>
-          </article>
-
-          <article class="panel continue-panel">
-            <div class="panel-heading">
-              <p class="eyebrow">Continue learning</p>
-              <h2 id="continueTitle">Choose an activity</h2>
-            </div>
-            <p id="continueText">Your next activity will appear here.</p>
-            <button id="openNextLesson" type="button">Open next activity</button>
           </article>
         </section>
         <aside class="resource-notice" aria-label="External resource notice">
@@ -97,27 +101,30 @@
           <button class="secondary-button" data-open-view="library" type="button">Browse the library</button>
         </aside>
         <section class="path-overview" aria-labelledby="learningPathsTitle">
-          <div class="section-heading">
-            <p class="eyebrow">Learning paths</p>
-            <h2 id="learningPathsTitle">Choose one useful skill to build.</h2>
-            <p>This is the proposed first collection. Existing activities appear below; fuller downloadable packs will be added after review.</p>
+          <div class="section-heading path-heading">
+            <div>
+              <p class="eyebrow">Learning paths</p>
+              <h2 id="learningPathsTitle">Choose one useful skill to build.</h2>
+              <p>Select an available path to show its activities below.</p>
+            </div>
+            <button class="secondary-button active-path-button" data-path-subject="All" type="button">All activities</button>
           </div>
           <div class="path-overview-grid">
-            <article class="path-overview-card">
+            <button class="path-overview-card" data-path-subject="English" type="button" aria-pressed="false">
               <span>Available now</span>
               <h3>English foundations</h3>
               <p>Useful vocabulary, short reading, speaking, and writing practice.</p>
-            </article>
-            <article class="path-overview-card">
+            </button>
+            <button class="path-overview-card" data-path-subject="Japanese" type="button" aria-pressed="false">
               <span>Available now</span>
               <h3>Practical Japanese</h3>
               <p>Daily communication for study, transport, shopping, work, and life in Japan.</p>
-            </article>
-            <article class="path-overview-card">
+            </button>
+            <button class="path-overview-card" data-path-subject="Math" type="button" aria-pressed="false">
               <span>Available now</span>
               <h3>Everyday mathematics</h3>
               <p>Numbers, money, measurement, percentages, and practical problems.</p>
-            </article>
+            </button>
             <article class="path-overview-card proposed">
               <span>Proposed pack</span>
               <h3>Science explorer</h3>
@@ -131,7 +138,7 @@
           </div>
         </section>
         <section class="lesson-list-view" id="lessonListView">
-          <div class="filter-bar">
+          <div class="filter-bar mobile-path-filter">
             <label>
               Learning path
               <select id="subjectFilter">
@@ -215,6 +222,10 @@
                 Current batch
                 <select id="batchSelect"></select>
               </label>
+              <div class="batch-actions" aria-label="Manage current batch">
+                <button class="secondary-button" id="renameBatch" type="button">Rename</button>
+                <button class="danger-button" id="deleteBatch" type="button">Delete</button>
+              </div>
               <label>
                 New batch name
                 <input id="newBatchName" maxlength="40" placeholder="Example: Saturday Morning" />
@@ -224,6 +235,14 @@
                 <input id="newBatchLearnerCount" type="number" min="1" max="200" placeholder="Example: 12" />
               </label>
               <button id="addBatch" type="button">Add batch</button>
+            </div>
+            <div class="batch-edit-controls" id="batchEditControls" hidden>
+              <label>
+                Edit current batch name
+                <input id="editBatchName" maxlength="40" />
+              </label>
+              <button id="saveBatchName" type="button">Save name</button>
+              <button class="secondary-button" id="cancelBatchRename" type="button">Cancel</button>
             </div>
             <p class="batch-message" id="batchMessage"></p>
           </section>
@@ -378,6 +397,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=54"></script>
+    <script src="./app.js?v=78"></script>
   </body>
 </html>

@@ -1,15 +1,16 @@
-const CACHE_NAME = "learnbridge-v54";
+const CACHE_NAME = "learnbridge-v78";
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./styles.css",
-  "./styles.css?v=54",
+  "./styles.css?v=78",
   "./app.js",
-  "./app.js?v=54",
+  "./app.js?v=78",
   "./lessons.json",
-  "./lessons.json?v=54",
+  "./lessons.json?v=78",
   "./resources.json",
-  "./resources.json?v=54",
+  "./resources.json?v=78",
+  "./assets/learnbridge-mark.svg",
   "./assets/arakan-landscape.jfif",
   "./manifest.webmanifest",
 ];
