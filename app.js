@@ -12,6 +12,18 @@ const MAX_MATERIAL_SIZE = 25 * 1024 * 1024;
 
 const resourceCategories = [
   {
+    id: "myanmar-school-textbooks",
+    title: "Myanmar school textbooks",
+    description: "Browse Myanmar-language textbooks and teacher guides for Kindergarten and Grades 1-12. Choose a grade and subject on the provider's website, then download the available PDF while connected.",
+    subjects: ["Myanmar", "School textbooks", "KG-Grade 12"],
+    links: [
+      { label: "Browse Grade 1-12 textbooks", url: "https://edu4mm.com/text-books/" },
+      { label: "View curriculum index", url: "https://edu4mm.com/curriculum/" },
+    ],
+    offline: "Download available PDFs for offline reading",
+    license: "Reference links only; each book remains subject to its copyright holder's terms",
+  },
+  {
     id: "burmese-reading",
     title: "Burmese reading",
     description: "Levelled picture books for beginning and developing readers. Download selected books while connected, then add the saved PDF to Teaching Desk.",
@@ -644,19 +656,20 @@ function renderResourceCategories() {
     .map((category) => {
       return `
         <article class="resource-category-card">
-          <div>
+          <header class="resource-card-header">
+            <span>Free resource collection</span>
             <h3>${escapeHtml(category.title)}</h3>
-            <p>${escapeHtml(category.description)}</p>
-            <p class="path-subjects">Related practice: ${escapeHtml(category.subjects.join(" · "))}</p>
-            <dl class="resource-facts">
-              <div><dt>Offline</dt><dd>${escapeHtml(category.offline)}</dd></div>
-              <div><dt>Licence</dt><dd>${escapeHtml(category.license)}</dd></div>
-            </dl>
-            <div class="resource-link-list">
-              ${category.links
-                .map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`)
-                .join("")}
-            </div>
+          </header>
+          <p class="resource-description">${escapeHtml(category.description)}</p>
+          <p class="path-subjects">For ${escapeHtml(category.subjects.join(" · "))}</p>
+          <dl class="resource-facts">
+            <div><dt>Use offline</dt><dd>${escapeHtml(category.offline)}</dd></div>
+            <div><dt>Usage terms</dt><dd>${escapeHtml(category.license)}</dd></div>
+          </dl>
+          <div class="resource-link-list" aria-label="Links for ${escapeHtml(category.title)}">
+            ${category.links
+              .map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`)
+              .join("")}
           </div>
         </article>
       `;
@@ -1370,8 +1383,8 @@ saveHomeProfile.addEventListener("click", () => {
   saveState();
   renderHomeLearning();
   homePlanMessage.textContent = state.homeLearnerName
-    ? `Home learning is ready for ${state.homeLearnerName}.`
-    : "Home learning profile saved on this device.";
+    ? `Family learning is ready for ${state.homeLearnerName}.`
+    : "Family learning profile saved on this device.";
 });
 
 homeAgeGroup.addEventListener("change", () => {
@@ -1451,8 +1464,8 @@ if ("serviceWorker" in navigator) {
 async function loadLessons() {
   try {
     const [lessonResponse, resourceResponse] = await Promise.all([
-      fetch("./lessons.json?v=92"),
-      fetch("./resources.json?v=92"),
+      fetch("./lessons.json?v=99"),
+      fetch("./resources.json?v=99"),
     ]);
 
     if (!lessonResponse.ok || !resourceResponse.ok) {

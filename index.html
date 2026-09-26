@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#256f75" />
     <title>LearnBridge Offline</title>
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=93" />
+    <link rel="stylesheet" href="./styles.css?v=99" />
   </head>
   <body>
     <header class="topbar">
@@ -21,7 +21,7 @@
         <nav class="view-tabs" aria-label="Main sections">
           <button class="tab-button active" data-view="learn" type="button">Learn</button>
           <button class="tab-button" data-view="teach" type="button">Teach</button>
-          <button class="tab-button" data-view="home" type="button">Home</button>
+          <button class="tab-button" data-view="home" type="button">Family</button>
           <button class="tab-button" data-view="library" type="button">Library</button>
         </nav>
         <div class="status-pill" id="networkStatus">Checking...</div>
@@ -200,7 +200,7 @@
             <h2>Find and prepare learning materials.</h2>
             <p>
               Browse free learning sources while online, then save useful files
-              on the device for classes or home learning.
+              on the device for classes or family learning.
             </p>
           </div>
           <div class="resource-category-grid" id="resourceCategoryGrid"></div>
@@ -394,14 +394,14 @@
       </section>
 
       <section class="app-view is-hidden" id="homeView" data-view-panel="home">
-        <section class="home-learning" aria-label="Home learning">
+        <section class="home-learning" aria-label="Family learning">
           <div class="section-heading">
-            <p class="eyebrow">Home learning</p>
+            <p class="eyebrow">Family learning</p>
             <h2>Simple plans for adults learning with children.</h2>
             <p>Choose an age range and a suggested path. Activities are designed to be done together with everyday materials.</p>
           </div>
 
-          <section class="home-profile" aria-label="Home learner profile">
+          <section class="home-profile" aria-label="Family learner profile">
             <label>
               Learner nickname
               <input id="homeLearnerName" maxlength="20" placeholder="Example: Moon" />
@@ -414,7 +414,7 @@
                 <option value="12+">Ages 12+</option>
               </select>
             </label>
-            <button id="saveHomeProfile" type="button">Save home profile</button>
+            <button id="saveHomeProfile" type="button">Save family profile</button>
           </section>
 
           <section class="home-current-plan" aria-live="polite">
@@ -423,11 +423,11 @@
             <p id="homePlanMessage">You can change paths at any time.</p>
           </section>
 
-          <section class="home-path-grid" id="homePathGrid" aria-label="Suggested home learning paths"></section>
+          <section class="home-path-grid" id="homePathGrid" aria-label="Suggested family learning paths"></section>
         </section>
       </section>
     </main>
 
-    <script src="./app.js?v=92"></script>
+    <script src="./app.js?v=99"></script>
   </body>
 </html>
